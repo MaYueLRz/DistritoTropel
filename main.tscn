@@ -86,7 +86,7 @@ transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 
 [node name="Personaje" type="CharacterBody3D" parent="." unique_id=2111096892 node_paths=PackedStringArray("camara")]
 script = ExtResource("1_pj")
 camara = NodePath("../Camera3D")
-prueba = 4
+prueba = 3
 accion_prueba = "golpe"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Personaje" unique_id=1336971857]
@@ -98,3 +98,6 @@ transform = Transform3D(-2.6, 0, 0, 0, 2.6, 0, 0, 0, -2.6, 0, 0, 0)
 
 [node name="Golpe" type="Node" parent="Personaje" unique_id=116596377]
 script = ExtResource("3_h2yge")
+tecla = "golpe"
+duracion = 0.4
+recarga = 0.5
