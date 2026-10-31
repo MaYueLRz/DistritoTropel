@@ -11,7 +11,7 @@ enum Estado { PATRULLA, PERSEGUIR }
 	Vector3(-10, 0, -10), Vector3(10, 0, -10),
 	Vector3(10, 0, 10), Vector3(-10, 0, 10)
 ]
-
+@export var vida = 100
 @onready var anim = $Modelo/AnimationPlayer
 
 var estado = Estado.PATRULLA
@@ -55,3 +55,10 @@ func ir_a(p, parar_a = 0.05):
 	velocity.z = dir.z * rapidez
 	look_at(global_position + dir, Vector3.UP)
 	anim.play("walk")
+
+func recibir_golpe(danio):
+	vida -= danio
+	print(name, ": vida ", vida)
+	if vida <= 0:
+		print(name, " derrotado")
+		queue_free()

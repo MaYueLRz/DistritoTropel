@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cvcv7o80bsde"]
 
+[ext_resource type="Script" uid="uid://cynw6ousd4sx5" path="res://diana.gd" id="1_lquwl"]
 [ext_resource type="Script" uid="uid://cchv43eug6720" path="res://personaje.gd" id="1_pj"]
 [ext_resource type="PackedScene" uid="uid://bkmexfnojlmxi" path="res://personaje/character-male-a.glb" id="2_modelo"]
 [ext_resource type="Script" uid="uid://cl77x6gpc4nr" path="res://apuntar.gd" id="3_1bvp3"]
@@ -53,6 +54,7 @@ shape = SubResource("PisoForma")
 
 [node name="Caja1" type="StaticBody3D" parent="Cajas" unique_id=76823760]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, -4)
+script = ExtResource("1_lquwl")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cajas/Caja1" unique_id=845087355]
 mesh = SubResource("CajaMalla")
