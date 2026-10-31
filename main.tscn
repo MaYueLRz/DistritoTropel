@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cchv43eug6720" path="res://personaje.gd" id="1_pj"]
 [ext_resource type="PackedScene" uid="uid://bkmexfnojlmxi" path="res://personaje/character-male-a.glb" id="2_modelo"]
+[ext_resource type="Script" uid="uid://cl77x6gpc4nr" path="res://apuntar.gd" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dk18yvl8nch8t" path="res://rival.tscn" id="3_h2yge"]
 
 [sub_resource type="ProceduralSkyMaterial" id="CieloMat"]
@@ -93,6 +94,9 @@ shape = SubResource("Capsula")
 
 [node name="Modelo" parent="Personaje" unique_id=130179583 instance=ExtResource("2_modelo")]
 transform = Transform3D(-2.6, 0, 0, 0, 2.6, 0, 0, 0, -2.6, 0, 0, 0)
+
+[node name="Apuntar" type="Node3D" parent="Personaje" unique_id=659098031]
+script = ExtResource("3_1bvp3")
 
 [node name="rival" parent="." unique_id=1336246001 node_paths=PackedStringArray("objetivo") instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 10)
