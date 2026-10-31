@@ -95,7 +95,5 @@ shape = SubResource("Capsula")
 transform = Transform3D(-2.6, 0, 0, 0, 2.6, 0, 0, 0, -2.6, 0, 0, 0)
 
 [node name="rival" parent="." unique_id=1336246001 node_paths=PackedStringArray("objetivo") instance=ExtResource("3_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 10)
 objetivo = NodePath("../Personaje")
-rapidez = 2.5
-distancia_parada = 1.2
