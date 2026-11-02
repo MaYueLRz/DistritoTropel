@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cchv43eug6720" path="res://personaje.gd" id="1_pj"]
 [ext_resource type="PackedScene" uid="uid://bkmexfnojlmxi" path="res://personaje/character-male-a.glb" id="2_modelo"]
 [ext_resource type="Script" uid="uid://67g8ul8ywidy" path="res://golpe.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://g76pliv8lo3r" path="res://interactuar.gd" id="4_1bvp3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="CieloMat"]
 
@@ -50,43 +51,43 @@ shape = SubResource("PisoForma")
 
 [node name="Cajas" type="Node3D" parent="." unique_id=385938072]
 
-[node name="Caja1" type="StaticBody3D" parent="Cajas" unique_id=413501267]
+[node name="Empanada" type="StaticBody3D" parent="Cajas" unique_id=413501267 groups=["interactivos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, -4)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cajas/Caja1" unique_id=1164016653]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cajas/Empanada" unique_id=1164016653]
 mesh = SubResource("CajaMalla")
 surface_material_override/0 = SubResource("CajaMat")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cajas/Caja1" unique_id=1638154835]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cajas/Empanada" unique_id=1638154835]
 shape = SubResource("CajaForma")
 
-[node name="Caja2" type="StaticBody3D" parent="Cajas" unique_id=1824164615]
+[node name="Mieltertos" type="StaticBody3D" parent="Cajas" unique_id=1824164615 groups=["interactivos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, -2)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cajas/Caja2" unique_id=288967914]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cajas/Mieltertos" unique_id=288967914]
 mesh = SubResource("CajaMalla")
 surface_material_override/0 = SubResource("CajaMat")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cajas/Caja2" unique_id=701891069]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cajas/Mieltertos" unique_id=701891069]
 shape = SubResource("CajaForma")
 
-[node name="Caja3" type="StaticBody3D" parent="Cajas" unique_id=2058423701]
+[node name="Refajo" type="StaticBody3D" parent="Cajas" unique_id=2058423701]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, 3)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cajas/Caja3" unique_id=109358859]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cajas/Refajo" unique_id=109358859]
 mesh = SubResource("CajaMalla")
 surface_material_override/0 = SubResource("CajaMat")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cajas/Caja3" unique_id=656420938]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cajas/Refajo" unique_id=656420938]
 shape = SubResource("CajaForma")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=705986188]
 transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 5, 7)
 
 [node name="Personaje" type="CharacterBody3D" parent="." unique_id=2111096892 node_paths=PackedStringArray("camara")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -3)
 script = ExtResource("1_pj")
 camara = NodePath("../Camera3D")
-prueba = 3
 accion_prueba = "golpe"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Personaje" unique_id=1336971857]
@@ -101,3 +102,6 @@ script = ExtResource("3_h2yge")
 tecla = "golpe"
 duracion = 0.4
 recarga = 0.5
+
+[node name="Interactuar" type="Node" parent="Personaje" unique_id=490483727]
+script = ExtResource("4_1bvp3")
