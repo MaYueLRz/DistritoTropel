@@ -59,7 +59,6 @@ func _physics_process(delta):
 		print("cuadro ", cuadro, " | Cambio a estado: ", Estado.keys()[estado], " | Ruido: ", ruido, " m")
 		
 	animar()
-	_prueba()
 
 func elegir_estado():
 	if not is_on_floor():
@@ -90,10 +89,3 @@ func animar():
 			anim.play("sprint")
 		Estado.BLOQUEANDO:
 			anim.play("crouch")
-
-# Imprime en consola cuando el personaje se mueve
-func _prueba():
-	cuadro += 1
-	var rapidez = Vector2(velocity.x, velocity.z).length()
-	if rapidez > 0.1:
-		print("cuadro ", cuadro, " | rapidez: ", snapped(rapidez, 0.01), " | pos Z: ", snapped(global_position.z, 0.01), " | estado: ", Estado.keys()[estado])
