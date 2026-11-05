@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://duco4kudrre67"]
+
+[ext_resource type="Script" uid="uid://cbx37moq5hn" path="res://bravucon.gd" id="1_qosr5"]
+[ext_resource type="PackedScene" uid="uid://btbidf61ylt57" path="res://personaje/character-male-d.glb" id="2_v5g4r"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uxa2c"]
+radius = 0.35
+height = 1.75
+
+[node name="Bravucon" type="CharacterBody3D" unique_id=520082231]
+script = ExtResource("1_qosr5")
+rapidez = 4.0
+rango_ataque = 1.4
+tiempo_aviso = 0.4
+tiempo_recarga = 0.6
+
+[node name="Modelo" parent="." unique_id=1572134170 instance=ExtResource("2_v5g4r")]
+transform = Transform3D(-2.6, 0, -2.2729921e-07, 0, 2.6, 0, 2.2729921e-07, 0, -2.6, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=388166096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
+shape = SubResource("CapsuleShape3D_uxa2c")
