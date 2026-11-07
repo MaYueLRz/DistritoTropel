@@ -38,14 +38,13 @@ height = 1.75
 
 [node name="Main" type="Node3D" unique_id=187010590]
 
-[node name="Consumible3" parent="." unique_id=18832186 instance=ExtResource("1_272bh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.4)
-
 [node name="Consumible2" parent="." unique_id=945343157 instance=ExtResource("1_272bh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6)
+valor = 25
 
 [node name="Consumible" parent="." unique_id=334566696 instance=ExtResource("1_272bh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
+valor = 25
 
 [node name="Bravucon" parent="." unique_id=520082231 instance=ExtResource("1_7mycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 6)
