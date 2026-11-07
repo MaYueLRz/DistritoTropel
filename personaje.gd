@@ -3,6 +3,13 @@ extends CharacterBody3D
 enum Estado { QUIETO, CAMINAR, CORRER, BLOQUEANDO }
 const RUIDO = [0.0, 2.0, 6.0, 1.0]
 
+enum Prueba { NINGUNA, AVANZAR_60_CUADROS, MANTENER_ACCION_2S }
+
+@export var prueba: Prueba = Prueba.NINGUNA
+@export var accion_prueba = ""
+
+var cuadros_prueba = 0
+
 @export var camara: Camera3D
 @export var speed_caminar = 3.0
 @export var speed_correr = 6.0
@@ -31,6 +38,16 @@ func _physics_process(delta):
 	# Giro horizontal corregido según la cámara
 	var giro_cam = camara.global_rotation.y if camara else 0.0
 	var direction = entrada.rotated(Vector3.UP, giro_cam).normalized()
+	
+		# Pruebas automáticas de los talleres
+	cuadros_prueba += 1
+	if prueba == Prueba.AVANZAR_60_CUADROS and cuadros_prueba <= 60:
+		direction = Vector3(0, 0, -1)
+	elif prueba == Prueba.MANTENER_ACCION_2S and accion_prueba != "":
+		if cuadros_prueba <= 120:
+			Input.action_press(accion_prueba)
+		elif cuadros_prueba == 121:
+			Input.action_release(accion_prueba)
 	
 	# Selección de velocidad
 	var corre = Input.is_action_pressed("correr")
