@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 enum Estado { ACERCARSE, AVISO, GOLPE, RECARGA }
 
+@export var alcance_golpe = 1.8
+@export var danio = 1
 @export var rapidez = 2.0
 @export var rango_ataque = 1.5
 @export var tiempo_aviso = 0.5
@@ -64,7 +66,12 @@ func cambiar_a(nuevo):
 
 
 func golpear():
-	print(name, " golpea")
+	if distancia() > alcance_golpe:
+		print(name, " falla a ", snappedf(distancia(), 0.01), " m")
+		return
+	var salud = jugador.get_node_or_null("Salud")
+	if salud != null:
+		salud.recibir_golpe(danio)
 
 
 func ir_a(destino):
