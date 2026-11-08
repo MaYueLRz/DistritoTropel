@@ -120,9 +120,6 @@ transform = Transform3D(-2.6, 0, 0, 0, 2.6, 0, 0, 0, -2.6, 0, 0, 0)
 
 [node name="Golpe" type="Node" parent="Personaje" unique_id=116596377]
 script = ExtResource("3_h2yge")
-tecla = "golpe"
-duracion = 0.4
-recarga = 0.5
 
 [node name="Interactuar" type="Node" parent="Personaje" unique_id=490483727]
 script = ExtResource("4_1bvp3")

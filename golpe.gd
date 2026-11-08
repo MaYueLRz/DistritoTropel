@@ -1,37 +1,46 @@
 extends Node
 
-enum Estado { LISTA, ACTIVA, RECARGA }
+enum Estado { LISTA, WINDUP, ACTIVE, RECOVERY }
 
-@export var tecla = "rodar"
-@export var duracion = 0.3
-@export var recarga = 1.2
+@export var tecla = "golpe"
+@export var cuadros_windup = 24
+@export var cuadros_active = 6
+@export var cuadros_recovery = 36
+
 @onready var pj = get_parent()
 
 var estado = Estado.LISTA
-var tiempo = 0.0
+var cuadros = 0
 
 
-func _physics_process(delta):
-	tiempo -= delta
+func _physics_process(_delta):
 	match estado:
 		Estado.LISTA:
 			if Input.is_action_just_pressed(tecla):
-				empezar()
-		Estado.ACTIVA:
-			if tiempo <= 0.001:  # 0.001 y no 0: restar 1/60 no da exacto
-				terminar()
-		Estado.RECARGA:
-			if tiempo <= 0.001:
-				estado = Estado.LISTA
+				cambiar_a(Estado.WINDUP)
+		Estado.WINDUP:
+			cuadros -= 1
+			if cuadros <= 0:
+				cambiar_a(Estado.ACTIVE)
+		Estado.ACTIVE:
+			cuadros -= 1
+			if cuadros <= 0:
+				cambiar_a(Estado.RECOVERY)
+		Estado.RECOVERY:
+			cuadros -= 1
+			if cuadros <= 0:
+				cambiar_a(Estado.LISTA)
 
 
-func empezar():
-	estado = Estado.ACTIVA
-	tiempo = duracion
-	print("empieza: ", tecla)
-
-
-func terminar():
-	estado = Estado.RECARGA
-	tiempo = recarga
-	print("termina: ", tecla)
+func cambiar_a(nuevo):
+	estado = nuevo
+	match estado:
+		Estado.WINDUP:
+			cuadros = cuadros_windup
+		Estado.ACTIVE:
+			cuadros = cuadros_active
+		Estado.RECOVERY:
+			cuadros = cuadros_recovery
+		Estado.LISTA:
+			cuadros = 0
+	print("golpe -> ", Estado.keys()[estado], " cuadro ", Engine.get_physics_frames())
