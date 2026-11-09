@@ -1,0 +1,128 @@
+[gd_scene load_steps=19 format=3]
+
+[ext_resource type="Script" path="res://camera_sigue.gd" id="1_cam"]
+[ext_resource type="Script" path="res://personaje.gd" id="2_pj"]
+[ext_resource type="PackedScene" path="res://personaje/character-male-a.glb" id="3_modelo"]
+[ext_resource type="Script" path="res://luz_jugador.gd" id="4_luz"]
+
+[sub_resource type="ProceduralSkyMaterial" id="CieloMat"]
+sky_top_color = Color(0.42, 0.45, 0.5, 1)
+sky_horizon_color = Color(0.7, 0.72, 0.75, 1)
+ground_horizon_color = Color(0.7, 0.72, 0.75, 1)
+
+[sub_resource type="Sky" id="Cielo"]
+sky_material = SubResource("CieloMat")
+
+[sub_resource type="Environment" id="Entorno"]
+background_mode = 2
+sky = SubResource("Cielo")
+ambient_light_source = 3
+ambient_light_energy = 0.5
+tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PisoMalla"]
+size = Vector2(30, 30)
+
+[sub_resource type="StandardMaterial3D" id="AsfaltoMojado"]
+albedo_color = Color(0.353, 0.373, 0.4, 1)
+roughness = 0.25
+metallic_specular = 0.6
+
+[sub_resource type="BoxShape3D" id="PisoForma"]
+size = Vector3(30, 0.2, 30)
+
+[sub_resource type="BoxMesh" id="CajaMalla"]
+
+[sub_resource type="StandardMaterial3D" id="CajaMat"]
+albedo_color = Color(0.353, 0.373, 0.4, 1)
+
+[sub_resource type="BoxShape3D" id="CajaForma"]
+
+[sub_resource type="SphereMesh" id="EsferaMalla"]
+radius = 0.5
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="EsferaMat"]
+albedo_color = Color(0.8, 0.8, 0.82, 1)
+roughness = 0.2
+
+[sub_resource type="CapsuleShape3D" id="Capsula"]
+radius = 0.35
+height = 1.75
+
+[node name="ZonaC" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Entorno")
+
+[node name="Sol" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.766044, 0.0, -0.642788, -0.166366, 0.965926, -0.198266, 0.620885, 0.258819, 0.739942, 0, 6, 0)
+light_color = Color(0.784, 0.8, 0.824, 1)
+shadow_enabled = true
+shadow_bias = 3.0
+shadow_normal_bias = 6.0
+
+[node name="Suelo" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Suelo"]
+mesh = SubResource("PisoMalla")
+surface_material_override/0 = SubResource("AsfaltoMojado")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("PisoForma")
+
+[node name="Cajas" type="Node3D" parent="."]
+
+[node name="Caja1" type="StaticBody3D" parent="Cajas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, -4)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cajas/Caja1"]
+mesh = SubResource("CajaMalla")
+surface_material_override/0 = SubResource("CajaMat")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cajas/Caja1"]
+shape = SubResource("CajaForma")
+
+[node name="Caja2" type="StaticBody3D" parent="Cajas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, -2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cajas/Caja2"]
+mesh = SubResource("CajaMalla")
+surface_material_override/0 = SubResource("CajaMat")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cajas/Caja2"]
+shape = SubResource("CajaForma")
+
+[node name="Esfera" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, -3)
+mesh = SubResource("EsferaMalla")
+surface_material_override/0 = SubResource("EsferaMat")
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("objetivo")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 5, 7)
+script = ExtResource("1_cam")
+objetivo = NodePath("../Personaje")
+
+[node name="Personaje" type="CharacterBody3D" parent="." groups=["jugador"]]
+script = ExtResource("2_pj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Personaje"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
+shape = SubResource("Capsula")
+
+[node name="Modelo" parent="Personaje" instance=ExtResource("3_modelo")]
+transform = Transform3D(-2.6, 0, 0, 0, 2.6, 0, 0, 0, -2.6, 0, 0, 0)
+
+[node name="LuzJugador" type="SpotLight3D" parent="Personaje"]
+light_color = Color(1, 1, 1, 1)
+light_energy = 8.0
+spot_angle = 30.0
+script = ExtResource("4_luz")
+
+[node name="AuraEmputez" type="OmniLight3D" parent="Personaje"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0, 0)
+light_color = Color(1, 0.478, 0, 1)
+light_energy = 1.5
+omni_range = 3.0
+omni_attenuation = 2.0
