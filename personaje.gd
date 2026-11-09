@@ -17,12 +17,11 @@ var cuadros_prueba = 0
 
 @onready var anim = $Modelo/AnimationPlayer
 
-# Enchufes para los demás integrantes (NO BORRAR)
+
 var multiplicador = 1.0
 var empuje = Vector3.ZERO
 var accion = ""
 
-# Variables de movimiento y estado
 var avance = Vector3.ZERO
 var estado = Estado.QUIETO
 var ruido = 0.0
@@ -31,15 +30,13 @@ var cuadro = 0
 func _physics_process(delta):
 	velocity += get_gravity() * delta
 	
-	# Entrada de teclado
+
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var entrada = Vector3(input_dir.x, 0.0, input_dir.y)
-	
-	# Giro horizontal corregido según la cámara
+
 	var giro_cam = camara.global_rotation.y if camara else 0.0
 	var direction = entrada.rotated(Vector3.UP, giro_cam).normalized()
 	
-		# Pruebas automáticas de los talleres
 	cuadros_prueba += 1
 	if prueba == Prueba.AVANZAR_60_CUADROS and cuadros_prueba <= 60:
 		direction = Vector3(0, 0, -1)
@@ -49,11 +46,11 @@ func _physics_process(delta):
 		elif cuadros_prueba == 121:
 			Input.action_release(accion_prueba)
 	
-	# Selección de velocidad
+
 	var corre = Input.is_action_pressed("correr")
 	var speed = speed_correr if corre else speed_caminar
 	
-	# Aceleración progresiva
+
 	var objetivo = direction * speed * multiplicador
 	var paso = (speed / tiempo_arranque) * delta
 	avance = avance.move_toward(objetivo, paso)
@@ -66,14 +63,10 @@ func _physics_process(delta):
 		
 	move_and_slide()
 	
-	# Gestión de máquina de estados
+	
 	var antes = estado
 	estado = elegir_estado()
 	ruido = RUIDO[estado]
-	
-	# Imprime cuando cambia el estado
-	if estado != antes:
-		print("cuadro ", cuadro, " | Cambio a estado: ", Estado.keys()[estado], " | Ruido: ", ruido, " m")
 		
 	animar()
 
@@ -81,9 +74,7 @@ func elegir_estado():
 	if not is_on_floor():
 		return Estado.QUIETO
 		
-	# Tecla L configurada en el Mapa de Entradas
-	if Input.is_action_pressed("bloquear"):
-		return Estado.BLOQUEANDO
+
 		
 	var rapidez = Vector2(velocity.x, velocity.z).length()
 	if rapidez < 0.1:

@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bkmexfnojlmxi" path="res://personaje/character-male-a.glb" id="2_modelo"]
 [ext_resource type="Script" uid="uid://67g8ul8ywidy" path="res://golpe.gd" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://g76pliv8lo3r" path="res://interactuar.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://bedyj56pipani" path="res://partida.gd" id="6_7mycd"]
 [ext_resource type="Script" uid="uid://dasg24n6trd5e" path="res://salud.gd" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://b72n7dqm7akgb" path="res://enemigo.tscn" id="9_kek77"]
-[ext_resource type="Script" uid="uid://bedyj56pipani" path="res://partida.gd" id="6_7mycd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="CieloMat"]
 
