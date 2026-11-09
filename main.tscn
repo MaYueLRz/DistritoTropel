@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://67g8ul8ywidy" path="res://golpe.gd" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://g76pliv8lo3r" path="res://interactuar.gd" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://dasg24n6trd5e" path="res://salud.gd" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://b72n7dqm7akgb" path="res://enemigo.tscn" id="9_kek77"]
 
 [sub_resource type="ProceduralSkyMaterial" id="CieloMat"]
 
@@ -132,3 +133,7 @@ invulnerable = 0.2
 [node name="Farol" type="OmniLight3D" parent="." unique_id=794866491]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -3)
 omni_attenuation = 2.0
+
+[node name="Enemigo" parent="." unique_id=645478461 instance=ExtResource("9_kek77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+defensa = 2

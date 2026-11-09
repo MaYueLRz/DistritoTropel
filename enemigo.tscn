@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b72n7dqm7akgb"]
+
+[ext_resource type="Script" uid="uid://dhv28pxf6um5" path="res://enemigo.gd" id="1_a5tj2"]
+[ext_resource type="PackedScene" uid="uid://bkmexfnojlmxi" path="res://personaje/character-male-a.glb" id="2_moxti"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mivf0"]
+radius = 0.35
+height = 1.75
+
+[node name="Enemigo" type="CharacterBody3D" unique_id=645478461]
+script = ExtResource("1_a5tj2")
+
+[node name="Modelo" parent="." unique_id=1436787543 instance=ExtResource("2_moxti")]
+transform = Transform3D(-2.6, 0, -2.2729921e-07, 0, 2.6, 0, 2.2729921e-07, 0, -2.6, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=53080814]
+shape = SubResource("CapsuleShape3D_mivf0")
