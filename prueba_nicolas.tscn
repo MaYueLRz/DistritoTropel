@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://dasg24n6trd5e" path="res://salud.gd" id="8_5vw27"]
 [ext_resource type="Script" path="res://luchador.gd" id="99_luchador"]
 [ext_resource type="PackedScene" path="res://hud.tscn" id="98_hud"]
+[ext_resource type="Script" path="res://prueba_partida_nicolas.gd" id="99_part"]
 
 [sub_resource type="ProceduralSkyMaterial" id="CieloMat"]
 
@@ -139,3 +140,8 @@ omni_attenuation = 2.0
 script = ExtResource("99_luchador")
 
 [node name="HUD" parent="." instance=ExtResource("98_hud")]
+
+[node name="Partida" type="Node" parent="."]
+script = ExtResource("99_part")
+tiempo_limite = 60.0
+metas = 0
