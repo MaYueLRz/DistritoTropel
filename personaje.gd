@@ -1,4 +1,4 @@
-extends CharacterBody3D
+extends Character
 
 enum Estado { QUIETO, CAMINAR, CORRER, BLOQUEANDO }
 const RUIDO = [0.0, 2.0, 6.0, 1.0]
