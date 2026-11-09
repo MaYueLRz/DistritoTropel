@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bkmexfnojlmxi" path="res://personaje/character-male-a.glb" id="2_modelo"]
 [ext_resource type="Script" uid="uid://67g8ul8ywidy" path="res://golpe.gd" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://g76pliv8lo3r" path="res://interactuar.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://bedyj56pipani" path="res://partida.gd" id="6_7mycd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="CieloMat"]
 
@@ -112,3 +113,6 @@ script = ExtResource("4_1bvp3")
 [node name="Farol" type="OmniLight3D" parent="." unique_id=794866491]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -3)
 omni_attenuation = 2.0
+
+[node name="Partida" type="Node" parent="." unique_id=831420112]
+script = ExtResource("6_7mycd")
