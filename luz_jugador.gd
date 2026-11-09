@@ -1,20 +1,24 @@
 class_name LuzJugador
 extends SpotLight3D
 # Taller 4 - Tarea C - Nicolás Daza (ndaza654)
-# Nivel 1: el foco de ring que acompaña al luchador del jugador (SpotLight3D blanca hacia abajo).
+# Nivel 2: además de seguir al jugador, decide si da sombra (cada sombra cuesta).
 
-@export var rango := 6.0           # m: hasta dónde alumbra (el foco está a 4 m del piso)
-@export var altura := 4.0          # m sobre los pies del jugador
+@export var rango := 6.0
+@export var altura := 4.0
+# Tabla de sombras de mi zona (ver documento): solo el sol da sombra. El foco NO:
+# su sombra cae justo debajo del luchador (la cámara lateral casi no la ve) y cuesta 4 draw calls
+# en la medida. El aura naranja tampoco (no hay nada que tape).
+@export var con_sombra := false
 
 
 func _ready() -> void:
-	position = Vector3(0.0, altura, 0.0)       # hija del jugador: se mueve con él
-	rotation_degrees = Vector3(-90.0, 0.0, 0.0)  # un SpotLight3D alumbra hacia su -Z: -90° en X = hacia abajo
-	spot_range = rango                           # en un OmniLight3D sería omni_range
-	spot_attenuation = 2.0                       # la que se parece a 1/d²
+	position = Vector3(0.0, altura, 0.0)
+	rotation_degrees = Vector3(-90.0, 0.0, 0.0)
+	spot_range = rango
+	spot_attenuation = 2.0
+	shadow_enabled = con_sombra
 	print(atenuacion(1.0), " ", atenuacion(2.0), " ", atenuacion(4.0))
 
 
-# Función pura: cuánta luz llega a la distancia d si a 1 m llega 1.
 static func atenuacion(d: float, exponente: float = 2.0) -> float:
 	return 1.0 / pow(maxf(d, 0.0001), exponente)
