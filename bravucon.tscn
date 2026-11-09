@@ -8,6 +8,7 @@ radius = 0.35
 height = 1.75
 
 [node name="Bravucon" type="CharacterBody3D" unique_id=520082231]
+visible = false
 script = ExtResource("1_qosr5")
 rapidez = 4.0
 rango_ataque = 1.4

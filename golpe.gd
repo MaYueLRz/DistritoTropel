@@ -8,6 +8,7 @@ enum Estado { LISTA, WINDUP, ACTIVE, RECOVERY }
 @export var cuadros_recovery = 36
 
 @onready var pj = get_parent()
+@onready var hitbox = pj.get_node("Hitbox")
 
 var estado = Estado.LISTA
 var cuadros = 0
@@ -39,8 +40,10 @@ func cambiar_a(nuevo):
 			cuadros = cuadros_windup
 		Estado.ACTIVE:
 			cuadros = cuadros_active
+			hitbox.encender()
 		Estado.RECOVERY:
 			cuadros = cuadros_recovery
+			hitbox.apagar()
 		Estado.LISTA:
 			cuadros = 0
 	print("golpe -> ", Estado.keys()[estado], " cuadro ", Engine.get_physics_frames())
