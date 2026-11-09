@@ -1,19 +1,24 @@
 extends Node
 # Taller 9 - Tarea C - Nicolás Daza (ndaza654)
-# Nivel 2: la CPU decide. El orden de las reglas es su personalidad.
+# Nivel 3: pesos, semilla y reacción al jugador.
 
-# Las acciones nuevas van AL FINAL para no cambiar los números del patrón.
 enum Accion { ATACAR, CARGAR, DEFENDER, GOLPE_FUERTE, CURARSE }
 
 @export var ritmo = 0.5
 @export var danio = 8
 @export var cuantos_turnos = 8
-@export var patron: Array[int] = [0, 0, 0, 2]
+@export var patron: Array[int] = [0, 0, 0, 2]   # (ya no lo usa decidir; queda del N2)
 @export var vida = 100
-@export var vida_baja = 30         # VACÍO del documento: 30 o 60 (ver tabla)
-@export var curas = 2              # hasta 2 consumibles
-@export var cura = 25              # Mieltertos +25 de vida
+@export var vida_baja = 30
+@export var curas = 2
+@export var cura = 25
+# De cada 100 turnos normales, cuántos va a cada acción: ATACAR, CARGAR, DEFENDER.
+@export var pesos: Array[int] = [50, 30, 20]
+@export var semilla = 7
+@export var factor_acelera = 0.75
 
+var rng = RandomNumberGenerator.new()
+var veces = [0, 0, 0]
 var indice = 0
 var turno_numero = 0
 var reloj = 0.0
@@ -21,6 +26,7 @@ var cargado = false
 
 
 func _ready():
+	rng.seed = semilla
 	reloj = ritmo
 
 
@@ -31,6 +37,8 @@ func _physics_process(delta):
 	if reloj <= 0.001:
 		reloj = ritmo
 		jugar_turno()
+		if turno_numero == cuantos_turnos:
+			print("veces: ", veces)
 
 
 func jugar_turno():
@@ -55,15 +63,34 @@ func jugar_turno():
 			print("    se cura: vida ", vida)
 
 
-# El orden es la personalidad: la primera regla que se cumple gana.
 func decidir():
 	if cargado:
 		return Accion.GOLPE_FUERTE
 	if vida <= vida_baja and curas > 0:
 		return Accion.CURARSE
-	var a = patron[indice]
-	indice = (indice + 1) % patron.size()
+	var a = elegir_por_peso()
+	veces[a] += 1
 	return a
+
+
+# Saca un número de 1 a la suma de los pesos y ve en qué tramo cayó.
+func elegir_por_peso():
+	var total = 0
+	for p in pesos:
+		total += p
+	var sale = rng.randi_range(1, total)
+	var acumulado = 0
+	for i in range(pesos.size()):
+		acumulado += pesos[i]
+		if sale <= acumulado:
+			return i
+	return 0
+
+
+# Cuando el jugador falla la pregunta, el enemigo se acelera.
+func jugador_fallo():
+	ritmo *= factor_acelera
+	print("      falló: el turno ahora dura ", snappedf(ritmo, 0.01), " s")
 
 
 # La llama el jugador cuando le acierta.
