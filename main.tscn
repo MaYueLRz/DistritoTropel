@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://g76pliv8lo3r" path="res://interactuar.gd" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://dasg24n6trd5e" path="res://salud.gd" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://b72n7dqm7akgb" path="res://enemigo.tscn" id="9_kek77"]
+[ext_resource type="Script" uid="uid://bedyj56pipani" path="res://partida.gd" id="6_7mycd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="CieloMat"]
 
@@ -137,3 +138,6 @@ omni_attenuation = 2.0
 [node name="Enemigo" parent="." unique_id=645478461 instance=ExtResource("9_kek77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 defensa = 2
+
+[node name="Partida" type="Node" parent="." unique_id=831420112]
+script = ExtResource("6_7mycd")
