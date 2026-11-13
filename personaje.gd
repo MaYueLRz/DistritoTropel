@@ -90,10 +90,9 @@ func animar():
 		
 	match estado:
 		Estado.QUIETO:
-			anim.play("idle")
+			anim.play("Idle/mixamo_com")
 		Estado.CAMINAR:
-			anim.play("walk")
+			anim.play("Walk/mixamo_com")
 		Estado.CORRER:
-			anim.play("sprint")
-		Estado.BLOQUEANDO:
-			anim.play("crouch")
+			anim.play("Sprint/mixamo_com")
+		
