@@ -2,10 +2,21 @@
 
 [ext_resource type="Script" uid="uid://c43r45xkk1kmo" path="res://camera_sigue.gd" id="1_lquwl"]
 [ext_resource type="Script" uid="uid://cchv43eug6720" path="res://personaje.gd" id="1_pj"]
-[ext_resource type="PackedScene" uid="uid://bkmexfnojlmxi" path="res://personaje/character-male-a.glb" id="2_modelo"]
+[ext_resource type="Texture2D" uid="uid://d3afiuwi2mwhi" path="res://Animaciones y Personajes/stacked_brick_wall_diff_2k.jpg" id="3_2cqfq"]
 [ext_resource type="Script" uid="uid://67g8ul8ywidy" path="res://golpe.gd" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://g76pliv8lo3r" path="res://interactuar.gd" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://bysjb0bnv7nxr" path="res://Animaciones y Personajes/stacked_brick_wall_nor_gl_2k.jpg" id="4_yaehf"]
+[ext_resource type="PackedScene" uid="uid://b85sgtofgsx1l" path="res://Animaciones y Personajes/Ch31_nonPBR.fbx" id="5_w48qg"]
+[ext_resource type="AnimationLibrary" uid="uid://b01j55kxr3u8m" path="res://Animaciones y Personajes/Walking.fbx" id="6_2cqfq"]
 [ext_resource type="Script" uid="uid://bedyj56pipani" path="res://partida.gd" id="6_7mycd"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="AnimationLibrary" uid="uid://ca5d54otvjbfo" path="res://Animaciones y Personajes/Running (1).fbx" id="6_vivmo"]
+[ext_resource type="Script" uid="uid://dasg24n6trd5e" path="res://salud.gd" id="8_5vw27"]
+[ext_resource type="AnimationLibrary" uid="uid://kvejdmpjrjvt" path="res://Animaciones y Personajes/Punching izquierdo.fbx" id="8_yaehf"]
+[ext_resource type="PackedScene" uid="uid://b72n7dqm7akgb" path="res://enemigo.tscn" id="9_kek77"]
+[ext_resource type="AnimationLibrary" uid="uid://dy3pso5dg0h1o" path="res://Animaciones y Personajes/Fighting Idle.fbx" id="12_2cqfq"]
+>>>>>>> Stashed changes
 
 [sub_resource type="ProceduralSkyMaterial" id="CieloMat"]
 
@@ -18,11 +29,23 @@ sky = SubResource("Cielo")
 ambient_light_source = 3
 tonemap_mode = 2
 
-[sub_resource type="PlaneMesh" id="PisoMalla"]
-size = Vector2(30, 30)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c57u"]
+albedo_color = Color(0.61960787, 0.2784314, 0.2, 1)
+albedo_texture = ExtResource("3_2cqfq")
+roughness = 0.85
+normal_enabled = true
+normal_texture = ExtResource("4_yaehf")
+uv1_scale = Vector3(10, 10, 10)
 
-[sub_resource type="BoxShape3D" id="PisoForma"]
-size = Vector3(30, 0.2, 30)
+[sub_resource type="CylinderMesh" id="CylinderMesh_4c57u"]
+material = SubResource("StandardMaterial3D_4c57u")
+top_radius = 15.0
+bottom_radius = 15.5
+height = 0.5
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4c57u"]
+height = 0.5
+radius = 15.0
 
 [sub_resource type="BoxMesh" id="CajaMalla"]
 
@@ -35,8 +58,39 @@ albedo_color = Color(0.85, 0.55, 0.25, 1)
 radius = 0.35
 height = 1.75
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efxa6"]
+albedo_color = Color(0.3529412, 0.3764706, 0.40784314, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0n2h"]
+albedo_color = Color(0.14901961, 0.16078432, 0.18039216, 1)
+roughness = 0.9
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xiwp4"]
+material = SubResource("StandardMaterial3D_s0n2h")
+size = Vector2(120, 120)
+
 [node name="Main" type="Node3D" unique_id=187010590]
 
+<<<<<<< Updated upstream
+=======
+[node name="Consumible2" parent="." unique_id=945343157 instance=ExtResource("1_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6)
+valor = 25
+
+[node name="Consumible" parent="." unique_id=334566696 instance=ExtResource("1_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
+valor = 25
+
+[node name="Bravucon" parent="." unique_id=520082231 instance=ExtResource("1_7mycd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 6)
+visible = false
+vida = 200.0
+vida_huida = 60.0
+danio_prueba = 40.0
+alcance_golpe = 1.7
+danio = 8
+
+>>>>>>> Stashed changes
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1841830440]
 environment = SubResource("Entorno")
 
@@ -44,14 +98,14 @@ environment = SubResource("Entorno")
 transform = Transform3D(0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 0, 6, 0)
 shadow_enabled = true
 
-[node name="Suelo" type="StaticBody3D" parent="." unique_id=1614299427]
+[node name="Suelo" type="StaticBody3D" parent="." unique_id=805769288]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Suelo" unique_id=199708113]
-mesh = SubResource("PisoMalla")
+mesh = SubResource("CylinderMesh_4c57u")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo" unique_id=18277837]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
-shape = SubResource("PisoForma")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("CylinderShape3D_4c57u")
 
 [node name="Cajas" type="Node3D" parent="." unique_id=385938072]
 
@@ -85,21 +139,73 @@ surface_material_override/0 = SubResource("CajaMat")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cajas/Refajo" unique_id=656420938]
 shape = SubResource("CajaForma")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=705986188 node_paths=PackedStringArray("objetivo")]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=705986188 node_paths=PackedStringArray("objetivo", "rival")]
 transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 5, 7)
 script = ExtResource("1_lquwl")
 objetivo = NodePath("../Personaje")
+rival = NodePath("../Enemigo")
+distancia = Vector3(2, 3, 3)
+suavizado = 6.0
 
+<<<<<<< Updated upstream
 [node name="Personaje" type="CharacterBody3D" parent="." unique_id=2111096892 groups=["jugador"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2.7)
+=======
+[node name="Personaje" type="CharacterBody3D" parent="." unique_id=2111096892 node_paths=PackedStringArray("camara") groups=["jugador"]]
+>>>>>>> Stashed changes
 script = ExtResource("1_pj")
+camara = NodePath("../Camera3D")
+
+[node name="Modelo" parent="Personaje" unique_id=974648022 instance=ExtResource("5_w48qg")]
+transform = Transform3D(-2, 0, -3.019916e-07, 0, 2, 0, 3.019916e-07, 0, -2, 0, 0, 0)
+
+[node name="GeneralSkeleton" parent="Personaje/Modelo" index="0" unique_id=1190886615]
+bones/1/rotation = Quaternion(7.450581e-09, 0, 0, 1)
+bones/9/rotation = Quaternion(-4.2146848e-08, -0.70710677, -4.2146848e-08, 0.70710677)
+bones/10/rotation = Quaternion(-1.8626451e-09, 0.70710677, -1.8626451e-09, 0.70710677)
+bones/11/rotation = Quaternion(-0.21418676, 0.67388725, 0.21418673, 0.67388725)
+bones/13/rotation = Quaternion(-4.4703484e-08, 4.4703484e-08, -2.9802322e-08, 1)
+bones/15/rotation = Quaternion(2.9802322e-08, 2.9802322e-08, -2.9802322e-08, 1)
+bones/17/rotation = Quaternion(-2.9802322e-08, -5.9604645e-08, -2.9802322e-08, 1)
+bones/19/rotation = Quaternion(1.4901163e-08, 1.4901163e-08, -1.4901163e-08, 1)
+bones/20/rotation = Quaternion(1.4901161e-08, -1.4901161e-08, 0, 1)
+bones/21/rotation = Quaternion(0, 5.9604645e-08, 0, 1)
+bones/23/rotation = Quaternion(2.9802322e-08, 2.9802322e-08, -2.9802322e-08, 1)
+bones/24/rotation = Quaternion(2.9802326e-08, -1.4901163e-08, 1.4901163e-08, 1)
+bones/25/rotation = Quaternion(-1.4901161e-08, -1.4901161e-08, 1.4901161e-08, 1)
+bones/27/rotation = Quaternion(-5.9604645e-08, 0, 0, 1)
+bones/28/rotation = Quaternion(1.4901163e-08, 4.470349e-08, 1.4901163e-08, 1)
+bones/29/rotation = Quaternion(1.4901161e-08, -1.4901161e-08, 0, 1)
+bones/32/rotation = Quaternion(0, 1, -5.9604645e-08, 0)
+bones/34/rotation = Quaternion(3.772307e-08, -0.70710677, 4.6570637e-08, 0.70710677)
+bones/35/rotation = Quaternion(-0.21418674, -0.67388725, -0.21418671, 0.67388725)
+bones/36/rotation = Quaternion(-2.9802322e-08, -1.6391277e-07, -2.4424909e-15, 1)
+bones/37/rotation = Quaternion(-1.4901163e-08, 1.4901163e-08, 2.9802326e-08, 1)
+bones/40/rotation = Quaternion(1.4901161e-08, 0, 0, 1)
+bones/41/rotation = Quaternion(-1.4901161e-08, 1.4901161e-08, -1.4901161e-08, 1)
+bones/43/rotation = Quaternion(0, 0, 5.9604638e-08, 1)
+bones/45/rotation = Quaternion(0, -1.4901161e-08, -1.4901161e-08, 1)
+bones/48/rotation = Quaternion(-2.9802322e-08, 2.9802322e-08, 2.9802322e-08, 1)
+bones/49/rotation = Quaternion(1.4901161e-08, 1.4901161e-08, -1.4901161e-08, 1)
+bones/51/rotation = Quaternion(-2.9802315e-08, -2.9802315e-08, 2.9802315e-08, 1)
+bones/52/rotation = Quaternion(0, 0, 2.9802326e-08, 1)
+bones/53/rotation = Quaternion(-5.960463e-08, -5.960463e-08, -5.960463e-08, 1)
+bones/55/rotation = Quaternion(4.656613e-10, -7.450581e-09, 1, 3.7107384e-09)
+bones/56/rotation = Quaternion(0, 1, 3.7252899e-09, -1.1641531e-10)
+bones/57/rotation = Quaternion(-2.7082644e-08, 0.7071068, -0.7071067, -3.3750411e-09)
+bones/60/rotation = Quaternion(-2.3283064e-10, -3.7252903e-09, 1, 3.739842e-09)
+bones/61/rotation = Quaternion(3.7252899e-09, 1, -3.7252899e-09, 0)
+bones/62/rotation = Quaternion(-4.8567657e-09, 0.7071067, -0.7071068, -2.222588e-09)
+
+[node name="AnimationPlayer" parent="Personaje/Modelo" index="1" unique_id=914264679]
+libraries/Caminar = ExtResource("6_2cqfq")
+libraries/Corer = ExtResource("6_vivmo")
+libraries/Golpe = ExtResource("8_yaehf")
+libraries/Idile = ExtResource("12_2cqfq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Personaje" unique_id=1336971857]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
 shape = SubResource("Capsula")
-
-[node name="Modelo" parent="Personaje" unique_id=102496491 instance=ExtResource("2_modelo")]
-transform = Transform3D(-2.6, 0, 0, 0, 2.6, 0, 0, 0, -2.6, 0, 0, 0)
 
 [node name="Golpe" type="Node" parent="Personaje" unique_id=116596377]
 script = ExtResource("3_h2yge")
@@ -114,5 +220,32 @@ script = ExtResource("4_1bvp3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -3)
 omni_attenuation = 2.0
 
+<<<<<<< Updated upstream
+=======
+[node name="Enemigo" parent="." unique_id=645478461 instance=ExtResource("9_kek77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20421588, -4.351112)
+defensa = 2
+
+>>>>>>> Stashed changes
 [node name="Partida" type="Node" parent="." unique_id=831420112]
 script = ExtResource("6_7mycd")
+
+[node name="MuroArena" type="CSGCylinder3D" parent="." unique_id=301856081]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.6, 0)
+use_collision = true
+radius = 15.5
+height = 1.2
+sides = 32
+material = SubResource("StandardMaterial3D_efxa6")
+
+[node name="MuroArena2" type="CSGCylinder3D" parent="MuroArena" unique_id=2127284213]
+operation = 2
+use_collision = true
+radius = 14.8
+sides = 32
+
+[node name="AvenidaSuba" type="MeshInstance3D" parent="." unique_id=1837975965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+mesh = SubResource("PlaneMesh_xiwp4")
+
+[editable path="Personaje/Modelo"]
