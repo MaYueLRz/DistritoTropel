@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://h24dlci7t2hg"]
 
 [ext_resource type="PackedScene" uid="uid://duco4kudrre67" path="res://bravucon.tscn" id="1_7mycd"]
-[ext_resource type="PackedScene" uid="uid://d2085s0j4q45i" path="res://consumible.tscn" id="1_272bh"]
 [ext_resource type="Script" uid="uid://c43r45xkk1kmo" path="res://camera_sigue.gd" id="1_lquwl"]
 [ext_resource type="Script" uid="uid://cchv43eug6720" path="res://personaje.gd" id="1_pj"]
 [ext_resource type="Script" uid="uid://67g8ul8ywidy" path="res://golpe.gd" id="3_h2yge"]
@@ -82,16 +81,6 @@ material = SubResource("StandardMaterial3D_hchaj")
 size = Vector2(120, 120)
 
 [node name="Main" type="Node3D" unique_id=187010590]
-
-[node name="Consumible2" parent="." unique_id=945343157 instance=ExtResource("1_272bh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6)
-visible = false
-valor = 25
-
-[node name="Consumible" parent="." unique_id=334566696 instance=ExtResource("1_272bh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
-visible = false
-valor = 25
 
 [node name="Bravucon" parent="." unique_id=520082231 instance=ExtResource("1_7mycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 6)
