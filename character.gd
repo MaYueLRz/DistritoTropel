@@ -2,6 +2,7 @@ class_name Character
 extends CharacterBody3D
 
 @export var velocidad = 3.0
+@export var vida_max = 200
 @export var vida = 200
 @export var defensa = 0
 @export var ataque = 8

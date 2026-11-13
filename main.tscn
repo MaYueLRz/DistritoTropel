@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c43r45xkk1kmo" path="res://camera_sigue.gd" id="1_lquwl"]
 [ext_resource type="Script" uid="uid://cchv43eug6720" path="res://personaje.gd" id="1_pj"]
+[ext_resource type="Script" uid="uid://ddudhcldqdykp" path="res://consumible.gd" id="2_yaehf"]
 [ext_resource type="Script" uid="uid://67g8ul8ywidy" path="res://golpe.gd" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://g76pliv8lo3r" path="res://interactuar.gd" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://bedyj56pipani" path="res://partida.gd" id="6_7mycd"]
@@ -103,8 +104,10 @@ shape = SubResource("PisoForma")
 [node name="Cajas" type="Node3D" parent="." unique_id=385938072]
 visible = false
 
-[node name="Empanada" type="StaticBody3D" parent="Cajas" unique_id=413501267 groups=["interactivos"]]
+[node name="Empanada" type="Area3D" parent="Cajas" unique_id=1619120102 groups=["interactivos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, -4)
+script = ExtResource("2_yaehf")
+tipo = "empanada"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cajas/Empanada" unique_id=1164016653]
 mesh = SubResource("CajaMalla")
@@ -113,8 +116,9 @@ surface_material_override/0 = SubResource("CajaMat")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cajas/Empanada" unique_id=1638154835]
 shape = SubResource("CajaForma")
 
-[node name="Mieltertos" type="StaticBody3D" parent="Cajas" unique_id=1824164615 groups=["interactivos"]]
+[node name="Mieltertos" type="Area3D" parent="Cajas" unique_id=2028983593 groups=["interactivos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, -2)
+script = ExtResource("2_yaehf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cajas/Mieltertos" unique_id=288967914]
 mesh = SubResource("CajaMalla")
@@ -123,8 +127,10 @@ surface_material_override/0 = SubResource("CajaMat")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cajas/Mieltertos" unique_id=701891069]
 shape = SubResource("CajaForma")
 
-[node name="Refajo" type="StaticBody3D" parent="Cajas" unique_id=2058423701 groups=["interactivos"]]
+[node name="Refajo" type="Area3D" parent="Cajas" unique_id=1402766199 groups=["interactivos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, 3)
+script = ExtResource("2_yaehf")
+tipo = "refajo"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cajas/Refajo" unique_id=109358859]
 mesh = SubResource("CajaMalla")
@@ -168,7 +174,7 @@ shape = SubResource("SphereShape3D_mivf0")
 [node name="Modelo" parent="Personaje" unique_id=724618450 instance=ExtResource("9_82xsv")]
 transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0, 0, 0)
 
-[node name="GeneralSkeleton" parent="Personaje/Modelo" index="0" unique_id=339712422]
+[node name="GeneralSkeleton" parent="Personaje/Modelo" index="0" unique_id=563038314]
 bones/1/rotation = Quaternion(7.450581e-09, 0, 0, 1)
 bones/9/rotation = Quaternion(-4.2146848e-08, -0.70710677, -4.2146848e-08, 0.70710677)
 bones/10/rotation = Quaternion(-1.8626451e-09, 0.70710677, -1.8626451e-09, 0.70710677)
@@ -206,7 +212,7 @@ bones/60/rotation = Quaternion(-2.3283064e-10, -3.7252903e-09, 1, 3.739842e-09)
 bones/61/rotation = Quaternion(3.7252899e-09, 1, -3.7252899e-09, 0)
 bones/62/rotation = Quaternion(-4.8567657e-09, 0.7071067, -0.7071068, -2.222588e-09)
 
-[node name="AnimationPlayer" parent="Personaje/Modelo" index="1" unique_id=2119132546]
+[node name="AnimationPlayer" parent="Personaje/Modelo" index="1" unique_id=797664585]
 libraries/Golpe = ExtResource("12_d13ii")
 libraries/Idile = ExtResource("10_getpj")
 libraries/Sprint = ExtResource("12_yaehf")

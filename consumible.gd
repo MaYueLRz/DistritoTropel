@@ -1,8 +1,8 @@
 extends Area3D
 
-signal recogido(valor)
+signal recogido(tipo)
 
-@export var valor = 1
+@export var tipo = "mieltertos"
 
 
 func _ready():
@@ -13,12 +13,11 @@ func _ready():
 func _al_entrar(cuerpo):
 	if not cuerpo.is_in_group("jugador"):
 		return
-	# queue_free borra al final del cuadro: aquí todavía cuenta.
-	var faltan = get_tree().get_nodes_in_group("objetivos").size()
-	print(name, " +", valor, " · faltan ", faltan, " · cuadro ",
-		Engine.get_physics_frames())
-	recogido.emit(valor)
-	var partida = get_tree().get_first_node_in_group("partida")
-	if partida != null:
-		partida.avisar_meta()
+	var inv = cuerpo.get_node_or_null("Inventario")
+	if inv == null:
+		return
+	if not inv.guardar(tipo):
+		print(name, " no cabe: ya llevas 2")
+		return
+	recogido.emit(tipo)
 	queue_free()

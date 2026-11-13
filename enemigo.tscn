@@ -19,7 +19,7 @@ script = ExtResource("1_a5tj2")
 [node name="Modelo" parent="." unique_id=732481004 instance=ExtResource("2_a5tj2")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
-[node name="GeneralSkeleton" parent="Modelo" index="0" unique_id=78885]
+[node name="GeneralSkeleton" parent="Modelo" index="0" unique_id=1251004793]
 bones/0/position = Vector3(-2.524497e-07, 1.1447418, -0.009724137)
 bones/11/rotation = Quaternion(-0.006170563, -0.7070799, -0.006170478, 0.70707977)
 bones/12/rotation = Quaternion(-0.00033109688, 0.7071162, -0.00030551373, 0.70709723)
@@ -57,7 +57,7 @@ bones/62/rotation = Quaternion(-1.4370306e-07, 0.0014159027, 0.999999, 2.2506765
 bones/63/rotation = Quaternion(-1.1239554e-07, 0.99999964, -0.0008918644, -2.4181813e-07)
 bones/64/rotation = Quaternion(4.5364166e-07, 0.7074773, -0.70673615, -1.2098667e-08)
 
-[node name="AnimationPlayer" parent="Modelo" index="1" unique_id=465416480]
+[node name="AnimationPlayer" parent="Modelo" index="1" unique_id=1644833489]
 libraries/Idile = ExtResource("3_bnx68")
 libraries/Reaction = ExtResource("4_j8qs0")
 
