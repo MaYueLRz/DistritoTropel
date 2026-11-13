@@ -12,13 +12,10 @@
 [ext_resource type="Script" uid="uid://b7t31jk5uxfne" path="res://hitbox.gd" id="9_efxa6"]
 [ext_resource type="PackedScene" uid="uid://b72n7dqm7akgb" path="res://enemigo.tscn" id="9_kek77"]
 [ext_resource type="AnimationLibrary" uid="uid://dy3pso5dg0h1o" path="res://Animaciones y Personajes/Fighting Idle.fbx" id="10_getpj"]
-[ext_resource type="AnimationLibrary" uid="uid://ctgk500e1wtvr" path="res://Animaciones y Personajes/Action Idle To Fight Idle.fbx" id="11_ryguw"]
 [ext_resource type="AnimationLibrary" uid="uid://c55k8pq5x0oc1" path="res://Animaciones y Personajes/Punching derecho.fbx" id="12_d13ii"]
+[ext_resource type="AnimationLibrary" uid="uid://ca5d54otvjbfo" path="res://Animaciones y Personajes/Running (1).fbx" id="12_yaehf"]
 [ext_resource type="Texture2D" uid="uid://d3afiuwi2mwhi" path="res://Animaciones y Personajes/stacked_brick_wall_diff_2k.jpg" id="12_ycdy4"]
-[ext_resource type="AnimationLibrary" uid="uid://kvejdmpjrjvt" path="res://Animaciones y Personajes/Punching izquierdo.fbx" id="13_1u8w0"]
 [ext_resource type="Texture2D" uid="uid://cie58inig4ibx" path="res://Animaciones y Personajes/imagen.jpeg" id="13_w48qg"]
-[ext_resource type="AnimationLibrary" uid="uid://0j5tuf1cgocu" path="res://Animaciones y Personajes/Reaction.fbx" id="14_0odxb"]
-[ext_resource type="AnimationLibrary" uid="uid://qpnssq38gfn6" path="res://Animaciones y Personajes/Running.fbx" id="15_lswn8"]
 [ext_resource type="AnimationLibrary" uid="uid://b01j55kxr3u8m" path="res://Animaciones y Personajes/Walking.fbx" id="16_a6jrf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="CieloMat"]
@@ -190,7 +187,7 @@ shape = SubResource("SphereShape3D_mivf0")
 [node name="Modelo" parent="Personaje" unique_id=724618450 instance=ExtResource("9_82xsv")]
 transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0, 0, 0)
 
-[node name="GeneralSkeleton" parent="Personaje/Modelo" index="0" unique_id=563038314]
+[node name="GeneralSkeleton" parent="Personaje/Modelo" index="0" unique_id=339712422]
 bones/1/rotation = Quaternion(7.450581e-09, 0, 0, 1)
 bones/9/rotation = Quaternion(-4.2146848e-08, -0.70710677, -4.2146848e-08, 0.70710677)
 bones/10/rotation = Quaternion(-1.8626451e-09, 0.70710677, -1.8626451e-09, 0.70710677)
@@ -228,13 +225,10 @@ bones/60/rotation = Quaternion(-2.3283064e-10, -3.7252903e-09, 1, 3.739842e-09)
 bones/61/rotation = Quaternion(3.7252899e-09, 1, -3.7252899e-09, 0)
 bones/62/rotation = Quaternion(-4.8567657e-09, 0.7071067, -0.7071068, -2.222588e-09)
 
-[node name="AnimationPlayer" parent="Personaje/Modelo" index="1" unique_id=797664585]
-"libraries/Fighting Idle" = ExtResource("10_getpj")
+[node name="AnimationPlayer" parent="Personaje/Modelo" index="1" unique_id=2119132546]
 libraries/Golpe = ExtResource("12_d13ii")
-libraries/Idle = ExtResource("11_ryguw")
-"libraries/Punching izquierdo" = ExtResource("13_1u8w0")
-libraries/Reaction = ExtResource("14_0odxb")
-libraries/Sprint = ExtResource("15_lswn8")
+libraries/Idile = ExtResource("10_getpj")
+libraries/Sprint = ExtResource("12_yaehf")
 libraries/Walk = ExtResource("16_a6jrf")
 
 [node name="Farol" type="OmniLight3D" parent="." unique_id=794866491]
