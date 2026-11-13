@@ -15,6 +15,7 @@ func _physics_process(_delta):
 			var victima = otra.get_parent()
 			if victima.has_method("recibir_danio"):
 				victima.recibir_danio(danio)
+				hitstop(0.05)
 			return
 
 
@@ -27,3 +28,8 @@ func encender():
 func apagar():
 	activa = false
 	print("hitbox OFF cuadro ", Engine.get_physics_frames())
+	
+func hitstop(segundos):
+	Engine.time_scale = 0.0
+	await get_tree().create_timer(segundos, true, false, true).timeout
+	Engine.time_scale = 1.0
