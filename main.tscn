@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://h24dlci7t2hg"]
 
-[ext_resource type="PackedScene" uid="uid://duco4kudrre67" path="res://bravucon.tscn" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://c43r45xkk1kmo" path="res://camera_sigue.gd" id="1_lquwl"]
 [ext_resource type="Script" uid="uid://cchv43eug6720" path="res://personaje.gd" id="1_pj"]
 [ext_resource type="Script" uid="uid://67g8ul8ywidy" path="res://golpe.gd" id="3_h2yge"]
@@ -82,14 +81,6 @@ size = Vector2(120, 120)
 
 [node name="Main" type="Node3D" unique_id=187010590]
 
-[node name="Bravucon" parent="." unique_id=520082231 instance=ExtResource("1_7mycd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 6)
-vida = 200.0
-vida_huida = 60.0
-danio_prueba = 40.0
-alcance_golpe = 1.7
-danio = 8
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1841830440]
 environment = SubResource("Entorno")
 
@@ -148,8 +139,9 @@ script = ExtResource("1_lquwl")
 objetivo = NodePath("../Personaje")
 rival = NodePath("../Enemigo")
 
-[node name="Personaje" type="CharacterBody3D" parent="." unique_id=2111096892 groups=["jugador"]]
+[node name="Personaje" type="CharacterBody3D" parent="." unique_id=2111096892 node_paths=PackedStringArray("camara") groups=["jugador"]]
 script = ExtResource("1_pj")
+camara = NodePath("../Camera3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Personaje" unique_id=1336971857]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
