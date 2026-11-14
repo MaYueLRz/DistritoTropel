@@ -7,9 +7,6 @@ path="res://.godot/imported/Ch31_nonPBR_2.png-278295438a53e70915394af48d688ad2.c
 metadata={
 "vram_texture": false
 }
-generator_parameters={
-"md5": "e77bd2ee5b93d39bcc83f3bc19be132e"
-}
 
 [deps]
 
@@ -39,5 +36,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=0
+process/size_limit=2048
 detect_3d/compress_to=1

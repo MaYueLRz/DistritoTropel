@@ -7,9 +7,6 @@ path="res://.godot/imported/Whiteclown N Hallin_1.png-3513cb0ee742947b899def8bbe
 metadata={
 "vram_texture": false
 }
-generator_parameters={
-"md5": "d1e75b9127fd96988b264913f2c355b8"
-}
 
 [deps]
 
@@ -39,5 +36,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=0
+process/size_limit=1024
 detect_3d/compress_to=1

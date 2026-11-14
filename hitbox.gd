@@ -1,6 +1,6 @@
 extends Area3D
 
-@export var danio = 8
+@onready var pj = get_parent()
 
 var activa = false
 var ya_golpeo = false
@@ -14,7 +14,7 @@ func _physics_process(_delta):
 			ya_golpeo = true
 			var victima = otra.get_parent()
 			if victima.has_method("recibir_danio"):
-				victima.recibir_danio(danio)
+				victima.recibir_danio(pj.ataque)
 				hitstop(0.05)
 			return
 

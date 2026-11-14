@@ -1,11 +1,15 @@
 extends Node
 
+
+signal cambio(items)
+
 const MAXIMO = 2
 
 @export var tecla_1 = "usar_1"
 @export var tecla_2 = "usar_2"
 
 @onready var pj = get_parent()
+@onready var salud = pj.get_node_or_null("Salud")
 
 var items = []
 
@@ -22,6 +26,7 @@ func guardar(tipo):
 		return false
 	items.append(tipo)
 	print("recoge ", tipo, " · inventario ", items)
+	cambio.emit(items)
 	return true
 
 
@@ -33,20 +38,28 @@ func usar(ranura):
 	items.remove_at(ranura)
 	aplicar(tipo)
 	print("usa ", tipo, " · inventario ", items)
+	cambio.emit(items)
 
 
 func aplicar(tipo):
 	match tipo:
 		"refajo":
-			pj.vida_max += 20
-			pj.vida += 20
-			print("  +20 de vida máxima · ahora ", pj.vida, "/", pj.vida_max)
+			if salud == null:
+				return
+			salud.vida_inicial = maxi(salud.vida_inicial, salud.vida) + 20
+			salud.vida += 20
+			salud.cambio.emit(salud.vida)
+			print("  +20 de vida máxima · ahora ", salud.vida, "/", salud.vida_inicial)
 		"yox":
 			pj.ataque = int(pj.ataque * 1.15)
 			print("  +15 % de daño · ahora ", pj.ataque)
 		"mieltertos":
-			pj.vida = mini(pj.vida + 25, pj.vida_max)
-			print("  +25 de vida · ahora ", pj.vida, "/", pj.vida_max)
+			if salud == null:
+				return
+			var tope = maxi(salud.vida_inicial, salud.vida)
+			salud.vida = mini(salud.vida + 25, tope)
+			salud.cambio.emit(salud.vida)
+			print("  +25 de vida · ahora ", salud.vida, "/", tope)
 		"empanada":
-			pj.velocidad *= 1.2
-			print("  +20 % de velocidad · ahora ", pj.velocidad)
+			pj.multiplicador *= 1.2
+			print("  +20 % de velocidad · ahora x", pj.multiplicador)

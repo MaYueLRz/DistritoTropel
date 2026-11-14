@@ -3,23 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgpiiu3s7h5n"
-path.s3tc="res://.godot/imported/Mall+2_Concrete030_2K_Color.jpg-e00b24a514abba1d1f06d74c8d100159.s3tc.ctex"
+path="res://.godot/imported/Mall+2_Concrete030_2K_Color.jpg-e00b24a514abba1d1f06d74c8d100159.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "49e2c75ed180c3a975876a77742df8ea"
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Animaciones y Personajes/Mall+2_Concrete030_2K_Color.jpg"
-dest_files=["res://.godot/imported/Mall+2_Concrete030_2K_Color.jpg-e00b24a514abba1d1f06d74c8d100159.s3tc.ctex"]
+dest_files=["res://.godot/imported/Mall+2_Concrete030_2K_Color.jpg-e00b24a514abba1d1f06d74c8d100159.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -40,5 +36,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=0
+process/size_limit=1024
 detect_3d/compress_to=0

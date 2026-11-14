@@ -3,23 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bd2arhk1fow0c"
-path.s3tc="res://.godot/imported/Whiteclown N Hallin_2.png-b6e4c73e3287a421765048dc40c791fa.s3tc.ctex"
+path="res://.godot/imported/Whiteclown N Hallin_2.png-b6e4c73e3287a421765048dc40c791fa.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "f790946e533d1fc27c7b58b8ca33047a"
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Animaciones y Personajes/Whiteclown N Hallin_2.png"
-dest_files=["res://.godot/imported/Whiteclown N Hallin_2.png-b6e4c73e3287a421765048dc40c791fa.s3tc.ctex"]
+dest_files=["res://.godot/imported/Whiteclown N Hallin_2.png-b6e4c73e3287a421765048dc40c791fa.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -40,5 +36,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=0
+process/size_limit=1024
 detect_3d/compress_to=0

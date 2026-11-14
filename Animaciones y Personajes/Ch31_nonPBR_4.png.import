@@ -3,23 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://crai83hhs0ae5"
-path.s3tc="res://.godot/imported/Ch31_nonPBR_4.png-8864a695bfdffe7f19399daa59a48ecf.s3tc.ctex"
+path="res://.godot/imported/Ch31_nonPBR_4.png-8864a695bfdffe7f19399daa59a48ecf.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "ad08f5f5d5878899ce8bccfc0bfd29af"
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Animaciones y Personajes/Ch31_nonPBR_4.png"
-dest_files=["res://.godot/imported/Ch31_nonPBR_4.png-8864a695bfdffe7f19399daa59a48ecf.s3tc.ctex"]
+dest_files=["res://.godot/imported/Ch31_nonPBR_4.png-8864a695bfdffe7f19399daa59a48ecf.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

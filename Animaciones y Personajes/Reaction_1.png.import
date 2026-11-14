@@ -7,9 +7,6 @@ path="res://.godot/imported/Reaction_1.png-e1e0ff32a7e0669e07bd4da99eb9e91c.ctex
 metadata={
 "vram_texture": false
 }
-generator_parameters={
-"md5": "d1e75b9127fd96988b264913f2c355b8"
-}
 
 [deps]
 
@@ -39,5 +36,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=0
+process/size_limit=1024
 detect_3d/compress_to=1

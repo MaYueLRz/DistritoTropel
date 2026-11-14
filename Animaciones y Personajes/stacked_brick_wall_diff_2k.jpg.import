@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3afiuwi2mwhi"
-path.s3tc="res://.godot/imported/stacked_brick_wall_diff_2k.jpg-d283768dd8b734c5d879b872b0744e59.s3tc.ctex"
+path="res://.godot/imported/stacked_brick_wall_diff_2k.jpg-d283768dd8b734c5d879b872b0744e59.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Animaciones y Personajes/stacked_brick_wall_diff_2k.jpg"
-dest_files=["res://.godot/imported/stacked_brick_wall_diff_2k.jpg-d283768dd8b734c5d879b872b0744e59.s3tc.ctex"]
+dest_files=["res://.godot/imported/stacked_brick_wall_diff_2k.jpg-d283768dd8b734c5d879b872b0744e59.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -37,5 +36,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=0
+process/size_limit=1024
 detect_3d/compress_to=0
