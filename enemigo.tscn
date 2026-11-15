@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dhv28pxf6um5" path="res://enemigo.gd" id="1_a5tj2"]
 [ext_resource type="PackedScene" uid="uid://by4vtqpb3y854" path="res://Animaciones y Personajes/Whiteclown N Hallin.fbx" id="2_a5tj2"]
 [ext_resource type="AnimationLibrary" uid="uid://ctgk500e1wtvr" path="res://Animaciones y Personajes/Action Idle To Fight Idle.fbx" id="3_bnx68"]
+[ext_resource type="AnimationLibrary" uid="uid://dy3pso5dg0h1o" path="res://Animaciones y Personajes/Fighting Idle.fbx" id="4_57rph"]
 [ext_resource type="AnimationLibrary" uid="uid://0j5tuf1cgocu" path="res://Animaciones y Personajes/Reaction.fbx" id="4_j8qs0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mivf0"]
@@ -17,9 +18,9 @@ height = 1.8
 script = ExtResource("1_a5tj2")
 
 [node name="Modelo" parent="." unique_id=732481004 instance=ExtResource("2_a5tj2")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0, 0, 0)
 
-[node name="GeneralSkeleton" parent="Modelo" index="0" unique_id=1251004793]
+[node name="GeneralSkeleton" parent="Modelo" index="0" unique_id=1265856381]
 bones/0/position = Vector3(-2.524497e-07, 1.1447418, -0.009724137)
 bones/11/rotation = Quaternion(-0.006170563, -0.7070799, -0.006170478, 0.70707977)
 bones/12/rotation = Quaternion(-0.00033109688, 0.7071162, -0.00030551373, 0.70709723)
@@ -57,11 +58,13 @@ bones/62/rotation = Quaternion(-1.4370306e-07, 0.0014159027, 0.999999, 2.2506765
 bones/63/rotation = Quaternion(-1.1239554e-07, 0.99999964, -0.0008918644, -2.4181813e-07)
 bones/64/rotation = Quaternion(4.5364166e-07, 0.7074773, -0.70673615, -1.2098667e-08)
 
-[node name="AnimationPlayer" parent="Modelo" index="1" unique_id=1644833489]
+[node name="AnimationPlayer" parent="Modelo" index="1" unique_id=70400245]
 libraries/Idile = ExtResource("3_bnx68")
+libraries/Pelea = ExtResource("4_57rph")
 libraries/Reaction = ExtResource("4_j8qs0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=53080814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
 shape = SubResource("CapsuleShape3D_mivf0")
 
 [node name="Hurtbox" type="Area3D" parent="." unique_id=1465517174 groups=["hurtbox"]]

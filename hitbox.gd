@@ -4,6 +4,7 @@ extends Area3D
 
 var activa = false
 var ya_golpeo = false
+var empuje = 0.0
 
 
 func _physics_process(_delta):
@@ -15,20 +16,36 @@ func _physics_process(_delta):
 			var victima = otra.get_parent()
 			if victima.has_method("recibir_danio"):
 				victima.recibir_danio(pj.ataque)
+				empujar(victima)
 				hitstop(0.05)
 			return
 
 
-func encender():
+func empujar(victima):
+	if empuje <= 0.0:
+		return
+	if not (victima is CharacterBody3D):
+		return
+	var lejos = victima.global_position - pj.global_position
+	lejos.y = 0.0
+	if lejos.length() < 0.01:
+		return
+	victima.velocity += lejos.normalized() * empuje
+	print("empujón de ", empuje)
+
+
+func encender(fuerza = 0.0):
 	activa = true
 	ya_golpeo = false
+	empuje = fuerza
 	print("hitbox ON cuadro ", Engine.get_physics_frames())
 
 
 func apagar():
 	activa = false
 	print("hitbox OFF cuadro ", Engine.get_physics_frames())
-	
+
+
 func hitstop(segundos):
 	Engine.time_scale = 0.0
 	await get_tree().create_timer(segundos, true, false, true).timeout

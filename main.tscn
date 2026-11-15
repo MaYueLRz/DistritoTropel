@@ -14,9 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://b72n7dqm7akgb" path="res://enemigo.tscn" id="9_kek77"]
 [ext_resource type="AnimationLibrary" uid="uid://dy3pso5dg0h1o" path="res://Animaciones y Personajes/Fighting Idle.fbx" id="10_getpj"]
 [ext_resource type="AnimationLibrary" uid="uid://c55k8pq5x0oc1" path="res://Animaciones y Personajes/Punching derecho.fbx" id="12_d13ii"]
+[ext_resource type="AnimationLibrary" uid="uid://kvejdmpjrjvt" path="res://Animaciones y Personajes/Punching izquierdo.fbx" id="12_getpj"]
 [ext_resource type="AnimationLibrary" uid="uid://ca5d54otvjbfo" path="res://Animaciones y Personajes/Running (1).fbx" id="12_yaehf"]
 [ext_resource type="Texture2D" uid="uid://d3afiuwi2mwhi" path="res://Animaciones y Personajes/stacked_brick_wall_diff_2k.jpg" id="12_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://cie58inig4ibx" path="res://Animaciones y Personajes/imagen.jpeg" id="13_w48qg"]
+[ext_resource type="AnimationLibrary" uid="uid://2xhkffx3mpjg" path="res://Animaciones y Personajes/Mma Kick.fbx" id="14_ryguw"]
 [ext_resource type="PackedScene" uid="uid://uwtbrr8ouen4" path="res://Animaciones y Personajes/Mall+2.glb" id="16_2cqfq"]
 [ext_resource type="AnimationLibrary" uid="uid://b01j55kxr3u8m" path="res://Animaciones y Personajes/Walking.fbx" id="16_a6jrf"]
 
@@ -233,7 +235,9 @@ bones/62/rotation = Quaternion(-4.8567657e-09, 0.7071067, -0.7071068, -2.222588e
 
 [node name="AnimationPlayer" parent="Personaje/Modelo" index="1" unique_id=614452309]
 libraries/Golpe = ExtResource("12_d13ii")
+libraries/Golpe2 = ExtResource("12_getpj")
 libraries/Idile = ExtResource("10_getpj")
+libraries/Patada = ExtResource("14_ryguw")
 libraries/Sprint = ExtResource("12_yaehf")
 libraries/Walk = ExtResource("16_a6jrf")
 
