@@ -7,6 +7,7 @@ enum Prueba { NINGUNA, AVANZAR_60_CUADROS, MANTENER_ACCION_2S }
 
 @export var prueba: Prueba = Prueba.NINGUNA
 @export var accion_prueba = ""
+@export var mirar_al_rival = true
 
 var cuadros_prueba = 0
 
@@ -21,6 +22,7 @@ var cuadros_prueba = 0
 var multiplicador = 1.0
 var empuje = Vector3.ZERO
 var accion = ""
+var rival = null
 
 var avance = Vector3.ZERO
 var estado = Estado.QUIETO
@@ -36,6 +38,10 @@ func _physics_process(delta):
 
 	var giro_cam = camara.global_rotation.y if camara else 0.0
 	var direction = entrada.rotated(Vector3.UP, giro_cam).normalized()
+
+	var golpeando = $Golpe.esta_golpeando
+	if golpeando:
+		direction = Vector3.ZERO
 	
 	cuadros_prueba += 1
 	if prueba == Prueba.AVANZAR_60_CUADROS and cuadros_prueba <= 60:
@@ -57,10 +63,18 @@ func _physics_process(delta):
 	
 	velocity.x = avance.x + empuje.x
 	velocity.z = avance.z + empuje.z
-	
-	if direction.length() > 0:
+
+	if rival == null:
+		rival = get_tree().get_first_node_in_group("enemigo")
+
+	if mirar_al_rival and golpeando and rival != null:
+		var hacia = rival.global_position - global_position
+		hacia.y = 0.0
+		if hacia.length() > 0.05:
+			basis = Basis.looking_at(hacia.normalized())
+	elif direction.length() > 0:
 		basis = Basis.looking_at(direction)
-		
+
 	move_and_slide()
 	
 	

@@ -24,6 +24,9 @@ const COLOR_ITEM = {
 
 var salud = null
 var inv = null
+var enemigo = null
+var partida = null
+var ultimo_segundo = -1
 
 @onready var fuente = ThemeDB.fallback_font
 
@@ -45,8 +48,21 @@ func _ready():
 		inv.cambio.connect(_al_cambiar)
 	else:
 		print("HUD: al Personaje le falta el nodo Inventario")
+	enemigo = get_tree().get_first_node_in_group("enemigo")
+	if enemigo != null:
+		enemigo.vida_cambio.connect(_al_cambiar)
+
 	await get_tree().process_frame
+	partida = get_tree().get_first_node_in_group("partida")
 	queue_redraw()
+
+func _process(_delta):
+	if partida == null:
+		return
+	var segundos = int(ceil(partida.tiempo))
+	if segundos != ultimo_segundo:
+		ultimo_segundo = segundos
+		queue_redraw()
 
 
 func _al_cambiar(_lo_que_sea):
@@ -55,6 +71,8 @@ func _al_cambiar(_lo_que_sea):
 
 func _draw():
 	dibujar_vida()
+	dibujar_vida_enemigo()
+	dibujar_contador()
 	dibujar_ranuras()
 
 
@@ -145,3 +163,58 @@ func dibujar_ranuras():
 		var tecla = "O" if i == 0 else "P"
 		draw_string(fuente, Vector2(x + lado_ranura - 18, y + 19), tecla,
 			HORIZONTAL_ALIGNMENT_LEFT, -1, 16, BORDE if lleno else APAGADO)
+
+
+
+func dibujar_vida_enemigo():
+	if enemigo == null:
+		return
+	var vida = enemigo.vida
+	var maxima = maxi(enemigo.vida_max, 1)
+	var fraccion = clampf(float(vida) / float(maxima), 0.0, 1.0)
+
+	var x = get_viewport_rect().size.x - ancho - origen.x
+	var y = origen.y
+
+	draw_string(fuente, Vector2(x, y - 12), "RIVAL",
+		HORIZONTAL_ALIGNMENT_RIGHT, ancho - sesgo, 15, BORDE)
+
+	draw_polygon(pieza(x - 6, y - 6, ancho + 12, alto + 12, sesgo),
+		PackedColorArray([CHASIS]))
+
+	var riel = pieza(x, y, ancho, alto, sesgo)
+	draw_polygon(riel, PackedColorArray([RIEL]))
+
+	# El relleno del rival se vacía hacia la izquierda, al revés que el tuyo.
+	if fraccion > 0.0:
+		var w = maxf(ancho * fraccion, sesgo + 2.0)
+		draw_polygon(pieza(x + ancho - w, y, w, alto, sesgo),
+			PackedColorArray([color_vida(fraccion)]))
+
+	contorno(riel, BORDE, 2.0)
+
+	var texto = str(vida) + " / " + str(maxima)
+	draw_string(fuente, Vector2(x, y + alto - 9), texto,
+		HORIZONTAL_ALIGNMENT_RIGHT, ancho - sesgo - 11, 19, Color(0, 0, 0, 0.7))
+	draw_string(fuente, Vector2(x, y + alto - 10), texto,
+		HORIZONTAL_ALIGNMENT_RIGHT, ancho - sesgo - 12, 19, Color.WHITE)
+
+
+func dibujar_contador():
+	if partida == null:
+		return
+	var segundos = int(ceil(partida.tiempo))
+	var ancho_caja = 124.0
+	var alto_caja = 54.0
+	var x = (get_viewport_rect().size.x - ancho_caja) / 2.0
+	var y = origen.y - 16
+
+	draw_polygon(pieza(x - 6, y - 6, ancho_caja + 12, alto_caja + 12, 12),
+		PackedColorArray([CHASIS]))
+
+	var caja = pieza(x, y, ancho_caja, alto_caja, 12)
+	draw_polygon(caja, PackedColorArray([ROJO if segundos <= 10 else RIEL]))
+	contorno(caja, BORDE, 2.0)
+
+	draw_string(fuente, Vector2(x, y + alto_caja - 14), str(segundos),
+		HORIZONTAL_ALIGNMENT_CENTER, ancho_caja, 34, Color.WHITE)

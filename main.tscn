@@ -66,7 +66,7 @@ radius = 0.35
 height = 1.75
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mivf0"]
-radius = 0.4
+radius = 0.55
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxa2c"]
 albedo_color = Color(0.3529412, 0.3764706, 0.40784314, 1)

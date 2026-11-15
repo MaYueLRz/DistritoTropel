@@ -11,7 +11,7 @@ enum Estado { LISTA, WINDUP, ACTIVE, RECOVERY }
 	"Patada/mixamo_com",
 ]
 @export var cuadros_windup: Array[int] = [12, 12, 20]
-@export var cuadros_active: Array[int] = [4, 4, 6]
+@export var cuadros_active: Array[int] = [6, 6, 6]
 @export var cuadros_recovery: Array[int] = [16, 16, 34]
 @export var empujes: Array[float] = [0.0, 0.0, 12]
 
