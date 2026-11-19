@@ -53,4 +53,4 @@ func _al_quedar_sin_vida():
 	# Sin reapariciones: ahora sí pierde (igual que el nivel anterior).
 	var partida = get_tree().get_first_node_in_group("partida")
 	if partida != null:
-		partida.perder("sin vida")
+		partida.cayo(pj)

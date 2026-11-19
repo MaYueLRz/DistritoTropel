@@ -24,33 +24,37 @@ const COLOR_ITEM = {
 
 var salud = null
 var inv = null
-var enemigo = null
+var salud2 = null
 var partida = null
 var ultimo_segundo = -1
+var ultimo_mensaje = ""
 
 @onready var fuente = ThemeDB.fallback_font
 
 
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	resized.connect(queue_redraw)
-	var pj = get_tree().get_first_node_in_group("jugador")
-	if pj == null:
-		print("HUD: no encontré al jugador")
-		return
-	salud = pj.get_node_or_null("Salud")
-	if salud != null:
-		salud.cambio.connect(_al_cambiar)
+
+	var pj1 = get_tree().get_first_node_in_group("jugador1")
+	if pj1 != null:
+		salud = pj1.get_node_or_null("Salud")
+		inv = pj1.get_node_or_null("Inventario")
+		if salud != null:
+			salud.cambio.connect(_al_cambiar)
+		if inv != null and inv.has_signal("cambio"):
+			inv.cambio.connect(_al_cambiar)
 	else:
-		print("HUD: al Personaje le falta el nodo Salud")
-	inv = pj.get_node_or_null("Inventario")
-	if inv != null and inv.has_signal("cambio"):
-		inv.cambio.connect(_al_cambiar)
+		print("HUD: no encontré al jugador 1")
+
+	var pj2 = get_tree().get_first_node_in_group("jugador2")
+	if pj2 != null:
+		salud2 = pj2.get_node_or_null("Salud")
+		if salud2 != null:
+			salud2.cambio.connect(_al_cambiar)
 	else:
-		print("HUD: al Personaje le falta el nodo Inventario")
-	enemigo = get_tree().get_first_node_in_group("enemigo")
-	if enemigo != null:
-		enemigo.vida_cambio.connect(_al_cambiar)
+		print("HUD: no encontré al jugador 2")
 
 	await get_tree().process_frame
 	partida = get_tree().get_first_node_in_group("partida")
@@ -59,6 +63,9 @@ func _ready():
 func _process(_delta):
 	if partida == null:
 		return
+	if partida.mensaje_final != ultimo_mensaje:
+		ultimo_mensaje = partida.mensaje_final
+		queue_redraw()
 	var segundos = int(ceil(partida.tiempo))
 	if segundos != ultimo_segundo:
 		ultimo_segundo = segundos
@@ -74,7 +81,25 @@ func _draw():
 	dibujar_vida_enemigo()
 	dibujar_contador()
 	dibujar_ranuras()
+	dibujar_resultado()
 
+func dibujar_resultado():
+	if partida == null or partida.mensaje_final == "":
+		return
+
+	var ancho_caja = 560.0
+	var alto_caja = 96.0
+	var x = (get_viewport_rect().size.x - ancho_caja) / 2.0
+	var y = get_viewport_rect().size.y * 0.33
+
+	draw_polygon(pieza(x - 7, y - 7, ancho_caja + 14, alto_caja + 14, 20),
+		PackedColorArray([CHASIS]))
+	var caja = pieza(x, y, ancho_caja, alto_caja, 20)
+	draw_polygon(caja, PackedColorArray([RIEL]))
+	contorno(caja, BORDE, 3.0)
+
+	draw_string(fuente, Vector2(x, y + alto_caja - 32), partida.mensaje_final,
+		HORIZONTAL_ALIGNMENT_CENTER, ancho_caja, 42, Color.WHITE)
 
 # Un rectángulo inclinado: el borde de arriba corrido a la derecha.
 func pieza(x, y, w, h, s):
@@ -165,12 +190,11 @@ func dibujar_ranuras():
 			HORIZONTAL_ALIGNMENT_LEFT, -1, 16, BORDE if lleno else APAGADO)
 
 
-
 func dibujar_vida_enemigo():
-	if enemigo == null:
+	if salud2 == null:
 		return
-	var vida = enemigo.vida
-	var maxima = maxi(enemigo.vida_max, 1)
+	var vida = salud2.vida
+	var maxima = maxi(salud2.vida_inicial, 1)
 	var fraccion = clampf(float(vida) / float(maxima), 0.0, 1.0)
 
 	var x = get_viewport_rect().size.x - ancho - origen.x

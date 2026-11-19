@@ -12,6 +12,8 @@ func _physics_process(_delta):
 		return
 	for otra in get_overlapping_areas():
 		if otra.is_in_group("hurtbox"):
+			if otra.get_parent() == pj:
+				continue
 			ya_golpeo = true
 			var victima = otra.get_parent()
 			if victima.has_method("recibir_danio"):

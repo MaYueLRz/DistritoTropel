@@ -17,6 +17,7 @@ var cuadros_prueba = 0
 @export var speed_caminar = 3.0
 @export var speed_correr = 6.0
 @export var tiempo_arranque = 0.25
+@export var sufijo = ""
 
 @onready var anim = $Modelo/AnimationPlayer
 
@@ -24,7 +25,8 @@ var cuadros_prueba = 0
 var multiplicador = 1.0
 var empuje = Vector3.ZERO
 var accion = ""
-var rival = null
+@export var rival: Node3D
+
 
 var avance = Vector3.ZERO
 var estado = Estado.QUIETO
@@ -32,11 +34,20 @@ var ruido = 0.0
 var cuadro = 0
 var rumbo = Rumbo.ADELANTE
 
+func _ready():
+	if sufijo == "":
+		return
+	$Golpe.tecla += sufijo
+	$Inventario.tecla_1 += sufijo
+	$Inventario.tecla_2 += sufijo
+
 func _physics_process(delta):
 	velocity += get_gravity() * delta
 	
 
-	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var input_dir = Input.get_vector(
+		"move_left" + sufijo, "move_right" + sufijo,
+		"move_up" + sufijo, "move_down" + sufijo)
 	var entrada = Vector3(input_dir.x, 0.0, input_dir.y)
 
 	var giro_cam = camara.global_rotation.y if camara else 0.0
@@ -56,7 +67,7 @@ func _physics_process(delta):
 			Input.action_release(accion_prueba)
 	
 
-	var corre = Input.is_action_pressed("correr")
+	var corre = Input.is_action_pressed("correr" + sufijo)
 	var speed = speed_correr if corre else speed_caminar
 	
 
@@ -129,3 +140,6 @@ func animar():
 		Estado.CORRER:
 			anim.speed_scale = 1.0
 			anim.play("Sprint/mixamo_com")
+			
+func recibir_danio(cantidad):
+	$Salud.recibir_golpe(cantidad)

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://h24dlci7t2hg"]
+[gd_scene format=3 ]
 
 [ext_resource type="Script" uid="uid://c43r45xkk1kmo" path="res://camera_sigue.gd" id="1_k8i2i"]
 [ext_resource type="Script" uid="uid://cchv43eug6720" path="res://personaje.gd" id="2_xgqsf"]
