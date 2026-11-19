@@ -1,7 +1,9 @@
 extends Character
 
 enum Estado { QUIETO, CAMINAR, CORRER, BLOQUEANDO }
+enum Rumbo { ADELANTE, ATRAS, LADO }
 const RUIDO = [0.0, 2.0, 6.0, 1.0]
+@export var velocidad_anim: Array[float] = [1.0, 1.2, 1.5]
 
 enum Prueba { NINGUNA, AVANZAR_60_CUADROS, MANTENER_ACCION_2S }
 
@@ -28,6 +30,7 @@ var avance = Vector3.ZERO
 var estado = Estado.QUIETO
 var ruido = 0.0
 var cuadro = 0
+var rumbo = Rumbo.ADELANTE
 
 func _physics_process(delta):
 	velocity += get_gravity() * delta
@@ -67,7 +70,7 @@ func _physics_process(delta):
 	if rival == null:
 		rival = get_tree().get_first_node_in_group("enemigo")
 
-	if mirar_al_rival and golpeando and rival != null:
+	if mirar_al_rival and rival != null and (golpeando or not corre):
 		var hacia = rival.global_position - global_position
 		hacia.y = 0.0
 		if hacia.length() > 0.05:
@@ -75,10 +78,19 @@ func _physics_process(delta):
 	elif direction.length() > 0:
 		basis = Basis.looking_at(direction)
 
+	rumbo = Rumbo.ADELANTE
+	if direction.length() > 0.1:
+		var de_frente = direction.dot(-basis.z)
+		var de_lado = direction.dot(basis.x)
+		if absf(de_lado) > absf(de_frente):
+			rumbo = Rumbo.LADO
+		elif de_frente < 0.0:
+			rumbo = Rumbo.ATRAS
+
 	move_and_slide()
 	
 	
-	var antes = estado
+
 	estado = elegir_estado()
 	ruido = RUIDO[estado]
 		
@@ -96,17 +108,24 @@ func elegir_estado():
 	if rapidez > speed_caminar + 0.1:
 		return Estado.CORRER
 	return Estado.CAMINAR
-
 func animar():
 	if accion != "":
 		anim.play(accion)
 		return
-		
+
 	match estado:
 		Estado.QUIETO:
+			anim.speed_scale = 1.0
 			anim.play("Idile/mixamo_com")
 		Estado.CAMINAR:
-			anim.play("Walk/mixamo_com")
+			anim.speed_scale = velocidad_anim[rumbo]
+			match rumbo:
+				Rumbo.ATRAS:
+					anim.play("CaminataTrasera/mixamo_com")
+				Rumbo.LADO:
+					anim.play("Lateral/mixamo_com")
+				_:
+					anim.play("Walk/mixamo_com")
 		Estado.CORRER:
+			anim.speed_scale = 1.0
 			anim.play("Sprint/mixamo_com")
-		
