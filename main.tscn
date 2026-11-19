@@ -25,6 +25,14 @@
 [ext_resource type="AnimationLibrary" uid="uid://b01j55kxr3u8m" path="res://Animaciones y Personajes/Walking.fbx" id="16_a6jrf"]
 [ext_resource type="Script" uid="uid://betxg37pce23f" path="res://menu_pausa.gd" id="22_ryguw"]
 [ext_resource type="Shader" uid="uid://b6cm5qm85u8sv" path="res://desenfoque.gdshader" id="23_d13ii"]
+[ext_resource type="Texture2D" uid="uid://deusyr0qb6mgk" path="res://Animaciones y Personajes/letrero.png" id="24_0odxb"]
+[ext_resource type="Texture2D" uid="uid://bthwu4d4xt5eu" path="res://Animaciones y Personajes/logo.png" id="27_a6jrf"]
+[ext_resource type="FontFile" uid="uid://c0u24elkd4a8u" path="res://Anton-Regular.ttf" id="27_htxhm"]
+[ext_resource type="Texture2D" uid="uid://qi4vb7dr6qnj" path="res://Animaciones y Personajes/boton_rojo.png" id="27_seu75"]
+[ext_resource type="Texture2D" uid="uid://c7h64kh1q67qt" path="res://Animaciones y Personajes/boton_amarillo.png" id="28_htxhm"]
+[ext_resource type="Texture2D" uid="uid://idpo2a0tsrw0" path="res://Animaciones y Personajes/boton_azul.png" id="29_jq2sk"]
+[ext_resource type="Texture2D" uid="uid://c63nd0rdb4h08" path="res://Animaciones y Personajes/boton_verde.png" id="30_4k2k6"]
+[ext_resource type="Texture2D" uid="uid://xf5w577ylj53" path="res://Animaciones y Personajes/marco_grafiti.png" id="32_jq2sk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="CieloMat"]
 sky_top_color = Color(0.18039216, 0.2901961, 0.41960785, 1)
@@ -855,39 +863,40 @@ shader_parameter/vineta = 0.7
 shader_parameter/tamano_puntos = 7.0
 shader_parameter/fuerza_puntos = 0.3
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1u8w0"]
-content_margin_left = 45.0
-content_margin_top = 30.0
-content_margin_right = 45.0
-content_margin_bottom = 30.0
-bg_color = Color(0.18039216, 0.20392157, 0.2509804, 1)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
-border_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_color = Color(0, 0, 0, 1)
-shadow_size = 1
-shadow_offset = Vector2(10, 10)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0odxb"]
+content_margin_left = 75.0
+content_margin_top = 126.0
+content_margin_right = 74.0
+content_margin_bottom = 66.0
+texture = ExtResource("24_0odxb")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d13ii"]
-bg_color = Color(1, 0.78039217, 0.17254902, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-shadow_color = Color(0, 0, 0, 1)
-shadow_size = 1
-shadow_offset = Vector2(0, 6)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s0n2h"]
+texture = ExtResource("27_seu75")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xiwp4"]
+texture = ExtResource("28_htxhm")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sal44"]
+texture = ExtResource("29_jq2sk")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r2b6k"]
+texture = ExtResource("30_4k2k6")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
 
 [node name="Main" type="Node3D" unique_id=187010590]
 
@@ -999,7 +1008,7 @@ shape = SubResource("SphereShape3D_mivf0")
 [node name="Modelo" parent="Personaje" unique_id=724618450 instance=ExtResource("9_82xsv")]
 transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0, 0, 0)
 
-[node name="GeneralSkeleton" parent="Personaje/Modelo" index="0" unique_id=755315804]
+[node name="GeneralSkeleton" parent="Personaje/Modelo" index="0" unique_id=339712422]
 bones/1/rotation = Quaternion(7.450581e-09, 0, 0, 1)
 bones/9/rotation = Quaternion(-4.2146848e-08, -0.70710677, -4.2146848e-08, 0.70710677)
 bones/10/rotation = Quaternion(-1.8626451e-09, 0.70710677, -1.8626451e-09, 0.70710677)
@@ -1037,7 +1046,7 @@ bones/60/rotation = Quaternion(-2.3283064e-10, -3.7252903e-09, 1, 3.739842e-09)
 bones/61/rotation = Quaternion(3.7252899e-09, 1, -3.7252899e-09, 0)
 bones/62/rotation = Quaternion(-4.8567657e-09, 0.7071067, -0.7071068, -2.222588e-09)
 
-[node name="AnimationPlayer" parent="Personaje/Modelo" index="1" unique_id=1538470772]
+[node name="AnimationPlayer" parent="Personaje/Modelo" index="1" unique_id=2119132546]
 "libraries/Caminata lateral" = SubResource("AnimationLibrary_lswn8")
 libraries/CaminataTrasera = ExtResource("12_lswn8")
 libraries/Golpe = ExtResource("12_d13ii")
@@ -1090,49 +1099,87 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5882353)
 
+[node name="Consejos" type="Label" parent="MenuPausa/Fondo" unique_id=1038636000]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 0
+offset_left = 724.0
+offset_top = 245.0
+offset_right = 1004.0
+offset_bottom = 268.0
+
 [node name="Centro" type="CenterContainer" parent="MenuPausa/Fondo" unique_id=1658938642]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_right = 1.0
+anchor_left = 0.33
+anchor_right = 0.88
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Letrero" type="PanelContainer" parent="MenuPausa/Fondo/Centro" unique_id=1762399435]
+custom_minimum_size = Vector2(474, 504)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1u8w0")
+theme_override_styles/panel = SubResource("StyleBoxTexture_0odxb")
 
 [node name="VBox" type="VBoxContainer" parent="MenuPausa/Fondo/Centro/Letrero" unique_id=1963514331]
 layout_mode = 2
-
-[node name="Titulo" type="Label" parent="MenuPausa/Fondo/Centro/Letrero/VBox" unique_id=1678200045]
-layout_mode = 2
-text = "Pausa"
-horizontal_alignment = 1
-
-[node name="Consejos" type="Label" parent="MenuPausa/Fondo/Centro/Letrero/VBox" unique_id=1038636000]
-custom_minimum_size = Vector2(280, 0)
-layout_mode = 2
+theme_override_constants/separation = 21
 
 [node name="BotonReanudar" type="Button" parent="MenuPausa/Fondo/Centro/Letrero/VBox" unique_id=2069802682]
-custom_minimum_size = Vector2(280, 50)
+custom_minimum_size = Vector2(280, 62)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("27_htxhm")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_s0n2h")
 text = "Continuar"
 
 [node name="BotonReiniciar" type="Button" parent="MenuPausa/Fondo/Centro/Letrero/VBox" unique_id=2128019423]
-custom_minimum_size = Vector2(280, 50)
+custom_minimum_size = Vector2(280, 62)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_d13ii")
+theme_override_fonts/font = ExtResource("27_htxhm")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_xiwp4")
 text = "Reiniciar"
 
-[node name="BotonSalir" type="Button" parent="MenuPausa/Fondo/Centro/Letrero/VBox" unique_id=81658467]
-custom_minimum_size = Vector2(280, 50)
+[node name="BotonLocalidad" type="Button" parent="MenuPausa/Fondo/Centro/Letrero/VBox" unique_id=2082045252]
+custom_minimum_size = Vector2(280, 62)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("27_htxhm")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_sal44")
+text = "Localidades"
+
+[node name="BotonSalir" type="Button" parent="MenuPausa/Fondo/Centro/Letrero/VBox" unique_id=81658467]
+custom_minimum_size = Vector2(280, 62)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("27_htxhm")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_r2b6k")
 text = "Salir"
+
+[node name="Marco" type="TextureRect" parent="MenuPausa/Fondo" unique_id=251265057]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("32_jq2sk")
+expand_mode = 1
+
+[node name="Logo" type="TextureRect" parent="MenuPausa/Fondo" unique_id=219651232]
+layout_mode = 1
+offset_top = 203.0
+offset_right = 459.0
+offset_bottom = 387.0
+mouse_filter = 2
+texture = ExtResource("27_a6jrf")
+expand_mode = 1
 
 [connection signal="pressed" from="MenuPausa/Fondo/Centro/Letrero/VBox/BotonReanudar" to="MenuPausa" method="_on_boton_reanudar_pressed"]
 [connection signal="pressed" from="MenuPausa/Fondo/Centro/Letrero/VBox/BotonReiniciar" to="MenuPausa" method="_on_boton_reiniciar_pressed"]
+[connection signal="pressed" from="MenuPausa/Fondo/Centro/Letrero/VBox/BotonLocalidad" to="MenuPausa" method="_on_boton_localidades_pressed"]
 [connection signal="pressed" from="MenuPausa/Fondo/Centro/Letrero/VBox/BotonSalir" to="MenuPausa" method="_on_boton_salir_pressed"]
 
 [editable path="Personaje/Modelo"]
