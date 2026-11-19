@@ -4,12 +4,15 @@ extends Character
 @export var tiempo_destello = 0.2
 @export var frenado = 14.0
 @export var animacion_idle = "Pelea/mixamo_com"
+@export var animacion_muerte = "Muerte/mixamo_com"
+@export var tiempo_desaparecer = 1.5
 
 @onready var anim = $Modelo.get_node_or_null("AnimationPlayer")
 
 var jugador = null
 var mallas = []
 var reloj_destello = 0.0
+var muerto = false
 
 
 func _ready():
@@ -35,6 +38,8 @@ func _physics_process(delta):
 
 
 func recibir_danio(cantidad):
+	if muerto:
+		return
 	super(cantidad)
 	if vida > 0:
 		destellar()
@@ -43,7 +48,17 @@ func recibir_danio(cantidad):
 
 func morir():
 	super()
+	muerto = true
+	reloj_destello = 0.0
 	pintar(null)
+	remove_from_group("enemigo")
+	$Hurtbox.set_deferred("monitorable", false)
+	$CollisionShape3D.set_deferred("disabled", true)
+	if anim != null and anim.has_animation(animacion_muerte):
+		anim.get_animation(animacion_muerte).loop_mode = Animation.LOOP_NONE
+		anim.play(animacion_muerte)
+		await anim.animation_finished
+		await get_tree().create_timer(tiempo_desaparecer).timeout
 	visible = false
 
 
@@ -74,6 +89,8 @@ func mirar_al_jugador():
 		basis = Basis.looking_at(hacia.normalized())
 
 func _al_terminar_animacion(_cual):
+	if muerto:
+		return
 	volver_a_idle()
 
 
