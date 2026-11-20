@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d3afiuwi2mwhi" path="res://Animaciones y Personajes/stacked_brick_wall_diff_2k.jpg" id="12_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://cie58inig4ibx" path="res://Animaciones y Personajes/imagen.jpeg" id="13_w48qg"]
 [ext_resource type="PackedScene" uid="uid://uwtbrr8ouen4" path="res://Animaciones y Personajes/Mall+2.glb" id="16_2cqfq"]
+[ext_resource type="Script" uid="uid://osphsfcsjqqm" path="res://cuenta_atras.gd" id="20_82xsv"]
 [ext_resource type="Script" uid="uid://betxg37pce23f" path="res://menu_pausa.gd" id="22_ryguw"]
 [ext_resource type="Shader" uid="uid://b6cm5qm85u8sv" path="res://desenfoque.gdshader" id="23_d13ii"]
 [ext_resource type="Texture2D" uid="uid://deusyr0qb6mgk" path="res://Animaciones y Personajes/letrero.png" id="24_0odxb"]
@@ -319,6 +320,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
 camara = NodePath("../Camera3D")
 sufijo = "_p2"
 rival = NodePath("../Personaje")
+
+[node name="CuentaAtras" type="CanvasLayer" parent="." unique_id=791936807]
+script = ExtResource("20_82xsv")
 
 [connection signal="pressed" from="MenuPausa/Fondo/Centro/Letrero/VBox/BotonReanudar" to="MenuPausa" method="_on_boton_reanudar_pressed"]
 [connection signal="pressed" from="MenuPausa/Fondo/Centro/Letrero/VBox/BotonReiniciar" to="MenuPausa" method="_on_boton_reiniciar_pressed"]
