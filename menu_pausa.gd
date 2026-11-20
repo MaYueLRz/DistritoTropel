@@ -1,13 +1,6 @@
 extends CanvasLayer
 
-const CONSEJOS = [
-	"No dé papaya.",
-	"El que se arrima a la baranda, se lo lleva el articulado.",
-	"Primero se mira, después se tira.",
-	"Bloquear también es de varones.",
-]
 
-@onready var consejos = $Fondo/Consejos
 @onready var boton_reanudar = $Fondo/Centro/Letrero/VBox/BotonReanudar
 
 
@@ -42,7 +35,6 @@ func alternar():
 	get_tree().paused = pausar
 	visible = pausar
 	if pausar:
-		consejos.text = CONSEJOS.pick_random()
 		boton_reanudar.grab_focus()
 
 

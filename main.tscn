@@ -244,14 +244,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5882353)
 
-[node name="Consejos" type="Label" parent="MenuPausa/Fondo" unique_id=1038636000]
-custom_minimum_size = Vector2(280, 0)
-layout_mode = 0
-offset_left = 724.0
-offset_top = 245.0
-offset_right = 1004.0
-offset_bottom = 268.0
-
 [node name="Centro" type="CenterContainer" parent="MenuPausa/Fondo" unique_id=1658938642]
 layout_mode = 1
 anchors_preset = -1
