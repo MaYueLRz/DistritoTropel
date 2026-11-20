@@ -1,0 +1,8 @@
+Sonidos de terceros usados en Distrito Tropel (licencia CC0, dominio publico; el credito no es obligatorio)
+
+- impacto_a, impacto_b, impacto_fuerte: "Punch" de qubodup (Iwan Gabovitch), OpenGameArt.org
+  https://opengameart.org/content/punch  (recortados y con el volumen igualado)
+- paso_a, paso_b, paso_c: "50 RPG sound effects" de Kenney (www.kenney.nl), OpenGameArt.org
+  https://opengameart.org/content/50-rpg-sound-effects  (footstep08, footstep02 y footstep07, recortados)
+
+El resto de los sonidos fueron sintetizados por codigo.

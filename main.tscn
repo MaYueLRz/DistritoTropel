@@ -10,7 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://cie58inig4ibx" path="res://Animaciones y Personajes/imagen.jpeg" id="13_w48qg"]
 [ext_resource type="PackedScene" uid="uid://uwtbrr8ouen4" path="res://Animaciones y Personajes/Mall+2.glb" id="16_2cqfq"]
 [ext_resource type="Script" uid="uid://osphsfcsjqqm" path="res://cuenta_atras.gd" id="20_82xsv"]
+[ext_resource type="Script" uid="uid://f357vglbvxec" path="res://sonido.gd" id="21_getpj"]
+[ext_resource type="Script" uid="uid://chdkyrkytxyty" path="res://destello.gd" id="22_d13ii"]
 [ext_resource type="Script" uid="uid://betxg37pce23f" path="res://menu_pausa.gd" id="22_ryguw"]
+[ext_resource type="Script" uid="uid://ci6yqha8bh2cx" path="res://muerte.gd" id="23_1u8w0"]
 [ext_resource type="Shader" uid="uid://b6cm5qm85u8sv" path="res://desenfoque.gdshader" id="23_d13ii"]
 [ext_resource type="Texture2D" uid="uid://deusyr0qb6mgk" path="res://Animaciones y Personajes/letrero.png" id="24_0odxb"]
 [ext_resource type="Texture2D" uid="uid://bthwu4d4xt5eu" path="res://Animaciones y Personajes/logo.png" id="27_a6jrf"]
@@ -323,6 +326,15 @@ rival = NodePath("../Personaje")
 
 [node name="CuentaAtras" type="CanvasLayer" parent="." unique_id=791936807]
 script = ExtResource("20_82xsv")
+
+[node name="Sonido" type="Node" parent="." unique_id=1287388228]
+script = ExtResource("21_getpj")
+
+[node name="Destello" type="Node" parent="." unique_id=104942523]
+script = ExtResource("22_d13ii")
+
+[node name="Muerte" type="Node" parent="." unique_id=321148662]
+script = ExtResource("23_1u8w0")
 
 [connection signal="pressed" from="MenuPausa/Fondo/Centro/Letrero/VBox/BotonReanudar" to="MenuPausa" method="_on_boton_reanudar_pressed"]
 [connection signal="pressed" from="MenuPausa/Fondo/Centro/Letrero/VBox/BotonReiniciar" to="MenuPausa" method="_on_boton_reiniciar_pressed"]
