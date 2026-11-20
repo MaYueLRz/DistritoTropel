@@ -26,6 +26,12 @@ var multiplicador = 1.0
 var empuje = Vector3.ZERO
 var accion = ""
 @export var rival: Node3D
+@export var color_golpe = Color("#C1121F")
+@export var tiempo_destello = 0.18
+@export var frenado_empuje = 14.0
+
+var mallas = []
+var reloj_destello = 0.0
 
 
 var avance = Vector3.ZERO
@@ -35,6 +41,7 @@ var cuadro = 0
 var rumbo = Rumbo.ADELANTE
 
 func _ready():
+	mallas = $Modelo.find_children("*", "MeshInstance3D", true, false)
 	if sufijo == "":
 		return
 	$Golpe.tecla += sufijo
@@ -74,6 +81,16 @@ func _physics_process(delta):
 	var objetivo = direction * speed * multiplicador
 	var paso = (speed / tiempo_arranque) * delta
 	avance = avance.move_toward(objetivo, paso)
+	
+	empuje = empuje.move_toward(Vector3.ZERO, frenado_empuje * delta)
+
+	if reloj_destello > 0.0:
+		reloj_destello -= delta
+		if reloj_destello <= 0.0:
+			pintar(null)
+
+	velocity.x = avance.x + empuje.x
+	velocity.z = avance.z + empuje.z
 	
 	velocity.x = avance.x + empuje.x
 	velocity.z = avance.z + empuje.z
@@ -143,3 +160,21 @@ func animar():
 			
 func recibir_danio(cantidad):
 	$Salud.recibir_golpe(cantidad)
+	destellar()
+
+
+func recibir_empuje(fuerza):
+	empuje += fuerza
+
+
+func destellar():
+	var mat = StandardMaterial3D.new()
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	mat.albedo_color = Color(color_golpe.r, color_golpe.g, color_golpe.b, 0.6)
+	pintar(mat)
+	reloj_destello = tiempo_destello
+
+
+func pintar(mat):
+	for m in mallas:
+		m.material_overlay = mat

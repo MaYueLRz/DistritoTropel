@@ -26,13 +26,15 @@ func _physics_process(_delta):
 func empujar(victima):
 	if empuje <= 0.0:
 		return
-	if not (victima is CharacterBody3D):
-		return
 	var lejos = victima.global_position - pj.global_position
 	lejos.y = 0.0
 	if lejos.length() < 0.01:
 		return
-	victima.velocity += lejos.normalized() * empuje
+	var fuerza = lejos.normalized() * empuje
+	if victima.has_method("recibir_empuje"):
+		victima.recibir_empuje(fuerza)
+	elif victima is CharacterBody3D:
+		victima.velocity += fuerza
 	print("empujón de ", empuje)
 
 

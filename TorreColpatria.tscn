@@ -1,7 +1,6 @@
-[gd_scene format=3 uid="uid://blwq4ax33ruid"]
+[gd_scene format=3 uid="uid://dfw417kxa4ahx"]
 
 [ext_resource type="PackedScene" path="res://hud_juego.tscn" id="1_ntphg"]
-[ext_resource type="Script" uid="uid://ddudhcldqdykp" path="res://consumible.gd" id="2_bop5u"]
 [ext_resource type="Script" uid="uid://c43r45xkk1kmo" path="res://camera_sigue.gd" id="3_aqql2"]
 [ext_resource type="Script" uid="uid://cchv43eug6720" path="res://personaje.gd" id="4_ukknd"]
 [ext_resource type="Script" uid="uid://cp05y823ivoqx" path="res://Inventario.gd" id="5_g1no3"]
@@ -18,27 +17,25 @@
 [ext_resource type="AnimationLibrary" uid="uid://2xhkffx3mpjg" path="res://Animaciones y Personajes/Mma Kick.fbx" id="16_5bun7"]
 [ext_resource type="AnimationLibrary" uid="uid://ca5d54otvjbfo" path="res://Animaciones y Personajes/Running (1).fbx" id="17_ixog3"]
 [ext_resource type="AnimationLibrary" uid="uid://b01j55kxr3u8m" path="res://Animaciones y Personajes/Walking.fbx" id="18_fy40d"]
-[ext_resource type="PackedScene" uid="uid://b72n7dqm7akgb" path="res://enemigo.tscn" id="19_70fhc"]
 [ext_resource type="Script" uid="uid://bedyj56pipani" path="res://partida.gd" id="20_fafir"]
-[ext_resource type="Texture2D" uid="uid://d3afiuwi2mwhi" path="res://Animaciones y Personajes/stacked_brick_wall_diff_2k.jpg" id="21_uj235"]
-[ext_resource type="Texture2D" uid="uid://cie58inig4ibx" path="res://Animaciones y Personajes/imagen.jpeg" id="22_oudf4"]
-[ext_resource type="PackedScene" uid="uid://uwtbrr8ouen4" path="res://Animaciones y Personajes/Mall+2.glb" id="23_k41vl"]
 [ext_resource type="Script" uid="uid://betxg37pce23f" path="res://menu_pausa.gd" id="24_kh2kt"]
 [ext_resource type="Shader" uid="uid://b6cm5qm85u8sv" path="res://desenfoque.gdshader" id="25_ob3qs"]
 [ext_resource type="Texture2D" uid="uid://deusyr0qb6mgk" path="res://Animaciones y Personajes/letrero.png" id="26_uqeoc"]
 [ext_resource type="FontFile" uid="uid://c0u24elkd4a8u" path="res://Anton-Regular.ttf" id="27_tbsca"]
 [ext_resource type="Texture2D" uid="uid://qi4vb7dr6qnj" path="res://Animaciones y Personajes/boton_rojo.png" id="28_mgmnw"]
 [ext_resource type="Texture2D" uid="uid://c7h64kh1q67qt" path="res://Animaciones y Personajes/boton_amarillo.png" id="29_1dsya"]
+[ext_resource type="PackedScene" uid="uid://cta6sleod1bvq" path="res://personaje1.tscn" id="30_2ug18"]
 [ext_resource type="Texture2D" uid="uid://idpo2a0tsrw0" path="res://Animaciones y Personajes/boton_azul.png" id="30_nafx6"]
+[ext_resource type="Shader" uid="uid://d0ta3mtr4yjw0" path="res://TorreColpatria.gdshader" id="30_pxldc"]
 [ext_resource type="Texture2D" uid="uid://c63nd0rdb4h08" path="res://Animaciones y Personajes/boton_verde.png" id="31_o2s6f"]
 [ext_resource type="Texture2D" uid="uid://xf5w577ylj53" path="res://Animaciones y Personajes/marco_grafiti.png" id="32_oflmt"]
 [ext_resource type="Texture2D" uid="uid://bthwu4d4xt5eu" path="res://Animaciones y Personajes/logo.png" id="33_n8syd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="CieloMat"]
-sky_top_color = Color(0.18039216, 0.2901961, 0.41960785, 1)
-sky_horizon_color = Color(0.9098039, 0.58431375, 0.3529412, 1)
+sky_top_color = Color(0.33572447, 0.540877, 1, 1)
+sky_horizon_color = Color(0.99422294, 0.9573031, 0.93389505, 1)
 ground_bottom_color = Color(0.101960786, 0.101960786, 0.12156863, 1)
-ground_horizon_color = Color(0.22745098, 0.22745098, 0.25882354, 1)
+ground_horizon_color = Color(0.8580063, 0.8582866, 0.8809622, 1)
 
 [sub_resource type="Sky" id="Cielo"]
 sky_material = SubResource("CieloMat")
@@ -53,25 +50,12 @@ ssao_enabled = true
 glow_enabled = true
 glow_intensity = 0.5
 glow_bloom = 0.05
-fog_enabled = true
-fog_light_color = Color(0.7882353, 0.5411765, 0.36862746, 1)
-fog_density = 0.008
+fog_light_color = Color(1, 1, 1, 1)
+fog_density = 0.005
+fog_sky_affect = 0.2
 adjustment_enabled = true
 adjustment_contrast = 1.05
 adjustment_saturation = 1.15
-
-[sub_resource type="PlaneMesh" id="PisoMalla"]
-size = Vector2(30, 30)
-
-[sub_resource type="BoxShape3D" id="PisoForma"]
-size = Vector3(30, 0.2, 30)
-
-[sub_resource type="BoxMesh" id="CajaMalla"]
-
-[sub_resource type="StandardMaterial3D" id="CajaMat"]
-albedo_color = Color(0.85, 0.55, 0.25, 1)
-
-[sub_resource type="BoxShape3D" id="CajaForma"]
 
 [sub_resource type="CapsuleShape3D" id="Capsula"]
 radius = 0.35
@@ -837,23 +821,6 @@ _data = {
 &"mixamo_com": SubResource("Animation_odr6x")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxa2c"]
-albedo_color = Color(0.3529412, 0.3764706, 0.40784314, 1)
-normal_scale = 0.3
-heightmap_scale = 0.3
-refraction_scale = 0.3
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hchaj"]
-albedo_texture = ExtResource("21_uj235")
-normal_enabled = true
-normal_scale = 10.0
-normal_texture = ExtResource("22_oudf4")
-uv1_scale = Vector3(10, 10, 10)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_uxa2c"]
-material = SubResource("StandardMaterial3D_hchaj")
-size = Vector2(120, 120)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ryguw"]
 shader = ExtResource("25_ob3qs")
 shader_parameter/desenfoque = 2.5
@@ -898,6 +865,66 @@ texture_margin_top = 18.0
 texture_margin_right = 18.0
 texture_margin_bottom = 18.0
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_mivf0"]
+top_radius = 14.0
+bottom_radius = 14.0
+height = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ug18"]
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.9
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mivf0"]
+height = 0.4
+radius = 14.0
+
+[sub_resource type="TorusMesh" id="TorusMesh_mivf0"]
+inner_radius = 8.7
+outer_radius = 9.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_mivf0"]
+size = Vector3(1, 0.1, 7.7)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pxldc"]
+size = Vector3(5.6, 0.1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_idbjj"]
+noise_type = 2
+frequency = 0.013
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mivf0"]
+noise = SubResource("FastNoiseLite_idbjj")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_b4nns"]
+noise_type = 2
+seed = 40
+frequency = 0.013
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o3bqo"]
+noise = SubResource("FastNoiseLite_b4nns")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o3bqo"]
+render_priority = 0
+shader = ExtResource("30_pxldc")
+shader_parameter/ruido_1 = SubResource("NoiseTexture2D_mivf0")
+shader_parameter/ruido_2 = SubResource("NoiseTexture2D_o3bqo")
+shader_parameter/velocidad_1 = Vector2(-0.01, 0.015)
+shader_parameter/velocidad_2 = Vector2(0.01, -0.015)
+shader_parameter/escala_uv = 8.0
+shader_parameter/altura = 3.0
+shader_parameter/color_luz = Color(0.98, 0.98, 0.98, 1)
+shader_parameter/color_sombra = Color(0.72, 0.8, 0.88, 1)
+shader_parameter/umbral_alpha = 0.25
+shader_parameter/fuerza_alpha = 1.5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mivf0"]
+material = SubResource("ShaderMaterial_o3bqo")
+size = Vector2(400, 400)
+subdivide_width = 180
+subdivide_depth = 180
+
 [node name="Main" type="Node3D" unique_id=187010590]
 
 [node name="HUDJuego" parent="." unique_id=405084683 instance=ExtResource("1_ntphg")]
@@ -906,79 +933,24 @@ texture_margin_bottom = 18.0
 environment = SubResource("Entorno")
 
 [node name="Sol" type="DirectionalLight3D" parent="." unique_id=1911853749]
-transform = Transform3D(-0.7071065, -0.21850796, 0.67249835, 0, 0.95105624, 0.3090169, -0.7071065, 0.21850796, -0.67249835, 0, 6, 0)
-light_color = Color(1, 0.6901961, 0.41568628, 1)
+transform = Transform3D(-0.7071064, -0.5792278, 0.40557972, 0, 0.5735763, 0.8191519, -0.7071064, 0.5792278, -0.40557972, 0, 6, 0)
+light_color = Color(0.8392157, 0.972549, 0.9764706, 1)
 light_energy = 1.4
 shadow_enabled = true
-
-[node name="Suelo" type="StaticBody3D" parent="." unique_id=1614299427]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Suelo" unique_id=199708113]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
-mesh = SubResource("PisoMalla")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo" unique_id=18277837]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
-shape = SubResource("PisoForma")
-
-[node name="Cajas" type="Node3D" parent="." unique_id=385938072]
-
-[node name="Empanada" type="Area3D" parent="Cajas" unique_id=1619120102 groups=["interactivos"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, -4)
-script = ExtResource("2_bop5u")
-tipo = "empanada"
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cajas/Empanada" unique_id=1164016653]
-mesh = SubResource("CajaMalla")
-surface_material_override/0 = SubResource("CajaMat")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cajas/Empanada" unique_id=1638154835]
-shape = SubResource("CajaForma")
-
-[node name="Yox" type="Area3D" parent="Cajas" unique_id=2088666963 groups=["interactivos"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3839626, 0.5, 1.6527243)
-script = ExtResource("2_bop5u")
-tipo = "yox"
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cajas/Yox" unique_id=555286981]
-mesh = SubResource("CajaMalla")
-surface_material_override/0 = SubResource("CajaMat")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cajas/Yox" unique_id=1853374285]
-shape = SubResource("CajaForma")
-
-[node name="Mieltertos" type="Area3D" parent="Cajas" unique_id=2028983593 groups=["interactivos"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, -2)
-script = ExtResource("2_bop5u")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cajas/Mieltertos" unique_id=288967914]
-mesh = SubResource("CajaMalla")
-surface_material_override/0 = SubResource("CajaMat")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cajas/Mieltertos" unique_id=701891069]
-shape = SubResource("CajaForma")
-
-[node name="Refajo" type="Area3D" parent="Cajas" unique_id=1402766199 groups=["interactivos"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, 3)
-script = ExtResource("2_bop5u")
-tipo = "refajo"
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cajas/Refajo" unique_id=109358859]
-mesh = SubResource("CajaMalla")
-surface_material_override/0 = SubResource("CajaMat")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cajas/Refajo" unique_id=656420938]
-shape = SubResource("CajaForma")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=705986188 node_paths=PackedStringArray("objetivo", "rival")]
 transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 5, 7)
 script = ExtResource("3_aqql2")
 objetivo = NodePath("../Personaje")
-rival = NodePath("../Enemigo")
+rival = NodePath("../Personaje2")
+limite_min = Vector2(-14, -14)
+limite_max = Vector2(14, 14)
 
-[node name="Personaje" type="CharacterBody3D" parent="." unique_id=2111096892 node_paths=PackedStringArray("camara") groups=["jugador"]]
+[node name="Personaje" type="CharacterBody3D" parent="." unique_id=2111096892 node_paths=PackedStringArray("camara", "rival") groups=["jugador", "jugador1"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
 script = ExtResource("4_ukknd")
 camara = NodePath("../Camera3D")
+rival = NodePath("../Personaje2")
 
 [node name="Inventario" type="Node" parent="Personaje" unique_id=1266454888]
 script = ExtResource("5_g1no3")
@@ -1057,34 +1029,8 @@ libraries/Patada = ExtResource("16_5bun7")
 libraries/Sprint = ExtResource("17_ixog3")
 libraries/Walk = ExtResource("18_fy40d")
 
-[node name="Farol" type="OmniLight3D" parent="." unique_id=794866491]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -3)
-omni_attenuation = 2.0
-
-[node name="Enemigo" parent="." unique_id=645478461 groups=["enemigo"] instance=ExtResource("19_70fhc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
-
 [node name="Partida" type="Node" parent="." unique_id=831420112]
 script = ExtResource("20_fafir")
-
-[node name="MuroArena" type="CSGCylinder3D" parent="." unique_id=737693581]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
-use_collision = true
-radius = 15.0
-height = 1.2
-sides = 32
-material = SubResource("StandardMaterial3D_uxa2c")
-
-[node name="MuroArena2" type="CSGCylinder3D" parent="MuroArena" unique_id=930256884]
-operation = 2
-radius = 14.8
-sides = 32
-
-[node name="AvenidaSuba" type="MeshInstance3D" parent="." unique_id=2109684064]
-mesh = SubResource("PlaneMesh_uxa2c")
-
-[node name="Plaza Imperial" parent="." unique_id=1062069240 instance=ExtResource("23_k41vl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
 
 [node name="MenuPausa" type="CanvasLayer" parent="." unique_id=92321513]
 layer = 10
@@ -1176,6 +1122,45 @@ offset_bottom = 387.0
 mouse_filter = 2
 texture = ExtResource("33_n8syd")
 expand_mode = 1
+
+[node name="Helipuerto" type="StaticBody3D" parent="." unique_id=860751050]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Helipuerto" unique_id=291483048]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+mesh = SubResource("CylinderMesh_mivf0")
+surface_material_override/0 = SubResource("StandardMaterial3D_2ug18")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Helipuerto" unique_id=2145046653]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+shape = SubResource("CylinderShape3D_mivf0")
+
+[node name="Marcas" type="Node3D" parent="Helipuerto" unique_id=692196262]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Helipuerto/Marcas" unique_id=1165994125]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+mesh = SubResource("TorusMesh_mivf0")
+
+[node name="PaloIzq" type="MeshInstance3D" parent="Helipuerto/Marcas" unique_id=1989812691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8, 0.06, 0)
+mesh = SubResource("BoxMesh_mivf0")
+
+[node name="PaloDer" type="MeshInstance3D" parent="Helipuerto/Marcas" unique_id=1235416538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8, 0.06, 0)
+mesh = SubResource("BoxMesh_mivf0")
+
+[node name="PaloMid" type="MeshInstance3D" parent="Helipuerto/Marcas" unique_id=1906743915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
+mesh = SubResource("BoxMesh_pxldc")
+
+[node name="MarDeNubes" type="MeshInstance3D" parent="." unique_id=1097790474]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00754261, -2.6714835, -0.119264126)
+mesh = SubResource("PlaneMesh_mivf0")
+
+[node name="Personaje2" parent="." unique_id=21036145 node_paths=PackedStringArray("camara", "rival") groups=["jugador2"] instance=ExtResource("30_2ug18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+camara = NodePath("../Camera3D")
+sufijo = "_p2"
+rival = NodePath("../Personaje")
 
 [connection signal="pressed" from="MenuPausa/Fondo/Centro/Letrero/VBox/BotonReanudar" to="MenuPausa" method="_on_boton_reanudar_pressed"]
 [connection signal="pressed" from="MenuPausa/Fondo/Centro/Letrero/VBox/BotonReiniciar" to="MenuPausa" method="_on_boton_reiniciar_pressed"]
