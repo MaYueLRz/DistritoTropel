@@ -1,0 +1,29 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://addons/emberset/shaders/fx_overlay_mix.gdshader" id="1_fxe2s"]
+[ext_resource type="Texture2D" path="res://addons/emberset/textures/noise_crack.png" id="2_vkt1q"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_fxe2s")
+shader_parameter/noise = ExtResource("2_vkt1q")
+shader_parameter/color_core = Color(0.95, 1, 1, 1)
+shader_parameter/color_mid = Color(0.5, 0.85, 1, 1)
+shader_parameter/color_edge = Color(0.15, 0.4, 0.9, 1)
+shader_parameter/emission = 1.0
+shader_parameter/alpha = 0.85
+shader_parameter/fade = null
+shader_parameter/noise_scale = 1.1
+shader_parameter/scroll = Vector3(0, 0, 0)
+shader_parameter/coverage = 0.9
+shader_parameter/softness = 0.3
+shader_parameter/veins = null
+shader_parameter/rise = null
+shader_parameter/height = null
+shader_parameter/flicker_rate = null
+shader_parameter/rim = 0.9
+shader_parameter/rim_power = 2.0
+shader_parameter/pulse = null
+shader_parameter/pulse_speed = null
+shader_parameter/shade = 0.6
+shader_parameter/grow = 0.02

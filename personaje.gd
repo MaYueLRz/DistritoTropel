@@ -4,12 +4,14 @@ enum Estado { QUIETO, CAMINAR, CORRER, BLOQUEANDO }
 enum Rumbo { ADELANTE, ATRAS, LADO }
 const RUIDO = [0.0, 2.0, 6.0, 1.0]
 @export var velocidad_anim: Array[float] = [1.0, 1.2, 1.5]
+@onready var escudo = get_node_or_null("Escudo")
 
 enum Prueba { NINGUNA, AVANZAR_60_CUADROS, MANTENER_ACCION_2S }
 
 @export var prueba: Prueba = Prueba.NINGUNA
 @export var accion_prueba = ""
 @export var mirar_al_rival = true
+
 
 var cuadros_prueba = 0
 
@@ -20,6 +22,12 @@ var cuadros_prueba = 0
 @export var sufijo = ""
 
 @onready var anim = $Modelo/AnimationPlayer
+@export var animacion_dano = "Reaction/mixamo_com"
+@export var cuadros_reaccion = 18
+var reloj_reaccion = 0
+@export var animacion_bloqueo = "Bloqueo/mixamo_com"
+@export var pose_bloqueo = 1.3  
+var bloqueando = false
 
 
 var multiplicador = 1.0
@@ -40,6 +48,12 @@ var ruido = 0.0
 var cuadro = 0
 var rumbo = Rumbo.ADELANTE
 
+@export var reduccion_bloqueo = 0.2      
+@export var empuje_bloqueado = 0.25     
+@export var cuadros_guardia_rota = 24
+
+var reloj_guardia_rota = 0
+
 func _ready():
 	mallas = $Modelo.find_children("*", "MeshInstance3D", true, false)
 	if sufijo == "":
@@ -56,12 +70,30 @@ func _physics_process(delta):
 		"move_left" + sufijo, "move_right" + sufijo,
 		"move_up" + sufijo, "move_down" + sufijo)
 	var entrada = Vector3(input_dir.x, 0.0, input_dir.y)
+	
+
 
 	var giro_cam = camara.global_rotation.y if camara else 0.0
 	var direction = entrada.rotated(Vector3.UP, giro_cam).normalized()
 
 	var golpeando = $Golpe.esta_golpeando
 	if golpeando:
+		direction = Vector3.ZERO
+	if reloj_guardia_rota > 0:
+		reloj_guardia_rota -= 1
+
+	var quiere_bloquear = Input.is_action_pressed("bloquear" + sufijo) \
+		and not golpeando and is_on_floor() and reloj_guardia_rota == 0
+
+	if quiere_bloquear != bloqueando:
+		bloqueando = quiere_bloquear
+		if escudo != null:
+			if bloqueando:
+				escudo.play()
+			else:
+				escudo.stop()
+
+	if bloqueando:
 		direction = Vector3.ZERO
 	
 	cuadros_prueba += 1
@@ -88,10 +120,9 @@ func _physics_process(delta):
 		reloj_destello -= delta
 		if reloj_destello <= 0.0:
 			pintar(null)
+	if reloj_reaccion > 0:
+		reloj_reaccion -= 1
 
-	velocity.x = avance.x + empuje.x
-	velocity.z = avance.z + empuje.z
-	
 	velocity.x = avance.x + empuje.x
 	velocity.z = avance.z + empuje.z
 
@@ -136,7 +167,16 @@ func elegir_estado():
 	if rapidez > speed_caminar + 0.1:
 		return Estado.CORRER
 	return Estado.CAMINAR
+
 func animar():
+	if reloj_reaccion > 0:
+		return
+	if bloqueando:
+		if anim.has_animation(animacion_bloqueo):
+			anim.speed_scale = 1.0
+			anim.play(animacion_bloqueo)
+			anim.seek(pose_bloqueo, true)
+		return
 	if accion != "":
 		anim.play(accion)
 		return
@@ -161,6 +201,11 @@ func animar():
 func recibir_danio(cantidad):
 	$Salud.recibir_golpe(cantidad)
 	destellar()
+	reloj_reaccion = cuadros_reaccion
+	if anim.has_animation(animacion_dano):
+		anim.speed_scale = 1.0
+		anim.play(animacion_dano)
+		anim.seek(0.0, true)
 
 
 func recibir_empuje(fuerza):
@@ -178,3 +223,36 @@ func destellar():
 func pintar(mat):
 	for m in mallas:
 		m.material_overlay = mat
+
+func recibir_golpe(cantidad, fuerza_empuje, imparable, desde, punto):
+	var parado = bloqueando and not imparable
+
+	if parado:
+		cantidad = maxi(int(cantidad * reduccion_bloqueo), 1)
+		fuerza_empuje *= empuje_bloqueado
+		if escudo != null and escudo.has_method("hit"):
+			escudo.hit(punto)
+	else:
+		if bloqueando:
+			romper_guardia()
+		destellar()
+		reloj_reaccion = cuadros_reaccion
+		if anim.has_animation(animacion_dano):
+			anim.speed_scale = 1.0
+			anim.play(animacion_dano)
+			anim.seek(0.0, true)
+
+	$Salud.recibir_golpe(cantidad)
+
+	if fuerza_empuje > 0.0:
+		var lejos = global_position - desde
+		lejos.y = 0.0
+		if lejos.length() > 0.01:
+			empuje += lejos.normalized() * fuerza_empuje
+
+
+func romper_guardia():
+	bloqueando = false
+	reloj_guardia_rota = cuadros_guardia_rota
+	if escudo != null:
+		escudo.stop()

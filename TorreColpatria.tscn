@@ -27,9 +27,13 @@
 [ext_resource type="PackedScene" uid="uid://cta6sleod1bvq" path="res://personaje1.tscn" id="30_2ug18"]
 [ext_resource type="Texture2D" uid="uid://idpo2a0tsrw0" path="res://Animaciones y Personajes/boton_azul.png" id="30_nafx6"]
 [ext_resource type="Shader" uid="uid://d0ta3mtr4yjw0" path="res://TorreColpatria.gdshader" id="30_pxldc"]
+[ext_resource type="Script" uid="uid://f357vglbvxec" path="res://sonido.gd" id="31_ntphg"]
 [ext_resource type="Texture2D" uid="uid://c63nd0rdb4h08" path="res://Animaciones y Personajes/boton_verde.png" id="31_o2s6f"]
+[ext_resource type="Script" uid="uid://osphsfcsjqqm" path="res://cuenta_atras.gd" id="32_bop5u"]
 [ext_resource type="Texture2D" uid="uid://xf5w577ylj53" path="res://Animaciones y Personajes/marco_grafiti.png" id="32_oflmt"]
+[ext_resource type="Script" uid="uid://chdkyrkytxyty" path="res://destello.gd" id="33_aqql2"]
 [ext_resource type="Texture2D" uid="uid://bthwu4d4xt5eu" path="res://Animaciones y Personajes/logo.png" id="33_n8syd"]
+[ext_resource type="Script" uid="uid://ci6yqha8bh2cx" path="res://muerte.gd" id="34_bop5u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="CieloMat"]
 sky_top_color = Color(0.33572447, 0.540877, 1, 1)
@@ -1161,6 +1165,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
 camara = NodePath("../Camera3D")
 sufijo = "_p2"
 rival = NodePath("../Personaje")
+
+[node name="Sonido" type="Node" parent="." unique_id=2028389756]
+script = ExtResource("31_ntphg")
+
+[node name="CuentaAtras" type="CanvasLayer" parent="." unique_id=1033816818]
+script = ExtResource("32_bop5u")
+
+[node name="Destello" type="Node" parent="." unique_id=823892475]
+script = ExtResource("33_aqql2")
+
+[node name="Muerte" type="Node" parent="." unique_id=2096433204]
+script = ExtResource("34_bop5u")
 
 [connection signal="pressed" from="MenuPausa/Fondo/Centro/Letrero/VBox/BotonReanudar" to="MenuPausa" method="_on_boton_reanudar_pressed"]
 [connection signal="pressed" from="MenuPausa/Fondo/Centro/Letrero/VBox/BotonReiniciar" to="MenuPausa" method="_on_boton_reiniciar_pressed"]

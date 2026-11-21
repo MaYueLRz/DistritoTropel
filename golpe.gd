@@ -13,7 +13,15 @@ enum Estado { LISTA, WINDUP, ACTIVE, RECOVERY }
 @export var cuadros_windup: Array[int] = [12, 12, 20]
 @export var cuadros_active: Array[int] = [6, 6, 6]
 @export var cuadros_recovery: Array[int] = [16, 16, 34]
-@export var empujes: Array[float] = [0.0, 0.0, 12]
+@export var empujes: Array[float] = [0.0, 0.0, 7]
+
+@export var alcances: Array[float] = [0.90, 0.95, 1.25]
+@export var alturas: Array[float] = [1.15, 1.15, 0.85]
+@export var radios: Array[float] = [0.4, 0.4, 0.4]
+
+@export var fuerzas: Array[float] = [1.0, 1.0, 2.0]
+
+@export var rompe_guardia: Array[bool] = [false, false, true]
 
 # Cuadros para encadenar el siguiente golpe antes de que el combo se caiga.
 @export var ventana = 22
@@ -64,6 +72,8 @@ func cambiar_a(nuevo):
 			reloj_ventana = 0
 			esta_golpeando = true
 			cuadros = cuadros_windup[paso]
+			hitbox.configurar(alcances[paso], alturas[paso], radios[paso],
+				fuerzas[paso], rompe_guardia[paso])
 			var pista = animaciones[paso]
 			if anim.has_animation(pista):
 				ajustar_velocidad(pista)
@@ -72,6 +82,7 @@ func cambiar_a(nuevo):
 				print("ojo: no existe la animación ", pista)
 			print("golpe ", paso + 1, " de ", animaciones.size(),
 				" -> WINDUP cuadro ", Engine.get_physics_frames())
+
 			return
 		Estado.ACTIVE:
 			cuadros = cuadros_active[paso]

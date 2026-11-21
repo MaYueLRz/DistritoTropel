@@ -1,4 +1,4 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://t6ycpssfy031"]
 
 [ext_resource type="PackedScene" uid="uid://duco4kudrre67" path="res://bravucon.tscn" id="1_7mycd"]
 [ext_resource type="PackedScene" uid="uid://d2085s0j4q45i" path="res://consumible.tscn" id="1_272bh"]
@@ -8,9 +8,10 @@
 [ext_resource type="Script" uid="uid://67g8ul8ywidy" path="res://golpe.gd" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://g76pliv8lo3r" path="res://interactuar.gd" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://dasg24n6trd5e" path="res://salud.gd" id="8_5vw27"]
-[ext_resource type="Script" path="res://luchador.gd" id="99_luchador"]
+[ext_resource type="Script" uid="uid://ci6yqha8bh2cx" path="res://muerte.gd" id="12_l5f66"]
 [ext_resource type="PackedScene" path="res://hud.tscn" id="98_hud"]
-[ext_resource type="Script" path="res://prueba_partida_nicolas.gd" id="99_part"]
+[ext_resource type="Script" uid="uid://b3tb2tcvhyb7u" path="res://luchador.gd" id="99_luchador"]
+[ext_resource type="Script" uid="uid://db8j0amuujffm" path="res://prueba_partida_nicolas.gd" id="99_part"]
 
 [sub_resource type="ProceduralSkyMaterial" id="CieloMat"]
 
@@ -44,11 +45,9 @@ height = 1.75
 
 [node name="Consumible2" parent="." unique_id=945343157 instance=ExtResource("1_272bh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6)
-valor = 25
 
 [node name="Consumible" parent="." unique_id=334566696 instance=ExtResource("1_272bh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
-valor = 25
 
 [node name="Bravucon" parent="." unique_id=520082231 instance=ExtResource("1_7mycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 6)
@@ -136,12 +135,13 @@ invulnerable = 0.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -3)
 omni_attenuation = 2.0
 
-[node name="Luchador" type="Node" parent="."]
+[node name="Luchador" type="Node" parent="." unique_id=1635527848]
 script = ExtResource("99_luchador")
 
-[node name="HUD" parent="." instance=ExtResource("98_hud")]
+[node name="HUD" parent="." unique_id=1744328874 instance=ExtResource("98_hud")]
 
-[node name="Partida" type="Node" parent="."]
+[node name="Partida" type="Node" parent="." unique_id=1079401031]
 script = ExtResource("99_part")
-tiempo_limite = 60.0
-metas = 0
+
+[node name="Muerte" type="Node" parent="." unique_id=1432271887]
+script = ExtResource("12_l5f66")

@@ -8,20 +8,23 @@
 [ext_resource type="Script" uid="uid://b7t31jk5uxfne" path="res://hitbox.gd" id="6_a2qxe"]
 [ext_resource type="PackedScene" uid="uid://b85sgtofgsx1l" path="res://Animaciones y Personajes/Ch31_nonPBR.fbx" id="7_mk36t"]
 [ext_resource type="AnimationLibrary" uid="uid://bxmfedltvjt3d" path="res://Animaciones y Personajes/Walking Backwards.fbx" id="8_61rrn"]
+[ext_resource type="AnimationLibrary" uid="uid://cgsl26n6kn4xr" path="res://Animaciones y Personajes/Body Block.fbx" id="8_2401m"]
 [ext_resource type="AnimationLibrary" uid="uid://c55k8pq5x0oc1" path="res://Animaciones y Personajes/Punching derecho.fbx" id="9_beodc"]
 [ext_resource type="AnimationLibrary" uid="uid://kvejdmpjrjvt" path="res://Animaciones y Personajes/Punching izquierdo.fbx" id="10_de35w"]
 [ext_resource type="AnimationLibrary" uid="uid://dy3pso5dg0h1o" path="res://Animaciones y Personajes/Fighting Idle.fbx" id="11_8usrc"]
 [ext_resource type="AnimationLibrary" uid="uid://ba6kka1ge04in" path="res://Animaciones y Personajes/Lateralwalk.fbx" id="12_ylqgm"]
 [ext_resource type="AnimationLibrary" uid="uid://2xhkffx3mpjg" path="res://Animaciones y Personajes/Mma Kick.fbx" id="13_e1cpc"]
 [ext_resource type="AnimationLibrary" uid="uid://ca5d54otvjbfo" path="res://Animaciones y Personajes/Running (1).fbx" id="14_hcmpx"]
+[ext_resource type="AnimationLibrary" uid="uid://0j5tuf1cgocu" path="res://Animaciones y Personajes/Reaction.fbx" id="14_qfb3k"]
 [ext_resource type="AnimationLibrary" uid="uid://b01j55kxr3u8m" path="res://Animaciones y Personajes/Walking.fbx" id="15_7n6cs"]
+[ext_resource type="PackedScene" path="res://addons/emberset/effects/shield/bubble_shock.tscn" id="18_om665"]
 
 [sub_resource type="CapsuleShape3D" id="Capsula"]
 radius = 0.35
 height = 1.75
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mivf0"]
-radius = 0.55
+radius = 0.4
 
 [sub_resource type="Animation" id="Animation_h1l3k"]
 resource_name = "Take 001"
@@ -813,7 +816,7 @@ script = ExtResource("6_a2qxe")
 shape = SubResource("SphereShape3D_mivf0")
 
 [node name="Modelo" parent="." unique_id=1427414628 instance=ExtResource("7_mk36t")]
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0, 0, 0)
+transform = Transform3D(-1.2, 0, -1.8119498e-07, 0, 1.2, 0, 1.8119498e-07, 0, -1.2, 0, 0, 0)
 
 [node name="GeneralSkeleton" parent="Modelo" index="0" unique_id=983519814]
 bones/1/rotation = Quaternion(7.450581e-09, 0, 0, 1)
@@ -854,6 +857,7 @@ bones/61/rotation = Quaternion(3.7252899e-09, 1, -3.7252899e-09, 0)
 bones/62/rotation = Quaternion(-4.8567657e-09, 0.7071067, -0.7071068, -2.222588e-09)
 
 [node name="AnimationPlayer" parent="Modelo" index="1" unique_id=614452309]
+libraries/Bloqueo = ExtResource("8_2401m")
 "libraries/Caminata lateral" = SubResource("AnimationLibrary_lswn8")
 libraries/CaminataTrasera = ExtResource("8_61rrn")
 libraries/Golpe = ExtResource("9_beodc")
@@ -861,6 +865,7 @@ libraries/Golpe2 = ExtResource("10_de35w")
 libraries/Idile = ExtResource("11_8usrc")
 libraries/Lateral = ExtResource("12_ylqgm")
 libraries/Patada = ExtResource("13_e1cpc")
+libraries/Reaction = ExtResource("14_qfb3k")
 libraries/Sprint = ExtResource("14_hcmpx")
 libraries/Walk = ExtResource("15_7n6cs")
 
@@ -869,5 +874,9 @@ libraries/Walk = ExtResource("15_7n6cs")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox" unique_id=1023903339]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_mivf0")
+
+[node name="Escudo" parent="." unique_id=481559758 instance=ExtResource("18_om665")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+autoplay = false
 
 [editable path="Modelo"]

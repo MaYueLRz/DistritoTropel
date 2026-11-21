@@ -1,0 +1,182 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://addons/emberset/vfx_status.gd" id="1_pldyj"]
+[ext_resource type="Material" path="res://addons/emberset/overlays/frozen.tres" id="2_q8xxy"]
+[ext_resource type="Shader" path="res://addons/emberset/shaders/fx_crystal.gdshader" id="3_l2e3g"]
+[ext_resource type="Texture2D" path="res://addons/emberset/textures/noise_cell.png" id="4_8mray"]
+[ext_resource type="ArrayMesh" path="res://addons/emberset/meshes/spike.tres" id="5_33d58"]
+[ext_resource type="Shader" path="res://addons/emberset/shaders/fx_particle_add.gdshader" id="6_krviy"]
+[ext_resource type="Shader" path="res://addons/emberset/shaders/fx_particle_mix.gdshader" id="7_6p8vm"]
+[ext_resource type="Texture2D" path="res://addons/emberset/textures/noise_soft.png" id="8_f2w18"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l02wf"]
+render_priority = 0
+shader = ExtResource("3_l2e3g")
+shader_parameter/noise = ExtResource("4_8mray")
+shader_parameter/color_light = Color(0.95, 1, 1, 1)
+shader_parameter/color_dark = Color(0.15, 0.4, 0.9, 1)
+shader_parameter/color_rim = Color(0.5, 0.85, 1, 1)
+shader_parameter/emission = null
+shader_parameter/fade = null
+
+[sub_resource type="Gradient" id="Gradient_mid34"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a20xp"]
+gradient = SubResource("Gradient_mid34")
+width = 64
+
+[sub_resource type="Curve" id="Curve_a3w6g"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1, 1), 0.0, 0.0, 0, 0, Vector2(0.9, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_kqowa"]
+width = 64
+curve = SubResource("Curve_a3w6g")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tpafm"]
+particle_flag_align_y = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 0.55
+emission_ring_inner_radius = 0.35
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 1, 0)
+spread = 30.0
+initial_velocity_min = 0.01
+initial_velocity_max = 0.02
+gravity = Vector3(0, 0, 0)
+damping_min = 6.0
+damping_max = 8.0
+scale_min = 0.3
+scale_max = 0.7
+scale_curve = SubResource("CurveTexture_kqowa")
+color_ramp = SubResource("GradientTexture1D_a20xp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wxn2k"]
+render_priority = 0
+shader = ExtResource("6_krviy")
+shader_parameter/shape = 1
+shader_parameter/emission = 2.0
+shader_parameter/hot = 0.6
+shader_parameter/ring_width = null
+shader_parameter/erosion_life = null
+shader_parameter/fade = null
+
+[sub_resource type="Gradient" id="Gradient_gv625"]
+offsets = PackedFloat32Array(0, 0.6, 1)
+colors = PackedColorArray(0.95, 1, 1, 1, 0.5, 0.85, 1, 1, 0.5, 0.85, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pcbcy"]
+gradient = SubResource("Gradient_gv625")
+width = 64
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3t1jv"]
+lifetime_randomness = 0.4
+emission_shape = 3
+emission_box_extents = Vector3(0.32, 0.8, 0.32)
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 0.05
+initial_velocity_max = 0.2
+gravity = Vector3(0, -0.5, 0)
+tangential_accel_min = -1.2
+tangential_accel_max = 1.2
+scale_min = 0.5
+scale_max = 1.2
+color_ramp = SubResource("GradientTexture1D_pcbcy")
+
+[sub_resource type="QuadMesh" id="QuadMesh_a3brp"]
+size = Vector2(0.045, 0.045)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a7aol"]
+render_priority = 0
+shader = ExtResource("7_6p8vm")
+shader_parameter/shape = 5
+shader_parameter/emission = null
+shader_parameter/hot = null
+shader_parameter/ring_width = null
+shader_parameter/erosion_life = 0.45
+shader_parameter/noise = ExtResource("8_f2w18")
+shader_parameter/fade = null
+
+[sub_resource type="Gradient" id="Gradient_3udb0"]
+offsets = PackedFloat32Array(0, 0.2, 1)
+colors = PackedColorArray(0.8, 0.93, 1, 0, 0.8, 0.93, 1, 0.25, 0.83, 0.9405, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_53kde"]
+gradient = SubResource("Gradient_3udb0")
+width = 64
+
+[sub_resource type="Curve" id="Curve_oaigj"]
+_limits = [0.0, 1.5, 0.0, 1.0]
+_data = [Vector2(0, 0.4), 0.0, 0.0, 0, 0, Vector2(1, 1.5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bsgnb"]
+width = 64
+curve = SubResource("Curve_oaigj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mnc0h"]
+angle_min = -180.0
+angle_max = 180.0
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 0.1
+initial_velocity_max = 0.35
+angular_velocity_min = -20.0
+angular_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.6
+scale_max = 0.9
+scale_curve = SubResource("CurveTexture_bsgnb")
+color_ramp = SubResource("GradientTexture1D_53kde")
+
+[sub_resource type="QuadMesh" id="QuadMesh_uxu75"]
+size = Vector2(0.9, 0.9)
+
+[node name="Frozen" type="Node3D" unique_id=1684995133]
+script = ExtResource("1_pldyj")
+overlay = ExtResource("2_q8xxy")
+duration = 3.0
+
+[node name="Rime" type="GPUParticles3D" parent="." unique_id=1550610332]
+material_override = SubResource("ShaderMaterial_l02wf")
+cast_shadow = 0
+amount = 9
+lifetime = 3.0
+preprocess = 3.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_tpafm")
+draw_pass_1 = ExtResource("5_33d58")
+
+[node name="Snow" type="GPUParticles3D" parent="." unique_id=1451246701]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+material_override = SubResource("ShaderMaterial_wxn2k")
+cast_shadow = 0
+amount = 14
+lifetime = 1.4
+fixed_fps = 60
+transform_align = 1
+transform_align_channel_filter = 1
+process_material = SubResource("ParticleProcessMaterial_3t1jv")
+draw_pass_1 = SubResource("QuadMesh_a3brp")
+
+[node name="Mist" type="GPUParticles3D" parent="." unique_id=822470163]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = SubResource("ShaderMaterial_a7aol")
+cast_shadow = 0
+amount = 6
+lifetime = 2.0
+fixed_fps = 60
+transform_align = 1
+transform_align_channel_filter = 1
+process_material = SubResource("ParticleProcessMaterial_mnc0h")
+draw_pass_1 = SubResource("QuadMesh_uxu75")
+
+[node name="Light" type="OmniLight3D" parent="." unique_id=963542580]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+light_color = Color(0.5, 0.85, 1, 1)
+omni_range = 4.0
+metadata/flicker = 0.1

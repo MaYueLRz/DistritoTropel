@@ -1,0 +1,16 @@
+Emberset VFX - licence
+
+You may:
+- use the effects, shaders, textures, meshes and scripts in this pack in any number of
+  free or commercial games, apps, films and other finished projects;
+- change them in any way for those projects;
+- ship them inside your project without credit (credit is welcome, not required).
+
+You may not:
+- resell, share or redistribute this pack or its files, changed or not, as an asset pack,
+  template, tutorial download or in any other form where the files themselves are the product;
+- claim that you made the pack.
+
+The free sample is covered by the same terms.
+
+The pack is provided as is, without warranty of any kind.

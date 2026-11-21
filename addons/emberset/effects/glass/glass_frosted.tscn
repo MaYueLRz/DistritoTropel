@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://addons/emberset/vfx_effect.gd" id="1_rk3me"]
+[ext_resource type="Material" path="res://addons/emberset/glass/frosted.tres" id="2_8ujvu"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_42y1t"]
+size = Vector2(2.4, 2.4)
+
+[node name="GlassFrosted" type="Node3D" unique_id=944514939]
+script = ExtResource("1_rk3me")
+duration = 0.3
+
+[node name="Pane" type="MeshInstance3D" parent="." unique_id=1431518645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+material_override = ExtResource("2_8ujvu")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_42y1t")

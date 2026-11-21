@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://addons/emberset/shaders/fx_glass.gdshader" id="1_a5574"]
+[ext_resource type="Texture2D" path="res://addons/emberset/textures/noise_soft.png" id="2_v6m57"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_a5574")
+shader_parameter/noise = ExtResource("2_v6m57")
+shader_parameter/noise_scale = 6.0
+shader_parameter/tint = null
+shader_parameter/blur = 3.0
+shader_parameter/frost = 1.0
+shader_parameter/frost_softness = 0.5
+shader_parameter/edge_frost = null
+shader_parameter/frost_color = Color(0.92, 0.96, 1, 0.22)
+shader_parameter/frost_blur = 1.0
+shader_parameter/distortion = 0.004
+shader_parameter/rim = null
+shader_parameter/fade = null
