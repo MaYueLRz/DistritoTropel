@@ -28,7 +28,7 @@ var cuadros_prueba = 0
 @export var sufijo = ""
 
 @onready var anim = $Modelo/AnimationPlayer
-@export var animacion_dano = "Reaction/mixamo_com"
+@export var animacion_dano = "GolpeCabeza/mixamo_com"
 @export var cuadros_reaccion = 18
 var reloj_reaccion = 0
 @export var animacion_bloqueo = "Bloqueo/mixamo_com"

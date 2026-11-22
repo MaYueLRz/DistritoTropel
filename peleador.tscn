@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://b436v1hjb300k"]
+
+[ext_resource type="PackedScene" uid="uid://cdkurtgohsceq" path="res://Animaciones y Personajes/peladorpeloazul.fbx" id="1_2tcwf"]
+[ext_resource type="Shader" uid="uid://cdcsdr4s5xop0" path="res://shaders/stylized.gdshader" id="2_1jg4x"]
+[ext_resource type="Texture2D" uid="uid://d4x2bm20ue7d" path="res://Animaciones y Personajes/pelador_color.png" id="3_u68nm"]
+[ext_resource type="AnimationLibrary" uid="uid://ctgk500e1wtvr" path="res://Animaciones y Personajes/Action Idle To Fight Idle.fbx" id="4_w8kqj"]
+[ext_resource type="AnimationLibrary" uid="uid://cgsl26n6kn4xr" path="res://Animaciones y Personajes/Body Block.fbx" id="5_1na56"]
+[ext_resource type="AnimationLibrary" uid="uid://d0asl3bafpjks" path="res://Animaciones y Personajes/Getting Up.fbx" id="6_i8n8c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n4irs"]
+render_priority = 0
+shader = ExtResource("2_1jg4x")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/albedo_texture = ExtResource("3_u68nm")
+shader_parameter/albedo_affect = 0.0
+shader_parameter/use_stepped = true
+shader_parameter/steps = 2.0
+shader_parameter/step_smoothness = 0.05000000074506
+shader_parameter/shadow_tint = Color(0.16470589, 0.16470589, 0.33333334, 1)
+shader_parameter/shadow_tint_amount = 0.4
+shader_parameter/specular = 0.0
+shader_parameter/normal_strength = 0.0
+shader_parameter/use_rim = true
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/rim_amount = 2.0
+shader_parameter/rim_smoothness = 0.2
+shader_parameter/rim_mask_shadow = 1.0
+shader_parameter/rim_blend = 0.40000000596048
+shader_parameter/use_pattern = true
+shader_parameter/pattern_uv_mode = 2
+shader_parameter/pattern_tiling = 32.0
+shader_parameter/pattern_amount = 0.5
+shader_parameter/pattern_smoothness = 0.5
+shader_parameter/pattern_blend = 0.2
+
+[node name="Node3D" type="Node3D" unique_id=150291756]
+
+[node name="peladorpeloazul" parent="." unique_id=1243641696 instance=ExtResource("1_2tcwf")]
+
+[node name="GeneralSkeleton" parent="peladorpeloazul" index="0" unique_id=228703063]
+bones/0/position = Vector3(8.1971324e-05, 0.8976094, -0.0062945588)
+bones/0/rotation = Quaternion(1.7196273e-05, 3.489039e-05, -0.0009087252, 0.9999996)
+bones/1/rotation = Quaternion(-1.719594e-05, -3.4890298e-05, 0.00090872525, 0.9999996)
+bones/7/rotation = Quaternion(0.50483555, 0.49511725, 0.50483584, -0.49511695)
+bones/8/rotation = Quaternion(0.018853337, 0.9944241, -0.1037499, -0.0011001378)
+bones/9/rotation = Quaternion(-0.09125143, -0.701262, 0.07263747, 0.70329845)
+bones/10/rotation = Quaternion(0.052850276, 0.7044012, -0.05527647, 0.70567006)
+bones/11/rotation = Quaternion(-0.056325596, 0.7127263, 0.2795042, 0.6408791)
+bones/12/rotation = Quaternion(0.09732452, -3.823602e-05, -0.024406526, 0.99495345)
+bones/13/rotation = Quaternion(-0.08978095, 0.0011887252, 0.028244197, 0.9955603)
+bones/15/rotation = Quaternion(0.032983676, -0.0028277934, -0.0171099, 0.9993055)
+bones/16/rotation = Quaternion(-0.20036934, -0.004979879, 0.0019812735, 0.9797058)
+bones/17/rotation = Quaternion(0.1258496, 0.0031288117, -0.0012496412, 0.9920437)
+bones/19/rotation = Quaternion(0.5048418, -0.495111, -0.50484204, -0.4951105)
+bones/20/rotation = Quaternion(-0.021034243, 0.9943812, -0.10374142, 0.001227379)
+bones/21/rotation = Quaternion(-0.09337175, 0.7013574, -0.07049955, 0.7031426)
+bones/22/rotation = Quaternion(0.058454614, -0.70430154, 0.053473, 0.70546657)
+bones/23/rotation = Quaternion(-0.054737613, -0.71325356, -0.27491653, 0.64241284)
+bones/24/rotation = Quaternion(0.09171639, 7.687478e-05, 0.02144629, 0.99555427)
+bones/25/rotation = Quaternion(-0.06260469, -0.006091372, -0.0464913, 0.99693644)
+bones/27/rotation = Quaternion(0.13832088, 0.0066271434, 0.027388874, 0.9899866)
+bones/28/rotation = Quaternion(-0.48338544, 0.020234646, -0.001367286, 0.8751728)
+bones/29/rotation = Quaternion(0.3153357, -0.012891978, 0.00042143464, 0.94889253)
+bones/31/rotation = Quaternion(-0.00026645712, 0.06558747, 0.9978453, 0.001758652)
+bones/32/rotation = Quaternion(-0.00021113642, 0.99087757, -0.13476297, -0.0007988226)
+bones/33/rotation = Quaternion(0.0025917173, 0.6562521, -0.754537, -0.0007354417)
+bones/36/rotation = Quaternion(4.2585983e-05, 0.061470754, 0.99810266, -0.0035382234)
+bones/37/rotation = Quaternion(0.00017747654, 0.99221754, -0.124514215, 0.0007481385)
+bones/38/rotation = Quaternion(-0.0025237007, 0.6609254, -0.7504469, 0.00083248905)
+
+[node name="mesh_0" parent="peladorpeloazul/GeneralSkeleton" index="0" unique_id=323091210]
+surface_material_override/0 = SubResource("ShaderMaterial_n4irs")
+
+[node name="AnimationPlayer" parent="peladorpeloazul" index="1" unique_id=1636750949]
+"libraries/Action Idle To Fight Idle" = ExtResource("4_w8kqj")
+"libraries/Body Block" = ExtResource("5_1na56")
+"libraries/Getting Up" = ExtResource("6_i8n8c")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=725903138]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 1.3763881, 1.5918639)
+
+[editable path="peladorpeloazul"]
