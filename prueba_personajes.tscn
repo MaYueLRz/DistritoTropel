@@ -1,0 +1,241 @@
+[gd_scene format=3 uid="uid://6untxg0em6ql"]
+
+[ext_resource type="PackedScene" uid="uid://cta6sleod1bvq" path="res://personaje1.tscn" id="1_rd5hi"]
+[ext_resource type="Script" uid="uid://betxg37pce23f" path="res://menu_pausa.gd" id="2_6fmfh"]
+[ext_resource type="Shader" uid="uid://b6cm5qm85u8sv" path="res://desenfoque.gdshader" id="3_3ibof"]
+[ext_resource type="Texture2D" uid="uid://deusyr0qb6mgk" path="res://Animaciones y Personajes/letrero.png" id="4_ylati"]
+[ext_resource type="FontFile" uid="uid://c0u24elkd4a8u" path="res://Anton-Regular.ttf" id="5_md0tu"]
+[ext_resource type="Texture2D" uid="uid://qi4vb7dr6qnj" path="res://Animaciones y Personajes/boton_rojo.png" id="6_o5h8y"]
+[ext_resource type="Texture2D" uid="uid://c7h64kh1q67qt" path="res://Animaciones y Personajes/boton_amarillo.png" id="7_ldybt"]
+[ext_resource type="Texture2D" uid="uid://idpo2a0tsrw0" path="res://Animaciones y Personajes/boton_azul.png" id="8_8gy1y"]
+[ext_resource type="Texture2D" uid="uid://c63nd0rdb4h08" path="res://Animaciones y Personajes/boton_verde.png" id="9_2kfxf"]
+[ext_resource type="Texture2D" uid="uid://xf5w577ylj53" path="res://Animaciones y Personajes/marco_grafiti.png" id="10_jqngb"]
+[ext_resource type="Texture2D" uid="uid://bthwu4d4xt5eu" path="res://Animaciones y Personajes/logo.png" id="11_jr5g6"]
+[ext_resource type="Script" uid="uid://c43r45xkk1kmo" path="res://camera_sigue.gd" id="12_8ljxj"]
+[ext_resource type="PackedScene" path="res://hud_juego.tscn" id="13_p5tuu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e50jh"]
+shader = ExtResource("3_3ibof")
+shader_parameter/desenfoque = 2.5
+shader_parameter/oscuridad = 0.45
+shader_parameter/tinte = Color(1, 0.78, 0.5, 1)
+shader_parameter/vineta = 0.7
+shader_parameter/tamano_puntos = 7.0
+shader_parameter/fuerza_puntos = 0.3
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oxmon"]
+content_margin_left = 75.0
+content_margin_top = 126.0
+content_margin_right = 74.0
+content_margin_bottom = 66.0
+texture = ExtResource("4_ylati")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fxsfo"]
+texture = ExtResource("6_o5h8y")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y2w8f"]
+texture = ExtResource("7_ldybt")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iin0y"]
+texture = ExtResource("8_8gy1y")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_udp78"]
+texture = ExtResource("9_2kfxf")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x5arm"]
+albedo_color = Color(0.3529412, 0.3764706, 0.40784314, 1)
+normal_scale = 0.3
+heightmap_scale = 0.3
+refraction_scale = 0.3
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_acbjo"]
+sky_top_color = Color(0.18039216, 0.2901961, 0.41960785, 1)
+sky_horizon_color = Color(0.9098039, 0.58431375, 0.3529412, 1)
+ground_bottom_color = Color(0.101960786, 0.101960786, 0.12156863, 1)
+ground_horizon_color = Color(0.22745098, 0.22745098, 0.25882354, 1)
+
+[sub_resource type="Sky" id="Cielo"]
+sky_material = SubResource("ProceduralSkyMaterial_acbjo")
+
+[sub_resource type="Environment" id="Environment_camrb"]
+background_mode = 2
+sky = SubResource("Cielo")
+ambient_light_source = 3
+tonemap_mode = 3
+tonemap_white = 6.0
+ssao_enabled = true
+glow_enabled = true
+glow_intensity = 0.5
+glow_bloom = 0.05
+fog_enabled = true
+fog_light_color = Color(0.7882353, 0.5411765, 0.36862746, 1)
+fog_density = 0.008
+adjustment_enabled = true
+adjustment_contrast = 1.05
+adjustment_saturation = 1.15
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pjcj7"]
+size = Vector2(30, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7i5jq"]
+size = Vector3(30, 0.2, 30)
+
+[node name="Prueba Personajes" type="Node3D" unique_id=1697072675]
+
+[node name="Personaje2" parent="." unique_id=21036145 node_paths=PackedStringArray("camara", "rival") groups=["jugador2"] instance=ExtResource("1_rd5hi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+camara = NodePath("")
+sufijo = "_p2"
+rival = NodePath("")
+
+[node name="MenuPausa" type="CanvasLayer" parent="." unique_id=1295136192]
+layer = 10
+script = ExtResource("2_6fmfh")
+
+[node name="Fondo" type="ColorRect" parent="MenuPausa" unique_id=301504146]
+material = SubResource("ShaderMaterial_e50jh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="Centro" type="CenterContainer" parent="MenuPausa/Fondo" unique_id=1342913499]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33
+anchor_right = 0.88
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Letrero" type="PanelContainer" parent="MenuPausa/Fondo/Centro" unique_id=1600750755]
+custom_minimum_size = Vector2(474, 504)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_oxmon")
+
+[node name="VBox" type="VBoxContainer" parent="MenuPausa/Fondo/Centro/Letrero" unique_id=1386715190]
+layout_mode = 2
+theme_override_constants/separation = 21
+
+[node name="BotonReanudar" type="Button" parent="MenuPausa/Fondo/Centro/Letrero/VBox" unique_id=746247760]
+custom_minimum_size = Vector2(280, 62)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_md0tu")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_fxsfo")
+text = "Continuar"
+
+[node name="BotonReiniciar" type="Button" parent="MenuPausa/Fondo/Centro/Letrero/VBox" unique_id=1283601747]
+custom_minimum_size = Vector2(280, 62)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_md0tu")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_y2w8f")
+text = "Reiniciar"
+
+[node name="BotonLocalidad" type="Button" parent="MenuPausa/Fondo/Centro/Letrero/VBox" unique_id=297695187]
+custom_minimum_size = Vector2(280, 62)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_md0tu")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_iin0y")
+text = "Localidades"
+
+[node name="BotonSalir" type="Button" parent="MenuPausa/Fondo/Centro/Letrero/VBox" unique_id=1903520116]
+custom_minimum_size = Vector2(280, 62)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_md0tu")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_udp78")
+text = "Salir"
+
+[node name="Marco" type="TextureRect" parent="MenuPausa/Fondo" unique_id=42042864]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("10_jqngb")
+expand_mode = 1
+
+[node name="Logo" type="TextureRect" parent="MenuPausa/Fondo" unique_id=1607604903]
+layout_mode = 1
+offset_top = 203.0
+offset_right = 459.0
+offset_bottom = 387.0
+mouse_filter = 2
+texture = ExtResource("11_jr5g6")
+expand_mode = 1
+
+[node name="MuroArena" type="CSGCylinder3D" parent="." unique_id=2046732962]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+use_collision = true
+radius = 15.0
+height = 1.2
+sides = 32
+material = SubResource("StandardMaterial3D_x5arm")
+
+[node name="MuroArena2" type="CSGCylinder3D" parent="MuroArena" unique_id=477629698]
+operation = 2
+radius = 14.8
+sides = 32
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=921104595 node_paths=PackedStringArray("objetivo", "rival")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 5, 7)
+script = ExtResource("12_8ljxj")
+objetivo = NodePath("../Personaje")
+rival = NodePath("../Personaje2")
+
+[node name="Personaje" parent="." unique_id=2073122582 node_paths=PackedStringArray("camara", "rival") groups=["jugador1"] instance=ExtResource("1_rd5hi")]
+camara = NodePath("../Camera3D")
+rival = NodePath(".")
+
+[node name="Farol" type="OmniLight3D" parent="." unique_id=436613601]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -3)
+omni_attenuation = 2.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=405438895]
+environment = SubResource("Environment_camrb")
+
+[node name="Sol" type="DirectionalLight3D" parent="." unique_id=1303276652]
+transform = Transform3D(-0.7071065, -0.21850796, 0.67249835, 0, 0.95105624, 0.3090169, -0.7071065, 0.21850796, -0.67249835, 0, 6, 0)
+light_color = Color(1, 0.6901961, 0.41568628, 1)
+light_energy = 1.4
+shadow_enabled = true
+
+[node name="Suelo" type="StaticBody3D" parent="." unique_id=2038309262]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Suelo" unique_id=904524087]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+mesh = SubResource("PlaneMesh_pjcj7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo" unique_id=1176769309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_7i5jq")
+
+[node name="HUDJuego" parent="." unique_id=1632316601 instance=ExtResource("13_p5tuu")]
+
+[connection signal="pressed" from="MenuPausa/Fondo/Centro/Letrero/VBox/BotonReanudar" to="MenuPausa" method="_on_boton_reanudar_pressed"]
+[connection signal="pressed" from="MenuPausa/Fondo/Centro/Letrero/VBox/BotonReiniciar" to="MenuPausa" method="_on_boton_reiniciar_pressed"]
+[connection signal="pressed" from="MenuPausa/Fondo/Centro/Letrero/VBox/BotonLocalidad" to="MenuPausa" method="_on_boton_localidades_pressed"]
+[connection signal="pressed" from="MenuPausa/Fondo/Centro/Letrero/VBox/BotonSalir" to="MenuPausa" method="_on_boton_salir_pressed"]
