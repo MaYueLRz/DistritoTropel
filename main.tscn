@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://ddudhcldqdykp" path="res://consumible.gd" id="2_yaehf"]
 [ext_resource type="PackedScene" uid="uid://cta6sleod1bvq" path="res://personaje1.tscn" id="4_cegan"]
 [ext_resource type="Script" uid="uid://bedyj56pipani" path="res://partida.gd" id="6_7mycd"]
-[ext_resource type="PackedScene" uid="uid://b72n7dqm7akgb" path="res://enemigo.tscn" id="9_kek77"]
 [ext_resource type="Texture2D" uid="uid://d3afiuwi2mwhi" path="res://Animaciones y Personajes/stacked_brick_wall_diff_2k.jpg" id="12_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://cie58inig4ibx" path="res://Animaciones y Personajes/imagen.jpeg" id="13_w48qg"]
 [ext_resource type="PackedScene" uid="uid://uwtbrr8ouen4" path="res://Animaciones y Personajes/Mall+2.glb" id="16_2cqfq"]
@@ -196,22 +195,28 @@ surface_material_override/0 = SubResource("CajaMat")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cajas/Refajo" unique_id=656420938]
 shape = SubResource("CajaForma")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=705986188 node_paths=PackedStringArray("objetivo", "rival")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 5, 7)
+[node name="Personaje" parent="." unique_id=21036145 node_paths=PackedStringArray("camara", "rival") groups=["jugador1"] instance=ExtResource("4_cegan")]
+camara = NodePath("../CameraRig/SpringArm3D/Camera3D")
+rival = NodePath("../Personaje2")
+
+[node name="Personaje2" parent="." unique_id=1763823308 node_paths=PackedStringArray("camara", "rival") groups=["jugador2"] instance=ExtResource("4_cegan")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+camara = NodePath("../CameraRig/SpringArm3D/Camera3D")
+sufijo = "_p2"
+rival = NodePath("../Personaje")
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=1678426921 node_paths=PackedStringArray("objetivo", "rival")]
 script = ExtResource("1_lquwl")
 objetivo = NodePath("../Personaje")
 rival = NodePath("../Personaje2")
 
-[node name="Personaje" parent="." unique_id=21036145 node_paths=PackedStringArray("camara", "rival") groups=["jugador1"] instance=ExtResource("4_cegan")]
-camara = NodePath("../Camera3D")
-rival = NodePath("../Personaje2")
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraRig" unique_id=733668452]
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig/SpringArm3D" unique_id=2075504052]
 
 [node name="Farol" type="OmniLight3D" parent="." unique_id=794866491]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -3)
 omni_attenuation = 2.0
-
-[node name="Enemigo" parent="." unique_id=645478461 groups=["enemigo"] instance=ExtResource("9_kek77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.387974)
 
 [node name="Partida" type="Node" parent="." unique_id=831420112]
 script = ExtResource("6_7mycd")
@@ -317,12 +322,6 @@ offset_bottom = 387.0
 mouse_filter = 2
 texture = ExtResource("27_a6jrf")
 expand_mode = 1
-
-[node name="Personaje2" parent="." unique_id=1763823308 node_paths=PackedStringArray("camara", "rival") groups=["jugador2"] instance=ExtResource("4_cegan")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
-camara = NodePath("../Camera3D")
-sufijo = "_p2"
-rival = NodePath("../Personaje")
 
 [node name="CuentaAtras" type="CanvasLayer" parent="." unique_id=791936807]
 script = ExtResource("20_82xsv")

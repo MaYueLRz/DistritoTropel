@@ -12,6 +12,12 @@ enum Prueba { NINGUNA, AVANZAR_60_CUADROS, MANTENER_ACCION_2S }
 @export var accion_prueba = ""
 @export var mirar_al_rival = true
 
+@export var animacion_levantarse = "Levantarse/mixamo_com"
+@export var velocidad_levantarse = 1.4
+
+var derribado = false
+var despegado = false
+
 
 var cuadros_prueba = 0
 
@@ -96,6 +102,10 @@ func _physics_process(delta):
 	if bloqueando:
 		direction = Vector3.ZERO
 	
+	if reloj_reaccion > 0:
+		reloj_reaccion -= 1
+		direction = Vector3.ZERO
+	
 	cuadros_prueba += 1
 	if prueba == Prueba.AVANZAR_60_CUADROS and cuadros_prueba <= 60:
 		direction = Vector3(0, 0, -1)
@@ -120,8 +130,7 @@ func _physics_process(delta):
 		reloj_destello -= delta
 		if reloj_destello <= 0.0:
 			pintar(null)
-	if reloj_reaccion > 0:
-		reloj_reaccion -= 1
+
 
 	velocity.x = avance.x + empuje.x
 	velocity.z = avance.z + empuje.z
@@ -147,8 +156,15 @@ func _physics_process(delta):
 			rumbo = Rumbo.ATRAS
 
 	move_and_slide()
-	
-	
+
+	if derribado:
+		reloj_reaccion = maxi(reloj_reaccion, 2)
+		if not is_on_floor():
+			despegado = true
+		elif despegado:
+			derribado = false
+			despegado = false
+			levantarse()
 
 	estado = elegir_estado()
 	ruido = RUIDO[estado]
@@ -158,9 +174,7 @@ func _physics_process(delta):
 func elegir_estado():
 	if not is_on_floor():
 		return Estado.QUIETO
-		
 
-		
 	var rapidez = Vector2(velocity.x, velocity.z).length()
 	if rapidez < 0.1:
 		return Estado.QUIETO
@@ -224,31 +238,44 @@ func pintar(mat):
 	for m in mallas:
 		m.material_overlay = mat
 
-func recibir_golpe(cantidad, fuerza_empuje, imparable, desde, punto):
+func recibir_golpe(info):
+	var imparable = info.get("imparable", false)
 	var parado = bloqueando and not imparable
+	var danio = info.get("danio", 0)
+	var fuerza = info.get("empuje", 0.0)
+	var alzado = info.get("alzado", 0.0)
 
 	if parado:
-		cantidad = maxi(int(cantidad * reduccion_bloqueo), 1)
-		fuerza_empuje *= empuje_bloqueado
+		danio = maxi(int(danio * reduccion_bloqueo), 1)
+		fuerza *= empuje_bloqueado
+		alzado = 0.0
 		if escudo != null and escudo.has_method("hit"):
-			escudo.hit(punto)
+			escudo.hit(info.get("punto", global_position))
 	else:
 		if bloqueando:
 			romper_guardia()
 		destellar()
-		reloj_reaccion = cuadros_reaccion
-		if anim.has_animation(animacion_dano):
+		reloj_reaccion = info.get("aturdimiento", cuadros_reaccion)
+		var pista = info.get("reaccion", animacion_dano)
+		if anim.has_animation(pista):
 			anim.speed_scale = 1.0
-			anim.play(animacion_dano)
+			anim.play(pista)
 			anim.seek(0.0, true)
 
-	$Salud.recibir_golpe(cantidad)
+	$Salud.recibir_golpe(danio)
+	print(name, " recibe ", danio, " · ",
+		"BLOQUEADO" if parado else "limpio", " · vida ", $Salud.vida)
 
-	if fuerza_empuje > 0.0:
+	var desde = info.get("desde", global_position)
+	if fuerza > 0.0:
 		var lejos = global_position - desde
 		lejos.y = 0.0
 		if lejos.length() > 0.01:
-			empuje += lejos.normalized() * fuerza_empuje
+			empuje += lejos.normalized() * fuerza
+	if alzado > 0.0:
+		velocity.y = alzado
+		derribado = true
+		despegado = false
 
 
 func romper_guardia():
@@ -256,3 +283,12 @@ func romper_guardia():
 	reloj_guardia_rota = cuadros_guardia_rota
 	if escudo != null:
 		escudo.stop()
+
+func levantarse():
+	if not anim.has_animation(animacion_levantarse):
+		reloj_reaccion = 30
+		return
+	anim.speed_scale = velocidad_levantarse
+	anim.play(animacion_levantarse, 0.15)
+	var pista = anim.get_animation(animacion_levantarse)
+	reloj_reaccion = int(pista.length * 60.0 / velocidad_levantarse)

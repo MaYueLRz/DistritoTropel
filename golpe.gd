@@ -4,24 +4,32 @@ enum Estado { LISTA, WINDUP, ACTIVE, RECOVERY }
 
 @export var tecla = "golpe"
 
-
 @export var animaciones: Array[String] = [
+	"Golpe/mixamo_com",
+	"Golpe2/mixamo_com",
 	"Golpe/mixamo_com",
 	"Golpe2/mixamo_com",
 	"Patada/mixamo_com",
 ]
-@export var cuadros_windup: Array[int] = [12, 12, 20]
-@export var cuadros_active: Array[int] = [6, 6, 6]
-@export var cuadros_recovery: Array[int] = [16, 16, 34]
-@export var empujes: Array[float] = [0.0, 0.0, 7]
+@export var cuadros_windup: Array[int] = [7, 7, 7, 7, 16]
+@export var cuadros_active: Array[int] = [5, 5, 5, 5, 7]
+@export var cuadros_recovery: Array[int] = [9, 9, 9, 11, 30]
+@export var aturdimientos: Array[int] = [24, 24, 24, 34, 55]
+@export var alzados: Array[float] = [0, 0, 0, 0, 4.5]
+@export var empujes: Array[float] = [0.0, 0.0, 0.0, 0.0, 9.0]
+@export var alcances: Array[float] = [0.90, 0.95, 0.90, 0.95, 1.25]
+@export var alturas: Array[float] = [1.15, 1.15, 1.15, 1.15, 0.85]
+@export var radios: Array[float] = [0.4, 0.4, 0.4, 0.4, 0.5]
+@export var fuerzas: Array[float] = [1.0, 1.0, 1.1, 1.1, 2.5]
+@export var reacciones: Array[String] = [
+	"GolpeCabeza/mixamo_com",
+	"GolpeCuerpo/mixamo_com",
+	"GolpeCabeza/mixamo_com",
+	"GolpeCuerpo/mixamo_com",
+	"Volar/mixamo_com",
+]
 
-@export var alcances: Array[float] = [0.90, 0.95, 1.25]
-@export var alturas: Array[float] = [1.15, 1.15, 0.85]
-@export var radios: Array[float] = [0.4, 0.4, 0.4]
-
-@export var fuerzas: Array[float] = [1.0, 1.0, 2.0]
-
-@export var rompe_guardia: Array[bool] = [false, false, true]
+@export var rompe_guardia: Array[bool] = [false, false, false, false, true]
 
 # Cuadros para encadenar el siguiente golpe antes de que el combo se caiga.
 @export var ventana = 22
@@ -37,10 +45,27 @@ var reloj_ventana = 0
 var guardado = false
 var esta_golpeando = false
 
+func _ready():
+	var n = animaciones.size()
+	var listas = {
+		"cuadros_windup": cuadros_windup, "cuadros_active": cuadros_active,
+		"cuadros_recovery": cuadros_recovery, "empujes": empujes,
+		"alcances": alcances, "alturas": alturas, "radios": radios,
+		"fuerzas": fuerzas, "reacciones": reacciones, "alzados": alzados,
+		"aturdimientos": aturdimientos, "rompe_guardia": rompe_guardia,
+	}
+	for nombre in listas:
+		if listas[nombre].size() != n:
+			push_warning("golpe.gd: '%s' tiene %d entradas, animaciones tiene %d"
+				% [nombre, listas[nombre].size(), n])
+
 
 func _physics_process(_delta):
 	match estado:
 		Estado.LISTA:
+			if pj.reloj_reaccion > 0:
+				guardado = false
+				return
 			if reloj_ventana > 0:
 				reloj_ventana -= 1
 				if reloj_ventana == 0:
@@ -72,8 +97,14 @@ func cambiar_a(nuevo):
 			reloj_ventana = 0
 			esta_golpeando = true
 			cuadros = cuadros_windup[paso]
-			hitbox.configurar(alcances[paso], alturas[paso], radios[paso],
-				fuerzas[paso], rompe_guardia[paso])
+			hitbox.configurar(alcances[paso], alturas[paso], radios[paso])
+			hitbox.datos = {
+				"fuerza": fuerzas[paso],
+				"imparable": rompe_guardia[paso],
+				"reaccion": reacciones[paso],
+				"aturdimiento": aturdimientos[paso],
+				"alzado": alzados[paso],
+			}
 			var pista = animaciones[paso]
 			if anim.has_animation(pista):
 				ajustar_velocidad(pista)

@@ -12,12 +12,16 @@
 [ext_resource type="AnimationLibrary" uid="uid://c55k8pq5x0oc1" path="res://Animaciones y Personajes/Punching derecho.fbx" id="9_beodc"]
 [ext_resource type="AnimationLibrary" uid="uid://kvejdmpjrjvt" path="res://Animaciones y Personajes/Punching izquierdo.fbx" id="10_de35w"]
 [ext_resource type="AnimationLibrary" uid="uid://dy3pso5dg0h1o" path="res://Animaciones y Personajes/Fighting Idle.fbx" id="11_8usrc"]
+[ext_resource type="AnimationLibrary" uid="uid://u7rp7jl6dpxk" path="res://Animaciones y Personajes/Head Hit.fbx" id="12_mk36t"]
 [ext_resource type="AnimationLibrary" uid="uid://ba6kka1ge04in" path="res://Animaciones y Personajes/Lateralwalk.fbx" id="12_ylqgm"]
+[ext_resource type="AnimationLibrary" uid="uid://c5dolbl2re6v3" path="res://Animaciones y Personajes/Hit To Body.fbx" id="13_61rrn"]
 [ext_resource type="AnimationLibrary" uid="uid://2xhkffx3mpjg" path="res://Animaciones y Personajes/Mma Kick.fbx" id="13_e1cpc"]
 [ext_resource type="AnimationLibrary" uid="uid://ca5d54otvjbfo" path="res://Animaciones y Personajes/Running (1).fbx" id="14_hcmpx"]
 [ext_resource type="AnimationLibrary" uid="uid://0j5tuf1cgocu" path="res://Animaciones y Personajes/Reaction.fbx" id="14_qfb3k"]
 [ext_resource type="AnimationLibrary" uid="uid://b01j55kxr3u8m" path="res://Animaciones y Personajes/Walking.fbx" id="15_7n6cs"]
+[ext_resource type="AnimationLibrary" uid="uid://bs8vbtgkeweiq" path="res://Animaciones y Personajes/Getting Up (1).fbx" id="16_61rrn"]
 [ext_resource type="PackedScene" path="res://addons/emberset/effects/shield/bubble_shock.tscn" id="18_om665"]
+[ext_resource type="AnimationLibrary" uid="uid://dgdw4i7yhajk3" path="res://Animaciones y Personajes/Flying Back Death.fbx" id="19_beodc"]
 
 [sub_resource type="CapsuleShape3D" id="Capsula"]
 radius = 0.35
@@ -789,6 +793,7 @@ height = 1.8
 
 [node name="Personaje" type="CharacterBody3D" unique_id=21036145 groups=["jugador"]]
 script = ExtResource("1_0wbda")
+ataque = 5
 
 [node name="Inventario" type="Node" parent="." unique_id=1000072041]
 script = ExtResource("2_qfb3k")
@@ -862,11 +867,15 @@ libraries/Bloqueo = ExtResource("8_2401m")
 libraries/CaminataTrasera = ExtResource("8_61rrn")
 libraries/Golpe = ExtResource("9_beodc")
 libraries/Golpe2 = ExtResource("10_de35w")
+libraries/GolpeCabeza = ExtResource("12_mk36t")
+libraries/GolpeCuerpo = ExtResource("13_61rrn")
 libraries/Idile = ExtResource("11_8usrc")
 libraries/Lateral = ExtResource("12_ylqgm")
+libraries/Levantarse = ExtResource("16_61rrn")
 libraries/Patada = ExtResource("13_e1cpc")
 libraries/Reaction = ExtResource("14_qfb3k")
 libraries/Sprint = ExtResource("14_hcmpx")
+libraries/Volar = ExtResource("19_beodc")
 libraries/Walk = ExtResource("15_7n6cs")
 
 [node name="Hurtbox" type="Area3D" parent="." unique_id=615588561 groups=["hurtbox"]]

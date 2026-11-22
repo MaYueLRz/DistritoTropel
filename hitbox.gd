@@ -6,8 +6,7 @@ extends Area3D
 var activa = false
 var ya_golpeo = false
 var empuje = 0.0
-var fuerza = 1.0
-var imparable = false
+var datos = {}
 
 func _ready():
 	if forma.shape != null:
@@ -29,12 +28,10 @@ func apagar():
 	forma.set_deferred("disabled", true)
 
 
-func configurar(alcance, altura, radio, f, rompe = false):
+func configurar(alcance, altura, radio):
 	position = Vector3(0.0, altura, -alcance)
 	if forma.shape is SphereShape3D:
 		forma.shape.radius = radio
-	fuerza = f
-	imparable = rompe
 
 
 func _physics_process(_delta):
@@ -48,17 +45,19 @@ func _physics_process(_delta):
 				continue
 			ya_golpeo = true
 			var victima = otra.get_parent()
-			var cantidad = int(pj.ataque * fuerza)
 			if victima.has_method("recibir_golpe"):
-				victima.recibir_golpe(cantidad, empuje, imparable,
-					pj.global_position, global_position)
+				var info = datos.duplicate()
+				info["danio"] = int(pj.ataque * datos.get("fuerza", 1.0))
+				info["empuje"] = empuje
+				info["desde"] = pj.global_position
+				info["punto"] = global_position
+				victima.recibir_golpe(info)
 				hitstop(0.05)
 			elif victima.has_method("recibir_danio"):
-				victima.recibir_danio(cantidad)
+				victima.recibir_danio(int(pj.ataque * datos.get("fuerza", 1.0)))
 				empujar(victima)
 				hitstop(0.05)
 			return
-
 
 func empujar(victima):
 	if empuje <= 0.0:
