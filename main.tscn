@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" path="res://hud_juego.tscn" id="1_cegan"]
 [ext_resource type="Script" uid="uid://c43r45xkk1kmo" path="res://camera_sigue.gd" id="1_lquwl"]
+[ext_resource type="Script" uid="uid://cdh6t7pgjt6gc" path="res://dibujo.gd" id="2_d13ii"]
 [ext_resource type="Script" uid="uid://ddudhcldqdykp" path="res://consumible.gd" id="2_yaehf"]
 [ext_resource type="PackedScene" uid="uid://cta6sleod1bvq" path="res://personaje1.tscn" id="4_cegan"]
 [ext_resource type="Script" uid="uid://bedyj56pipani" path="res://partida.gd" id="6_7mycd"]
@@ -126,6 +127,15 @@ texture_margin_bottom = 18.0
 [node name="Main" type="Node3D" unique_id=187010590]
 
 [node name="HUDJuego" parent="." unique_id=405084683 instance=ExtResource("1_cegan")]
+
+[node name="Dibujo" type="Control" parent="HUDJuego" unique_id=322820553]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_d13ii")
+fuente_hud = ExtResource("27_htxhm")
+carpeta_iconos = "res://Animaciones y Personajes/"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1841830440]
 environment = SubResource("Entorno")
