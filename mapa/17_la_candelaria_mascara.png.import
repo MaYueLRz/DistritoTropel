@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://6xn7phj1vakh"
+path="res://.godot/imported/17_la_candelaria_mascara.png-db7641c67bdd83b68237be3ff3ddcde1.res"
+
+[deps]
+
+source_file="res://mapa/17_la_candelaria_mascara.png"
+dest_files=["res://.godot/imported/17_la_candelaria_mascara.png-db7641c67bdd83b68237be3ff3ddcde1.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

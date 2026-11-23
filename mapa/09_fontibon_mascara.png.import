@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://du4nyx02ch1ds"
+path="res://.godot/imported/09_fontibon_mascara.png-0bc9b6e1b4abcb0906416857893b290d.res"
+
+[deps]
+
+source_file="res://mapa/09_fontibon_mascara.png"
+dest_files=["res://.godot/imported/09_fontibon_mascara.png-0bc9b6e1b4abcb0906416857893b290d.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

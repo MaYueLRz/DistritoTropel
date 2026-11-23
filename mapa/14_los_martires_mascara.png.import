@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bjpc3dsd2v5v5"
+path="res://.godot/imported/14_los_martires_mascara.png-a8f8a313ac88400a28d7aae361a1e041.res"
+
+[deps]
+
+source_file="res://mapa/14_los_martires_mascara.png"
+dest_files=["res://.godot/imported/14_los_martires_mascara.png-a8f8a313ac88400a28d7aae361a1e041.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

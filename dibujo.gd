@@ -270,7 +270,7 @@ func dibujar_ranuras():
 				letra_de(el_inv, i), 13, Color.WHITE if lleno else APAGADO)
 
 
-# Busca res://ui/items/<nombre>.png la primera vez y lo guarda
+# uso de pngs para los consumibles
 func icono(tipo):
 	if iconos.has(tipo):
 		return iconos[tipo]

@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://c70f1fwfh7u2l"
+path="res://.godot/imported/07_bosa_mascara.png-3c939657f7883e9ecca8d375f93cd265.res"
+
+[deps]
+
+source_file="res://mapa/07_bosa_mascara.png"
+dest_files=["res://.godot/imported/07_bosa_mascara.png-3c939657f7883e9ecca8d375f93cd265.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://blpdm02bl8n0o"
+path="res://.godot/imported/13_teusaquillo_mascara.png-702edd8a6c055acc8ffa0113cef6debf.res"
+
+[deps]
+
+source_file="res://mapa/13_teusaquillo_mascara.png"
+dest_files=["res://.godot/imported/13_teusaquillo_mascara.png-702edd8a6c055acc8ffa0113cef6debf.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

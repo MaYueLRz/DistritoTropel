@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://1gyp3ry30ol7"
+path="res://.godot/imported/04_san_cristobal_mascara.png-8bcfa22189390dc3effe2364b2c63453.res"
+
+[deps]
+
+source_file="res://mapa/04_san_cristobal_mascara.png"
+dest_files=["res://.godot/imported/04_san_cristobal_mascara.png-8bcfa22189390dc3effe2364b2c63453.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

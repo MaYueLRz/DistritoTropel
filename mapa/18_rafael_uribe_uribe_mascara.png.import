@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://csdvaj07575ok"
+path="res://.godot/imported/18_rafael_uribe_uribe_mascara.png-c567907bbc4aa29f3796e8ffc65c5b68.res"
+
+[deps]
+
+source_file="res://mapa/18_rafael_uribe_uribe_mascara.png"
+dest_files=["res://.godot/imported/18_rafael_uribe_uribe_mascara.png-c567907bbc4aa29f3796e8ffc65c5b68.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

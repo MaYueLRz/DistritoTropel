@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dhwqqwfaqaoq7"
+path="res://.godot/imported/19_ciudad_bolivar_mascara.png-89bd9c57fa414cd6c26a775660d4917d.res"
+
+[deps]
+
+source_file="res://mapa/19_ciudad_bolivar_mascara.png"
+dest_files=["res://.godot/imported/19_ciudad_bolivar_mascara.png-89bd9c57fa414cd6c26a775660d4917d.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

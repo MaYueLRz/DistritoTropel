@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://d2njr5ak8cybv"
+path="res://.godot/imported/16_puente_aranda_mascara.png-9a0c1b89cf0d248c5076275ef5478846.res"
+
+[deps]
+
+source_file="res://mapa/16_puente_aranda_mascara.png"
+dest_files=["res://.godot/imported/16_puente_aranda_mascara.png-9a0c1b89cf0d248c5076275ef5478846.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

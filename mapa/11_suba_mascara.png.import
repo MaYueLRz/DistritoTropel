@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://41knet5ubxek"
+path="res://.godot/imported/11_suba_mascara.png-30fd9b55f29acf4ec4e079fce926f4ec.res"
+
+[deps]
+
+source_file="res://mapa/11_suba_mascara.png"
+dest_files=["res://.godot/imported/11_suba_mascara.png-30fd9b55f29acf4ec4e079fce926f4ec.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

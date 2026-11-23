@@ -1,0 +1,435 @@
+[gd_scene format=3 uid="uid://coiptq5h83uq"]
+
+[ext_resource type="Script" uid="uid://cpi3dtkn3so44" path="res://seleccion_localidad.gd" id="1_7ahnk"]
+[ext_resource type="Texture2D" uid="uid://c63t0op03636m" path="res://mapa/01_usaquen_normal.png" id="1_j5h8s"]
+[ext_resource type="Texture2D" uid="uid://bvxdq8ynuxtnj" path="res://Animaciones y Personajes/fondo_selector.png" id="2_ryku7"]
+[ext_resource type="Texture2D" uid="uid://cxv1bmrst1s2k" path="res://mapa/01_usaquen_sel.png" id="2_uc1n1"]
+[ext_resource type="BitMap" uid="uid://31dyymibqkhs" path="res://mapa/01_usaquen_mascara.png" id="3_ywwll"]
+[ext_resource type="Texture2D" uid="uid://dj8hhyfh0v5ep" path="res://mapa/02_chapinero_normal.png" id="4_hjcqy"]
+[ext_resource type="Texture2D" uid="uid://brwrvly5l1vup" path="res://mapa/02_chapinero_sel.png" id="5_nvhqj"]
+[ext_resource type="BitMap" uid="uid://c2hy60pa80xnr" path="res://mapa/02_chapinero_mascara.png" id="6_1cu5p"]
+[ext_resource type="Texture2D" uid="uid://knhwylijyikj" path="res://mapa/03_santa_fe_normal.png" id="7_q6vtk"]
+[ext_resource type="Texture2D" uid="uid://cuce8womolx2o" path="res://mapa/03_santa_fe_sel.png" id="8_e4imx"]
+[ext_resource type="BitMap" uid="uid://cc5j5a8pm3a4m" path="res://mapa/03_santa_fe_mascara.png" id="9_gxr0s"]
+[ext_resource type="Texture2D" uid="uid://d35oqh2jdw25k" path="res://mapa/04_san_cristobal_normal.png" id="10_0enci"]
+[ext_resource type="Texture2D" uid="uid://8wkgu23buld4" path="res://mapa/04_san_cristobal_sel.png" id="11_rhmsi"]
+[ext_resource type="BitMap" uid="uid://1gyp3ry30ol7" path="res://mapa/04_san_cristobal_mascara.png" id="12_b8gca"]
+[ext_resource type="Texture2D" uid="uid://l21ir5i15sht" path="res://mapa/05_usme_normal.png" id="13_fw75n"]
+[ext_resource type="Texture2D" uid="uid://bxs03mqwra08e" path="res://mapa/05_usme_sel.png" id="14_3kypy"]
+[ext_resource type="BitMap" uid="uid://b1458xwqs6off" path="res://mapa/05_usme_mascara.png" id="15_tid53"]
+[ext_resource type="Texture2D" uid="uid://dfp6hnpwi43j4" path="res://mapa/06_tunjuelito_normal.png" id="16_l6fom"]
+[ext_resource type="Texture2D" uid="uid://dr41kcj6bspr" path="res://mapa/06_tunjuelito_sel.png" id="17_eacw8"]
+[ext_resource type="BitMap" uid="uid://dt0ay0o5c3c8" path="res://mapa/06_tunjuelito_mascara.png" id="18_xkoef"]
+[ext_resource type="Texture2D" uid="uid://dj3t4km3fcxk2" path="res://mapa/07_bosa_normal.png" id="19_nh3m5"]
+[ext_resource type="Texture2D" uid="uid://c6a5hjs4q11wi" path="res://mapa/07_bosa_sel.png" id="20_7ahnk"]
+[ext_resource type="BitMap" uid="uid://c70f1fwfh7u2l" path="res://mapa/07_bosa_mascara.png" id="21_nifug"]
+[ext_resource type="Texture2D" uid="uid://cpqttya6570m6" path="res://mapa/08_kennedy_normal.png" id="22_ryku7"]
+[ext_resource type="Texture2D" uid="uid://b3gyple3wcipb" path="res://mapa/08_kennedy_sel.png" id="23_kdc1b"]
+[ext_resource type="BitMap" uid="uid://cbkx4xpef78qp" path="res://mapa/08_kennedy_mascara.png" id="24_tus65"]
+[ext_resource type="Texture2D" uid="uid://oy1ob0xgbjxb" path="res://mapa/09_fontibon_normal.png" id="25_grfn4"]
+[ext_resource type="Texture2D" uid="uid://ns4p0ey1rxv2" path="res://mapa/09_fontibon_sel.png" id="26_viphd"]
+[ext_resource type="BitMap" uid="uid://du4nyx02ch1ds" path="res://mapa/09_fontibon_mascara.png" id="27_1h46i"]
+[ext_resource type="Texture2D" uid="uid://b3sw7x4wc4ttu" path="res://mapa/10_engativa_normal.png" id="28_au8c8"]
+[ext_resource type="Texture2D" uid="uid://dsv2vrnx4mjyx" path="res://mapa/10_engativa_sel.png" id="29_sml6u"]
+[ext_resource type="BitMap" uid="uid://c7ondh2s5mlst" path="res://mapa/10_engativa_mascara.png" id="30_81lpr"]
+[ext_resource type="Texture2D" uid="uid://c5xy0iarhhunp" path="res://mapa/11_suba_normal.png" id="31_cbkrf"]
+[ext_resource type="Texture2D" uid="uid://8wvsltyxv2ef" path="res://mapa/11_suba_sel.png" id="32_dqqw8"]
+[ext_resource type="BitMap" uid="uid://41knet5ubxek" path="res://mapa/11_suba_mascara.png" id="33_bnn4w"]
+[ext_resource type="Texture2D" uid="uid://bas1b1jsanh62" path="res://mapa/12_barrios_unidos_normal.png" id="34_t5rh8"]
+[ext_resource type="Texture2D" uid="uid://bt2t0b3xh8qxs" path="res://mapa/12_barrios_unidos_sel.png" id="35_2ak6e"]
+[ext_resource type="BitMap" uid="uid://cfv840hjviqkv" path="res://mapa/12_barrios_unidos_mascara.png" id="36_den78"]
+[ext_resource type="Texture2D" uid="uid://ce6n7dfmpi2fn" path="res://mapa/13_teusaquillo_normal.png" id="37_ectrh"]
+[ext_resource type="Texture2D" uid="uid://do8o6awfixkss" path="res://mapa/13_teusaquillo_sel.png" id="38_i7f2q"]
+[ext_resource type="BitMap" uid="uid://blpdm02bl8n0o" path="res://mapa/13_teusaquillo_mascara.png" id="39_ahn2k"]
+[ext_resource type="Texture2D" uid="uid://bb7nqj43ivyga" path="res://mapa/14_los_martires_normal.png" id="40_ro884"]
+[ext_resource type="Texture2D" uid="uid://h2e5buiiui3k" path="res://mapa/14_los_martires_sel.png" id="41_xpw1a"]
+[ext_resource type="BitMap" uid="uid://bjpc3dsd2v5v5" path="res://mapa/14_los_martires_mascara.png" id="42_6iuwy"]
+[ext_resource type="Texture2D" uid="uid://e84w4p1rs2do" path="res://mapa/15_antonio_narino_normal.png" id="43_mu5rm"]
+[ext_resource type="Texture2D" uid="uid://bljppgh3q3n1s" path="res://mapa/15_antonio_narino_sel.png" id="44_slmxh"]
+[ext_resource type="BitMap" uid="uid://dpdywhj8ls3pm" path="res://mapa/15_antonio_narino_mascara.png" id="45_3h0xe"]
+[ext_resource type="Texture2D" uid="uid://2tfi2hdxbd5r" path="res://mapa/16_puente_aranda_normal.png" id="46_tn0aw"]
+[ext_resource type="Texture2D" uid="uid://dl67mjagiusly" path="res://mapa/16_puente_aranda_sel.png" id="47_eb2g1"]
+[ext_resource type="BitMap" uid="uid://d2njr5ak8cybv" path="res://mapa/16_puente_aranda_mascara.png" id="48_pxm11"]
+[ext_resource type="Texture2D" uid="uid://bpv2m6lx0cj6p" path="res://mapa/17_la_candelaria_normal.png" id="49_arjtr"]
+[ext_resource type="Texture2D" uid="uid://bad2qage204sn" path="res://mapa/17_la_candelaria_sel.png" id="50_lkbxn"]
+[ext_resource type="BitMap" uid="uid://6xn7phj1vakh" path="res://mapa/17_la_candelaria_mascara.png" id="51_pve2i"]
+[ext_resource type="Texture2D" uid="uid://dqxrovw7dp0nb" path="res://mapa/19_ciudad_bolivar_normal.png" id="52_obasa"]
+[ext_resource type="Texture2D" uid="uid://biv6c6t77hmer" path="res://mapa/19_ciudad_bolivar_sel.png" id="53_xy5nv"]
+[ext_resource type="BitMap" uid="uid://dhwqqwfaqaoq7" path="res://mapa/19_ciudad_bolivar_mascara.png" id="54_n8nfu"]
+[ext_resource type="Texture2D" uid="uid://da3febn0nwogm" path="res://mapa/20_sumapaz_normal.png" id="55_k8weo"]
+[ext_resource type="Texture2D" uid="uid://wmrq2f6tafsv" path="res://mapa/20_sumapaz_sel.png" id="56_boext"]
+[ext_resource type="Texture2D" uid="uid://rkn40xtuw76r" path="res://mapa/18_rafael_uribe_uribe_normal.png" id="57_wmk0i"]
+[ext_resource type="Texture2D" uid="uid://dp40esfel2v2b" path="res://mapa/18_rafael_uribe_uribe_sel.png" id="58_w4jvd"]
+[ext_resource type="BitMap" uid="uid://csdvaj07575ok" path="res://mapa/18_rafael_uribe_uribe_mascara.png" id="59_jja6t"]
+[ext_resource type="FontFile" uid="uid://c0u24elkd4a8u" path="res://Anton-Regular.ttf" id="61_nifug"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqvha"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.18039216, 0.20392157, 0.2509804, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryku7"]
+bg_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
+border_width_left = 8
+border_color = Color(1, 0.78039217, 0.17254902, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 12
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nifug"]
+bg_color = Color(0.72156864, 0.19607843, 0.18431373, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
+
+[node name="SeleccionLocalidad" type="Control" unique_id=1887652355]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7ahnk")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1417385494]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_ryku7")
+expand_mode = 1
+
+[node name="Titulo" type="Label" parent="." unique_id=1846734083]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 50.0
+offset_right = 220.0
+offset_bottom = 73.0
+text = "ESCOGE TU LOCALIDAD"
+
+[node name="Mapa" type="Control" parent="." unique_id=2077867200]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Usaquen" type="TextureButton" parent="Mapa" unique_id=588396119]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 145.0
+offset_right = 229.0
+offset_bottom = 219.0
+texture_normal = ExtResource("1_j5h8s")
+texture_pressed = ExtResource("2_uc1n1")
+texture_hover = ExtResource("2_uc1n1")
+texture_disabled = ExtResource("2_uc1n1")
+texture_focused = ExtResource("2_uc1n1")
+texture_click_mask = ExtResource("3_ywwll")
+
+[node name="Chapinero" type="TextureButton" parent="Mapa" unique_id=1550654726]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 175.0
+offset_right = 316.0
+offset_bottom = 237.0
+texture_normal = ExtResource("4_hjcqy")
+texture_pressed = ExtResource("5_nvhqj")
+texture_hover = ExtResource("5_nvhqj")
+texture_disabled = ExtResource("5_nvhqj")
+texture_focused = ExtResource("5_nvhqj")
+texture_click_mask = ExtResource("6_1cu5p")
+
+[node name="Santa-Fe" type="TextureButton" parent="Mapa" unique_id=1849269943]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 224.0
+offset_right = 403.0
+offset_bottom = 273.0
+texture_normal = ExtResource("7_q6vtk")
+texture_pressed = ExtResource("8_e4imx")
+texture_hover = ExtResource("8_e4imx")
+texture_disabled = ExtResource("8_e4imx")
+texture_focused = ExtResource("8_e4imx")
+texture_click_mask = ExtResource("9_gxr0s")
+
+[node name="San-Cristobal" type="TextureButton" parent="Mapa" unique_id=1474193397]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 224.0
+offset_right = 498.0
+offset_bottom = 315.0
+texture_normal = ExtResource("10_0enci")
+texture_pressed = ExtResource("11_rhmsi")
+texture_hover = ExtResource("11_rhmsi")
+texture_disabled = ExtResource("11_rhmsi")
+texture_focused = ExtResource("11_rhmsi")
+texture_click_mask = ExtResource("12_b8gca")
+
+[node name="Usme" type="TextureButton" parent="Mapa" unique_id=134012257]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 242.0
+offset_right = 587.0
+offset_bottom = 346.0
+texture_normal = ExtResource("13_fw75n")
+texture_pressed = ExtResource("14_3kypy")
+texture_hover = ExtResource("14_3kypy")
+texture_disabled = ExtResource("14_3kypy")
+texture_focused = ExtResource("14_3kypy")
+texture_click_mask = ExtResource("15_tid53")
+
+[node name="Tunjuelito" type="TextureButton" parent="Mapa" unique_id=2015337851]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 325.0
+offset_right = 473.0
+offset_bottom = 408.0
+texture_normal = ExtResource("16_l6fom")
+texture_pressed = ExtResource("17_eacw8")
+texture_hover = ExtResource("17_eacw8")
+texture_disabled = ExtResource("17_eacw8")
+texture_focused = ExtResource("17_eacw8")
+texture_click_mask = ExtResource("18_xkoef")
+
+[node name="Bosa" type="TextureButton" parent="Mapa" unique_id=2113195169]
+layout_mode = 0
+offset_left = 284.0
+offset_top = 368.0
+offset_right = 372.0
+offset_bottom = 485.0
+texture_normal = ExtResource("19_nh3m5")
+texture_pressed = ExtResource("20_7ahnk")
+texture_hover = ExtResource("20_7ahnk")
+texture_disabled = ExtResource("20_7ahnk")
+texture_focused = ExtResource("20_7ahnk")
+texture_click_mask = ExtResource("21_nifug")
+
+[node name="Kennedy" type="TextureButton" parent="Mapa" unique_id=1460268628]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 322.0
+offset_right = 372.0
+offset_bottom = 437.0
+texture_normal = ExtResource("22_ryku7")
+texture_pressed = ExtResource("23_kdc1b")
+texture_hover = ExtResource("23_kdc1b")
+texture_disabled = ExtResource("23_kdc1b")
+texture_focused = ExtResource("23_kdc1b")
+texture_click_mask = ExtResource("24_tus65")
+
+[node name="Fontibon" type="TextureButton" parent="Mapa" unique_id=1185850170]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 277.0
+offset_right = 300.0
+offset_bottom = 429.0
+texture_normal = ExtResource("25_grfn4")
+texture_pressed = ExtResource("26_viphd")
+texture_hover = ExtResource("26_viphd")
+texture_disabled = ExtResource("26_viphd")
+texture_focused = ExtResource("26_viphd")
+texture_click_mask = ExtResource("27_1h46i")
+
+[node name="Engativa" type="TextureButton" parent="Mapa" unique_id=254310425]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 251.0
+offset_right = 269.0
+offset_bottom = 399.0
+texture_normal = ExtResource("28_au8c8")
+texture_pressed = ExtResource("29_sml6u")
+texture_hover = ExtResource("29_sml6u")
+texture_disabled = ExtResource("29_sml6u")
+texture_focused = ExtResource("29_sml6u")
+texture_click_mask = ExtResource("30_81lpr")
+
+[node name="Suba" type="TextureButton" parent="Mapa" unique_id=875421407]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 187.0
+offset_right = 207.0
+offset_bottom = 346.0
+texture_normal = ExtResource("31_cbkrf")
+texture_pressed = ExtResource("32_dqqw8")
+texture_hover = ExtResource("32_dqqw8")
+texture_disabled = ExtResource("32_dqqw8")
+texture_focused = ExtResource("32_dqqw8")
+texture_click_mask = ExtResource("33_bnn4w")
+
+[node name="Barrios-Unidos" type="TextureButton" parent="Mapa" unique_id=540608224]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 215.0
+offset_right = 268.0
+offset_bottom = 277.0
+texture_normal = ExtResource("34_t5rh8")
+texture_pressed = ExtResource("35_2ak6e")
+texture_hover = ExtResource("35_2ak6e")
+texture_disabled = ExtResource("35_2ak6e")
+texture_focused = ExtResource("35_2ak6e")
+texture_click_mask = ExtResource("36_den78")
+
+[node name="Teusaquillo" type="TextureButton" parent="Mapa" unique_id=1042813319]
+layout_mode = 0
+offset_left = 227.0
+offset_top = 224.0
+offset_right = 315.0
+offset_bottom = 300.0
+texture_normal = ExtResource("37_ectrh")
+texture_pressed = ExtResource("38_i7f2q")
+texture_hover = ExtResource("38_i7f2q")
+texture_disabled = ExtResource("38_i7f2q")
+texture_focused = ExtResource("38_i7f2q")
+texture_click_mask = ExtResource("39_ahn2k")
+
+[node name="Los-Martires" type="TextureButton" parent="Mapa" unique_id=913527290]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 235.0
+offset_right = 402.0
+offset_bottom = 301.0
+texture_normal = ExtResource("40_ro884")
+texture_pressed = ExtResource("41_xpw1a")
+texture_hover = ExtResource("41_xpw1a")
+texture_disabled = ExtResource("41_xpw1a")
+texture_focused = ExtResource("41_xpw1a")
+texture_click_mask = ExtResource("42_6iuwy")
+
+[node name="Antonio-Narino" type="TextureButton" parent="Mapa" unique_id=1937358221]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 279.0
+offset_right = 424.0
+offset_bottom = 342.0
+texture_normal = ExtResource("43_mu5rm")
+texture_pressed = ExtResource("44_slmxh")
+texture_hover = ExtResource("44_slmxh")
+texture_disabled = ExtResource("44_slmxh")
+texture_focused = ExtResource("44_slmxh")
+texture_click_mask = ExtResource("45_3h0xe")
+
+[node name="Puente-Aranda" type="TextureButton" parent="Mapa" unique_id=1416916307]
+layout_mode = 0
+offset_left = 273.0
+offset_top = 260.0
+offset_right = 373.0
+offset_bottom = 363.0
+texture_normal = ExtResource("46_tn0aw")
+texture_pressed = ExtResource("47_eb2g1")
+texture_hover = ExtResource("47_eb2g1")
+texture_disabled = ExtResource("47_eb2g1")
+texture_focused = ExtResource("47_eb2g1")
+texture_click_mask = ExtResource("48_pxm11")
+
+[node name="La-Candelaria" type="TextureButton" parent="Mapa" unique_id=419461145]
+layout_mode = 0
+offset_left = 311.0
+offset_top = 209.0
+offset_right = 392.0
+offset_bottom = 249.0
+texture_normal = ExtResource("49_arjtr")
+texture_pressed = ExtResource("50_lkbxn")
+texture_hover = ExtResource("50_lkbxn")
+texture_disabled = ExtResource("50_lkbxn")
+texture_focused = ExtResource("50_lkbxn")
+texture_click_mask = ExtResource("51_pve2i")
+
+[node name="Ciudad-Bolivar" type="TextureButton" parent="Mapa" unique_id=631475731]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 331.0
+offset_right = 488.0
+offset_bottom = 446.0
+texture_normal = ExtResource("52_obasa")
+texture_pressed = ExtResource("53_xy5nv")
+texture_hover = ExtResource("53_xy5nv")
+texture_disabled = ExtResource("53_xy5nv")
+texture_focused = ExtResource("53_xy5nv")
+texture_click_mask = ExtResource("54_n8nfu")
+
+[node name="Sumapaz" type="TextureButton" parent="Mapa" unique_id=473321824]
+layout_mode = 0
+offset_left = 586.0
+offset_top = 257.0
+offset_right = 696.0
+offset_bottom = 368.0
+texture_normal = ExtResource("55_k8weo")
+texture_pressed = ExtResource("56_boext")
+texture_hover = ExtResource("56_boext")
+texture_disabled = ExtResource("56_boext")
+texture_focused = ExtResource("56_boext")
+texture_click_mask = ExtResource("54_n8nfu")
+
+[node name="Rafael-Uribe" type="TextureButton" parent="Mapa" unique_id=790519021]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 306.0
+offset_right = 461.0
+offset_bottom = 351.0
+texture_normal = ExtResource("57_wmk0i")
+texture_pressed = ExtResource("58_w4jvd")
+texture_hover = ExtResource("58_w4jvd")
+texture_disabled = ExtResource("58_w4jvd")
+texture_focused = ExtResource("58_w4jvd")
+texture_click_mask = ExtResource("59_jja6t")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=773688287]
+custom_minimum_size = Vector2(370, 430)
+layout_mode = 0
+offset_left = 742.0
+offset_top = 150.0
+offset_right = 1112.0
+offset_bottom = 580.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fqvha")
+
+[node name="VBox" type="VBoxContainer" parent="Panel" unique_id=1610359864]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Numero" type="Label" parent="Panel/VBox" unique_id=972208990]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.78039217, 0.17254902, 1)
+theme_override_fonts/font = ExtResource("61_nifug")
+theme_override_font_sizes/font_size = 64
+
+[node name="Nombre" type="Label" parent="Panel/VBox" unique_id=1420143059]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9490196, 0.9019608, 0.7882353, 1)
+theme_override_fonts/font = ExtResource("61_nifug")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ryku7")
+text = "SUBA"
+horizontal_alignment = 1
+
+[node name="BotonPelea" type="Button" parent="Panel/VBox" unique_id=734354781]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("61_nifug")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_nifug")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nifug")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nifug")
+text = "PELEA"
+
+[connection signal="focus_entered" from="Mapa/Tunjuelito" to="." method="_on_tunjuelito_focus_entered" binds= ["Tunjuelito", 6]]
+[connection signal="mouse_entered" from="Mapa/Tunjuelito" to="Mapa/Tunjuelito" method="grab_focus"]
+[connection signal="focus_entered" from="Mapa/Bosa" to="." method="escoger" binds= ["Bosa", 7]]
+[connection signal="mouse_entered" from="Mapa/Bosa" to="Mapa/Bosa" method="grab_focus"]
+[connection signal="focus_entered" from="Mapa/Kennedy" to="." method="escoger" binds= ["Kennedy", 8]]
+[connection signal="mouse_entered" from="Mapa/Kennedy" to="Mapa/Kennedy" method="grab_focus"]
+[connection signal="focus_entered" from="Mapa/Fontibon" to="." method="escoger" binds= ["Fontibon", "09"]]
+[connection signal="mouse_entered" from="Mapa/Fontibon" to="Mapa/Fontibon" method="grab_focus"]
+[connection signal="focus_entered" from="Panel/VBox/Nombre" to="." method="escoger" binds= ["SUBA", 11]]
+[connection signal="pressed" from="Panel/VBox/BotonPelea" to="." method="pelear"]

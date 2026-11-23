@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://cbkx4xpef78qp"
+path="res://.godot/imported/08_kennedy_mascara.png-d36abf1976dfd2335b2a79cd82db663e.res"
+
+[deps]
+
+source_file="res://mapa/08_kennedy_mascara.png"
+dest_files=["res://.godot/imported/08_kennedy_mascara.png-d36abf1976dfd2335b2a79cd82db663e.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

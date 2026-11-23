@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://c7ondh2s5mlst"
+path="res://.godot/imported/10_engativa_mascara.png-1cd3cf3c880a5c68d5acbcaa8126a805.res"
+
+[deps]
+
+source_file="res://mapa/10_engativa_mascara.png"
+dest_files=["res://.godot/imported/10_engativa_mascara.png-1cd3cf3c880a5c68d5acbcaa8126a805.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

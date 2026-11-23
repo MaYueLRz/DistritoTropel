@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dt0ay0o5c3c8"
+path="res://.godot/imported/06_tunjuelito_mascara.png-b657365e65c3a161c2d89e9bf7f98166.res"
+
+[deps]
+
+source_file="res://mapa/06_tunjuelito_mascara.png"
+dest_files=["res://.godot/imported/06_tunjuelito_mascara.png-b657365e65c3a161c2d89e9bf7f98166.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

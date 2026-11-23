@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://cc5j5a8pm3a4m"
+path="res://.godot/imported/03_santa_fe_mascara.png-72052351ad7683b80a4672ff478a7545.res"
+
+[deps]
+
+source_file="res://mapa/03_santa_fe_mascara.png"
+dest_files=["res://.godot/imported/03_santa_fe_mascara.png-72052351ad7683b80a4672ff478a7545.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

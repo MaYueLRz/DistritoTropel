@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dpdywhj8ls3pm"
+path="res://.godot/imported/15_antonio_narino_mascara.png-786a36e3415d6a6c318dff5744969adf.res"
+
+[deps]
+
+source_file="res://mapa/15_antonio_narino_mascara.png"
+dest_files=["res://.godot/imported/15_antonio_narino_mascara.png-786a36e3415d6a6c318dff5744969adf.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

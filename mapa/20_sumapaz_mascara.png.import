@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://16y1bcq0w1i3"
+path="res://.godot/imported/20_sumapaz_mascara.png-f22578f0fbaedc6b683efbda1487f6fe.res"
+
+[deps]
+
+source_file="res://mapa/20_sumapaz_mascara.png"
+dest_files=["res://.godot/imported/20_sumapaz_mascara.png-f22578f0fbaedc6b683efbda1487f6fe.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
