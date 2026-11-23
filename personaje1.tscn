@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://cchv43eug6720" path="res://personaje.gd" id="1_0wbda"]
 [ext_resource type="Script" uid="uid://cp05y823ivoqx" path="res://Inventario.gd" id="2_qfb3k"]
 [ext_resource type="Script" uid="uid://67g8ul8ywidy" path="res://golpe.gd" id="3_2401m"]
+[ext_resource type="PackedScene" uid="uid://dbxojkr0k7vsg" path="res://assets/BinbunVFX_Vol2/StylizedHitFX/effects/hit/vfx_hit_01.tscn" id="4_e1cpc"]
 [ext_resource type="Script" uid="uid://g76pliv8lo3r" path="res://interactuar.gd" id="4_om665"]
 [ext_resource type="Script" uid="uid://dasg24n6trd5e" path="res://salud.gd" id="5_alsn3"]
+[ext_resource type="PackedScene" uid="uid://dp6fn641cy82u" path="res://assets/BinbunVFX_Vol2/StylizedHitFX/effects/impact/vfx_impact_01.tscn" id="5_hcmpx"]
+[ext_resource type="PackedScene" uid="uid://dsbj3443hx0xe" path="res://assets/BinbunVFX_Vol2/StylizedHitFX/effects/big_impact/vfx_big_impact_02.tscn" id="6_7n6cs"]
 [ext_resource type="Script" uid="uid://b7t31jk5uxfne" path="res://hitbox.gd" id="6_a2qxe"]
 [ext_resource type="AnimationLibrary" uid="uid://bxmfedltvjt3d" path="res://Animaciones y Personajes/Walking Backwards.fbx" id="8_61rrn"]
 [ext_resource type="AnimationLibrary" uid="uid://cgsl26n6kn4xr" path="res://Animaciones y Personajes/Body Block.fbx" id="8_2401m"]
@@ -75,6 +78,7 @@ shape = SubResource("Capsula")
 
 [node name="Golpe" type="Node" parent="." unique_id=636306801]
 script = ExtResource("3_2401m")
+efectos = Array[PackedScene]([ExtResource("4_e1cpc"), ExtResource("4_e1cpc"), ExtResource("4_e1cpc"), ExtResource("5_hcmpx"), ExtResource("6_7n6cs")])
 
 [node name="Interactuar" type="Node" parent="." unique_id=2142661175]
 script = ExtResource("4_om665")

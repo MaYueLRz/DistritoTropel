@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://crpyc8dtpw1wb"]
+
+[ext_resource type="PackedScene" uid="uid://dbxojkr0k7vsg" path="res://assets/BinbunVFX_Vol2/StylizedHitFX/effects/hit/vfx_hit_01.tscn" id="1_6d08j"]
+[ext_resource type="PackedScene" uid="uid://dsbj3443hx0xe" path="res://assets/BinbunVFX_Vol2/StylizedHitFX/effects/big_impact/vfx_big_impact_02.tscn" id="1_rusjc"]
+[ext_resource type="PackedScene" uid="uid://dp6fn641cy82u" path="res://assets/BinbunVFX_Vol2/StylizedHitFX/effects/impact/vfx_impact_01.tscn" id="3_u8jc2"]
+
+[node name="Node3D" type="Node3D" unique_id=2143808549]
+
+[node name="VFXBigImpact_02" parent="." unique_id=1950283781 instance=ExtResource("1_rusjc")]
+one_shot = true
+speed_scale = 3.0
+
+[node name="VFXHit_01" parent="." unique_id=1851836445 instance=ExtResource("1_6d08j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.691063, 0, 0)
+one_shot = true
+
+[node name="VFXImpactSmall_01" parent="." unique_id=1738176228 instance=ExtResource("3_u8jc2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7352545, 0, 0)
+one_shot = true

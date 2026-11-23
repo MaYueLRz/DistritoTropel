@@ -28,6 +28,7 @@ enum Estado { LISTA, WINDUP, ACTIVE, RECOVERY }
 	"GolpeCuerpo/mixamo_com",
 	"Volar/mixamo_com",
 ]
+@export var efectos: Array[PackedScene] = []
 
 @export var rompe_guardia: Array[bool] = [false, false, false, false, true]
 
@@ -70,7 +71,6 @@ func _physics_process(_delta):
 				reloj_ventana -= 1
 				if reloj_ventana == 0:
 					paso = 0
-					print("combo perdido, vuelve al golpe 1")
 			if guardado or Input.is_action_just_pressed(tecla):
 				cambiar_a(Estado.WINDUP)
 		Estado.WINDUP:
@@ -105,14 +105,14 @@ func cambiar_a(nuevo):
 				"aturdimiento": aturdimientos[paso],
 				"alzado": alzados[paso],
 			}
+			hitbox.efecto = efectos[paso] if paso < efectos.size() else null
 			var pista = animaciones[paso]
 			if anim.has_animation(pista):
 				ajustar_velocidad(pista)
 				pj.accion = pista
 			else:
 				print("ojo: no existe la animación ", pista)
-			print("golpe ", paso + 1, " de ", animaciones.size(),
-				" -> WINDUP cuadro ", Engine.get_physics_frames())
+
 
 			return
 		Estado.ACTIVE:
@@ -132,7 +132,6 @@ func cambiar_a(nuevo):
 				reloj_ventana = 0
 			else:
 				reloj_ventana = ventana
-	print("golpe -> ", Estado.keys()[estado], " cuadro ", Engine.get_physics_frames())
 
 
 func ajustar_velocidad(pista):

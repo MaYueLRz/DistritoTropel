@@ -7,6 +7,7 @@ var activa = false
 var ya_golpeo = false
 var empuje = 0.0
 var datos = {}
+var efecto: PackedScene = null
 
 func _ready():
 	if forma.shape != null:
@@ -51,6 +52,12 @@ func _physics_process(_delta):
 				info["empuje"] = empuje
 				info["desde"] = pj.global_position
 				info["punto"] = global_position
+				if efecto != null:
+					var fx = efecto.instantiate()
+					get_tree().current_scene.add_child(fx)
+					fx.global_position = global_position
+					fx.finished.connect(fx.queue_free)
+					fx.play()
 				victima.recibir_golpe(info)
 				hitstop(0.05)
 			elif victima.has_method("recibir_danio"):

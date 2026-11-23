@@ -263,8 +263,6 @@ func recibir_golpe(info):
 			anim.seek(0.0, true)
 
 	$Salud.recibir_golpe(danio)
-	print(name, " recibe ", danio, " · ",
-		"BLOQUEADO" if parado else "limpio", " · vida ", $Salud.vida)
 
 	var desde = info.get("desde", global_position)
 	if fuerza > 0.0:
