@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cxiusucrtogpt"
+path="res://.godot/imported/LA ETNNIA VOX POPULI ( vídeo oficial ) [tN5YAATeU6E].mp3-19f8d28fa2c0b7f836d260a0516d0d93.mp3str"
+
+[deps]
+
+source_file="res://musica/LA ETNNIA VOX POPULI ( vídeo oficial ) [tN5YAATeU6E].mp3"
+dest_files=["res://.godot/imported/LA ETNNIA VOX POPULI ( vídeo oficial ) [tN5YAATeU6E].mp3-19f8d28fa2c0b7f836d260a0516d0d93.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

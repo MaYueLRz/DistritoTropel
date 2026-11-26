@@ -12,5 +12,5 @@ dest_files=["res://.godot/imported/02_chapinero_mascara.png-6be48b2b66c1d37abab3
 
 [params]
 
-create_from=0
+create_from=1
 threshold=0.5

@@ -12,5 +12,5 @@ dest_files=["res://.godot/imported/07_bosa_mascara.png-3c939657f7883e9ecca8d375f
 
 [params]
 
-create_from=0
+create_from=1
 threshold=0.5

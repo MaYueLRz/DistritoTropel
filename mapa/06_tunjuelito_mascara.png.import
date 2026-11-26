@@ -12,5 +12,5 @@ dest_files=["res://.godot/imported/06_tunjuelito_mascara.png-b657365e65c3a161c2d
 
 [params]
 
-create_from=0
+create_from=1
 threshold=0.5

@@ -12,5 +12,5 @@ dest_files=["res://.godot/imported/03_santa_fe_mascara.png-72052351ad7683b80a467
 
 [params]
 
-create_from=0
+create_from=1
 threshold=0.5

@@ -12,5 +12,5 @@ dest_files=["res://.godot/imported/10_engativa_mascara.png-1cd3cf3c880a5c68d5acb
 
 [params]
 
-create_from=0
+create_from=1
 threshold=0.5

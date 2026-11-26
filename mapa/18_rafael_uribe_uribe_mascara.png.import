@@ -12,5 +12,5 @@ dest_files=["res://.godot/imported/18_rafael_uribe_uribe_mascara.png-c567907bbc4
 
 [params]
 
-create_from=0
+create_from=1
 threshold=0.5

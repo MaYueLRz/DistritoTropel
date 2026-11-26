@@ -118,6 +118,9 @@ offset_left = 40.0
 offset_top = 50.0
 offset_right = 220.0
 offset_bottom = 73.0
+theme_override_colors/font_color = Color(1, 0.78039217, 0.17254902, 1)
+theme_override_fonts/font = ExtResource("61_nifug")
+theme_override_font_sizes/font_size = 54
 text = "ESCOGE TU LOCALIDAD"
 
 [node name="Mapa" type="Control" parent="." unique_id=2077867200]
@@ -346,6 +349,19 @@ texture_disabled = ExtResource("50_lkbxn")
 texture_focused = ExtResource("50_lkbxn")
 texture_click_mask = ExtResource("51_pve2i")
 
+[node name="Rafael-Uribe" type="TextureButton" parent="Mapa" unique_id=790519021]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 306.0
+offset_right = 461.0
+offset_bottom = 351.0
+texture_normal = ExtResource("57_wmk0i")
+texture_pressed = ExtResource("58_w4jvd")
+texture_hover = ExtResource("58_w4jvd")
+texture_disabled = ExtResource("58_w4jvd")
+texture_focused = ExtResource("58_w4jvd")
+texture_click_mask = ExtResource("59_jja6t")
+
 [node name="Ciudad-Bolivar" type="TextureButton" parent="Mapa" unique_id=631475731]
 layout_mode = 0
 offset_left = 359.0
@@ -371,19 +387,6 @@ texture_hover = ExtResource("56_boext")
 texture_disabled = ExtResource("56_boext")
 texture_focused = ExtResource("56_boext")
 texture_click_mask = ExtResource("54_n8nfu")
-
-[node name="Rafael-Uribe" type="TextureButton" parent="Mapa" unique_id=790519021]
-layout_mode = 0
-offset_left = 376.0
-offset_top = 306.0
-offset_right = 461.0
-offset_bottom = 351.0
-texture_normal = ExtResource("57_wmk0i")
-texture_pressed = ExtResource("58_w4jvd")
-texture_hover = ExtResource("58_w4jvd")
-texture_disabled = ExtResource("58_w4jvd")
-texture_focused = ExtResource("58_w4jvd")
-texture_click_mask = ExtResource("59_jja6t")
 
 [node name="Panel" type="PanelContainer" parent="." unique_id=773688287]
 custom_minimum_size = Vector2(370, 430)
@@ -413,7 +416,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ryku7")
 text = "SUBA"
 horizontal_alignment = 1
 
-[node name="BotonPelea" type="Button" parent="Panel/VBox" unique_id=734354781]
+[node name="Lugar1" type="Button" parent="Panel/VBox" unique_id=734354781]
 custom_minimum_size = Vector2(0, 58)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("61_nifug")
@@ -423,7 +426,39 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_nifug")
 theme_override_styles/hover = SubResource("StyleBoxFlat_nifug")
 text = "PELEA"
 
-[connection signal="focus_entered" from="Mapa/Tunjuelito" to="." method="_on_tunjuelito_focus_entered" binds= ["Tunjuelito", 6]]
+[node name="Lugar2" type="Button" parent="Panel/VBox" unique_id=1364395250]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("61_nifug")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_nifug")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nifug")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nifug")
+text = "PELEA"
+
+[node name="Lugar3" type="Button" parent="Panel/VBox" unique_id=84669816]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("61_nifug")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_nifug")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nifug")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nifug")
+text = "PELEA"
+
+[node name="Musica" type="AudioStreamPlayer" parent="." unique_id=741899602]
+
+[connection signal="focus_entered" from="Mapa/Usaquen" to="." method="escoger" binds= ["Usaquen", 1]]
+[connection signal="mouse_entered" from="Mapa/Usaquen" to="Mapa/Usaquen" method="grab_focus"]
+[connection signal="focus_entered" from="Mapa/Chapinero" to="." method="escoger" binds= ["Chapinero", 2]]
+[connection signal="mouse_entered" from="Mapa/Chapinero" to="Mapa/Chapinero" method="grab_focus"]
+[connection signal="focus_entered" from="Mapa/Santa-Fe" to="." method="escoger" binds= ["Santa fe", 3]]
+[connection signal="mouse_entered" from="Mapa/Santa-Fe" to="Mapa/Santa-Fe" method="grab_focus"]
+[connection signal="focus_entered" from="Mapa/San-Cristobal" to="." method="escoger" binds= ["San Cristobal", 4]]
+[connection signal="mouse_entered" from="Mapa/San-Cristobal" to="Mapa/San-Cristobal" method="grab_focus"]
+[connection signal="focus_entered" from="Mapa/Usme" to="." method="escoger" binds= ["Usme", 5]]
+[connection signal="mouse_entered" from="Mapa/Usme" to="Mapa/Usme" method="grab_focus"]
+[connection signal="focus_entered" from="Mapa/Tunjuelito" to="." method="escoger" binds= ["Tunjuelito", 6]]
 [connection signal="mouse_entered" from="Mapa/Tunjuelito" to="Mapa/Tunjuelito" method="grab_focus"]
 [connection signal="focus_entered" from="Mapa/Bosa" to="." method="escoger" binds= ["Bosa", 7]]
 [connection signal="mouse_entered" from="Mapa/Bosa" to="Mapa/Bosa" method="grab_focus"]
@@ -431,5 +466,27 @@ text = "PELEA"
 [connection signal="mouse_entered" from="Mapa/Kennedy" to="Mapa/Kennedy" method="grab_focus"]
 [connection signal="focus_entered" from="Mapa/Fontibon" to="." method="escoger" binds= ["Fontibon", "09"]]
 [connection signal="mouse_entered" from="Mapa/Fontibon" to="Mapa/Fontibon" method="grab_focus"]
+[connection signal="focus_entered" from="Mapa/Engativa" to="." method="escoger" binds= ["Engativa", "10"]]
+[connection signal="mouse_entered" from="Mapa/Engativa" to="Mapa/Engativa" method="grab_focus"]
+[connection signal="focus_entered" from="Mapa/Suba" to="." method="escoger" binds= ["Suba", 11]]
+[connection signal="mouse_entered" from="Mapa/Suba" to="Mapa/Suba" method="grab_focus"]
+[connection signal="focus_entered" from="Mapa/Barrios-Unidos" to="." method="escoger" binds= ["Barrios Unidos", 12]]
+[connection signal="mouse_entered" from="Mapa/Barrios-Unidos" to="Mapa/Barrios-Unidos" method="grab_focus"]
+[connection signal="focus_entered" from="Mapa/Teusaquillo" to="." method="escoger" binds= ["Teusaquillo", 13]]
+[connection signal="mouse_entered" from="Mapa/Teusaquillo" to="Mapa/Teusaquillo" method="grab_focus"]
+[connection signal="focus_entered" from="Mapa/Los-Martires" to="." method="escoger" binds= ["Los Martires", 14]]
+[connection signal="mouse_entered" from="Mapa/Los-Martires" to="Mapa/Los-Martires" method="grab_focus"]
+[connection signal="focus_entered" from="Mapa/Antonio-Narino" to="." method="escoger" binds= ["Antonio Nariño", 15]]
+[connection signal="mouse_entered" from="Mapa/Antonio-Narino" to="Mapa/Antonio-Narino" method="grab_focus"]
+[connection signal="focus_entered" from="Mapa/Puente-Aranda" to="." method="escoger" binds= ["Puente Aranda", 16]]
+[connection signal="mouse_entered" from="Mapa/Puente-Aranda" to="Mapa/Puente-Aranda" method="grab_focus"]
+[connection signal="focus_entered" from="Mapa/La-Candelaria" to="." method="escoger" binds= ["La Candelaria", 17]]
+[connection signal="mouse_entered" from="Mapa/La-Candelaria" to="Mapa/La-Candelaria" method="grab_focus"]
+[connection signal="focus_entered" from="Mapa/Rafael-Uribe" to="." method="escoger" binds= ["Rafael Uribe Uribe", 18]]
+[connection signal="mouse_entered" from="Mapa/Rafael-Uribe" to="Mapa/Rafael-Uribe" method="grab_focus"]
+[connection signal="focus_entered" from="Mapa/Ciudad-Bolivar" to="." method="escoger" binds= ["Ciudad Bolivar", 19]]
+[connection signal="mouse_entered" from="Mapa/Ciudad-Bolivar" to="Mapa/Ciudad-Bolivar" method="grab_focus"]
+[connection signal="focus_entered" from="Mapa/Sumapaz" to="." method="escoger" binds= ["Sumapaz", 20]]
+[connection signal="mouse_entered" from="Mapa/Sumapaz" to="Mapa/Sumapaz" method="grab_focus"]
 [connection signal="focus_entered" from="Panel/VBox/Nombre" to="." method="escoger" binds= ["SUBA", 11]]
-[connection signal="pressed" from="Panel/VBox/BotonPelea" to="." method="pelear"]
+[connection signal="pressed" from="Panel/VBox/Lugar1" to="." method="pelear"]

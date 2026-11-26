@@ -12,5 +12,5 @@ dest_files=["res://.godot/imported/16_puente_aranda_mascara.png-9a0c1b89cf0d248c
 
 [params]
 
-create_from=0
+create_from=1
 threshold=0.5

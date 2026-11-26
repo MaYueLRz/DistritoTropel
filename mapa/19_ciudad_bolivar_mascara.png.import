@@ -12,5 +12,5 @@ dest_files=["res://.godot/imported/19_ciudad_bolivar_mascara.png-89bd9c57fa414cd
 
 [params]
 
-create_from=0
+create_from=1
 threshold=0.5

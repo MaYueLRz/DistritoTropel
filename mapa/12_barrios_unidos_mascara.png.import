@@ -12,5 +12,5 @@ dest_files=["res://.godot/imported/12_barrios_unidos_mascara.png-f1ff0ea73097f17
 
 [params]
 
-create_from=0
+create_from=1
 threshold=0.5
