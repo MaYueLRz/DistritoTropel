@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://h24dlci7t2hg"]
 
-[ext_resource type="PackedScene" path="res://hud_juego.tscn" id="1_cegan"]
+[ext_resource type="PackedScene" uid="uid://dym3melwah4a0" path="res://hud_juego.tscn" id="1_cegan"]
 [ext_resource type="Script" uid="uid://c43r45xkk1kmo" path="res://camera_sigue.gd" id="1_lquwl"]
 [ext_resource type="Script" uid="uid://cdh6t7pgjt6gc" path="res://dibujo.gd" id="2_d13ii"]
 [ext_resource type="Script" uid="uid://ddudhcldqdykp" path="res://consumible.gd" id="2_yaehf"]

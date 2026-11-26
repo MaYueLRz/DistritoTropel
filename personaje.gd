@@ -15,9 +15,16 @@ enum Prueba { NINGUNA, AVANZAR_60_CUADROS, MANTENER_ACCION_2S }
 @export var animacion_levantarse = "Levantarse/mixamo_com"
 @export var velocidad_levantarse = 1.4
 
+@export var animacion_contra = "Contra/mixamo_com"
+@export var velocidad_contra = 1.3
+
 var derribado = false
 var despegado = false
-
+var levantandose = false
+@export var radio_onda = 2.5
+@export var danio_onda = 15
+@export var empuje_onda = 12.0
+var onda_usada = false
 
 var cuadros_prueba = 0
 
@@ -31,10 +38,11 @@ var cuadros_prueba = 0
 @export var animacion_dano = "GolpeCabeza/mixamo_com"
 @export var cuadros_reaccion = 18
 var reloj_reaccion = 0
+@export var cuadros_sin_bloqueo = 30
+var reloj_sin_bloqueo = 0
 @export var animacion_bloqueo = "Bloqueo/mixamo_com"
 @export var pose_bloqueo = 1.3  
 var bloqueando = false
-
 
 var multiplicador = 1.0
 var empuje = Vector3.ZERO
@@ -84,20 +92,29 @@ func _physics_process(delta):
 
 	var golpeando = $Golpe.esta_golpeando
 	if golpeando:
-		direction = Vector3.ZERO
+		reloj_sin_bloqueo = cuadros_sin_bloqueo
+	elif reloj_sin_bloqueo > 0:
+		reloj_sin_bloqueo -= 1
 	if reloj_guardia_rota > 0:
 		reloj_guardia_rota -= 1
 
+	if (derribado or levantandose) and not onda_usada \
+		and Input.is_action_just_pressed($Golpe.tecla):
+		onda_expansiva()
+
 	var quiere_bloquear = Input.is_action_pressed("bloquear" + sufijo) \
-		and not golpeando and is_on_floor() and reloj_guardia_rota == 0
+		and not golpeando and reloj_sin_bloqueo == 0 \
+		and is_on_floor() and reloj_guardia_rota == 0
 
 	if quiere_bloquear != bloqueando:
 		bloqueando = quiere_bloquear
 		if escudo != null:
 			if bloqueando:
+				escudo.visible = true
 				escudo.play()
 			else:
 				escudo.stop()
+				escudo.visible = false
 
 	if bloqueando:
 		direction = Vector3.ZERO
@@ -105,6 +122,8 @@ func _physics_process(delta):
 	if reloj_reaccion > 0:
 		reloj_reaccion -= 1
 		direction = Vector3.ZERO
+		if reloj_reaccion == 0:
+			levantandose = false
 	
 	cuadros_prueba += 1
 	if prueba == Prueba.AVANZAR_60_CUADROS and cuadros_prueba <= 60:
@@ -239,11 +258,15 @@ func pintar(mat):
 		m.material_overlay = mat
 
 func recibir_golpe(info):
+	if derribado or levantandose:
+		return
 	var imparable = info.get("imparable", false)
 	var parado = bloqueando and not imparable
 	var danio = info.get("danio", 0)
 	var fuerza = info.get("empuje", 0.0)
 	var alzado = info.get("alzado", 0.0)
+	if bloqueando:
+		alzado = 0.0
 
 	if parado:
 		danio = maxi(int(danio * reduccion_bloqueo), 1)
@@ -252,11 +275,14 @@ func recibir_golpe(info):
 		if escudo != null and escudo.has_method("hit"):
 			escudo.hit(info.get("punto", global_position))
 	else:
+		var rompio = bloqueando
 		if bloqueando:
 			romper_guardia()
 		destellar()
 		reloj_reaccion = info.get("aturdimiento", cuadros_reaccion)
 		var pista = info.get("reaccion", animacion_dano)
+		if rompio:
+			pista = animacion_dano
 		if anim.has_animation(pista):
 			anim.speed_scale = 1.0
 			anim.play(pista)
@@ -274,6 +300,7 @@ func recibir_golpe(info):
 		velocity.y = alzado
 		derribado = true
 		despegado = false
+		onda_usada = false
 
 
 func romper_guardia():
@@ -281,8 +308,10 @@ func romper_guardia():
 	reloj_guardia_rota = cuadros_guardia_rota
 	if escudo != null:
 		escudo.stop()
+		escudo.visible = false
 
 func levantarse():
+	levantandose = true
 	if not anim.has_animation(animacion_levantarse):
 		reloj_reaccion = 30
 		return
@@ -290,3 +319,24 @@ func levantarse():
 	anim.play(animacion_levantarse, 0.15)
 	var pista = anim.get_animation(animacion_levantarse)
 	reloj_reaccion = int(pista.length * 60.0 / velocidad_levantarse)
+	
+func onda_expansiva():
+	onda_usada = true
+	var fx = preload("res://assets/BinbunVFX_Vol2/StylizedHitFX/effects/big_impact/vfx_big_impact_02.tscn").instantiate()
+	get_tree().current_scene.add_child(fx)
+	fx.global_position = global_position + Vector3.UP * 0.5
+	fx.scale = Vector3.ONE * 2.0
+	fx.finished.connect(fx.queue_free)
+	fx.play()
+	if rival == null or not rival.has_method("recibir_golpe"):
+		return
+	if global_position.distance_to(rival.global_position) > radio_onda:
+		return
+	rival.recibir_golpe({
+		"danio": danio_onda,
+		"empuje": empuje_onda,
+		"aturdimiento": 40,
+		"reaccion": "GolpeCuerpo/mixamo_com",
+		"desde": global_position,
+		"punto": global_position
+	})

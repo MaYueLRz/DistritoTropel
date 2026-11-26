@@ -23,10 +23,11 @@
 [ext_resource type="AnimationLibrary" uid="uid://2xhkffx3mpjg" path="res://Animaciones y Personajes/Mma Kick.fbx" id="13_e1cpc"]
 [ext_resource type="AnimationLibrary" uid="uid://b01j55kxr3u8m" path="res://Animaciones y Personajes/Walking.fbx" id="15_7n6cs"]
 [ext_resource type="AnimationLibrary" uid="uid://b3yt85yxvh7v4" path="res://Animaciones y Personajes/Dying.fbx" id="15_e1cpc"]
+[ext_resource type="AnimationLibrary" uid="uid://vs78i44phd4t" path="res://Animaciones y Personajes/Inverted Double Kick To Kip Up.fbx" id="16_hcmpx"]
 [ext_resource type="PackedScene" path="res://addons/emberset/effects/shield/bubble_shock.tscn" id="18_om665"]
 [ext_resource type="AnimationLibrary" uid="uid://dgdw4i7yhajk3" path="res://Animaciones y Personajes/Flying Back Death.fbx" id="19_beodc"]
-[ext_resource type="AnimationLibrary" uid="uid://d0asl3bafpjks" path="res://Animaciones y Personajes/Getting Up.fbx" id="21_hcmpx"]
 [ext_resource type="AnimationLibrary" uid="uid://ca5d54otvjbfo" path="res://Animaciones y Personajes/Running (1).fbx" id="23_8usrc"]
+[ext_resource type="AnimationLibrary" uid="uid://bs8vbtgkeweiq" path="res://Animaciones y Personajes/Getting Up (1).fbx" id="23_e1cpc"]
 
 [sub_resource type="CapsuleShape3D" id="Capsula"]
 radius = 0.35
@@ -66,6 +67,7 @@ shader_parameter/pattern_smoothness = 0.5
 shader_parameter/pattern_blend = 0.2
 
 [node name="Personaje" type="CharacterBody3D" unique_id=21036145 groups=["jugador"]]
+collision_mask = 3
 script = ExtResource("1_0wbda")
 ataque = 5
 
@@ -108,7 +110,7 @@ autoplay = false
 [node name="Modelo" parent="." unique_id=156573713 instance=ExtResource("8_de35w")]
 transform = Transform3D(-1.2, 0, 1.8119498e-07, 0, 1.2, 0, -1.8119498e-07, 0, -1.2, 0, 0, 0)
 
-[node name="GeneralSkeleton" parent="Modelo" index="0" unique_id=228703063]
+[node name="GeneralSkeleton" parent="Modelo" index="0" unique_id=1627710821]
 bones/0/position = Vector3(8.1971324e-05, 0.8976094, -0.0062945588)
 bones/0/rotation = Quaternion(1.7196273e-05, 3.489039e-05, -0.0009087252, 0.9999996)
 bones/1/rotation = Quaternion(-1.719594e-05, -3.4890298e-05, 0.00090872525, 0.9999996)
@@ -139,12 +141,13 @@ bones/36/rotation = Quaternion(4.2585983e-05, 0.061470754, 0.99810266, -0.003538
 bones/37/rotation = Quaternion(0.00017747654, 0.99221754, -0.124514215, 0.0007481385)
 bones/38/rotation = Quaternion(-0.0025237007, 0.6609254, -0.7504469, 0.00083248905)
 
-[node name="mesh_0" parent="Modelo/GeneralSkeleton" index="0" unique_id=323091210]
+[node name="mesh_0" parent="Modelo/GeneralSkeleton" index="0" unique_id=58060910]
 surface_material_override/0 = SubResource("ShaderMaterial_mivf0")
 
-[node name="AnimationPlayer" parent="Modelo" index="1" unique_id=1636750949]
+[node name="AnimationPlayer" parent="Modelo" index="1" unique_id=1154240301]
 libraries/Bloqueo = ExtResource("8_2401m")
 libraries/CaminataTrasera = ExtResource("8_61rrn")
+libraries/Contra = ExtResource("16_hcmpx")
 libraries/Dying = ExtResource("15_e1cpc")
 libraries/Golpe = ExtResource("9_beodc")
 libraries/Golpe2 = ExtResource("10_de35w")
@@ -152,7 +155,7 @@ libraries/GolpeCabeza = ExtResource("12_mk36t")
 libraries/GolpeCuerpo = ExtResource("13_61rrn")
 libraries/Idile = ExtResource("11_8usrc")
 libraries/Lateral = ExtResource("12_ylqgm")
-libraries/Levantarse = ExtResource("21_hcmpx")
+libraries/Levantarse = ExtResource("23_e1cpc")
 libraries/Patada = ExtResource("13_e1cpc")
 libraries/Sprint = ExtResource("23_8usrc")
 libraries/Volar = ExtResource("19_beodc")

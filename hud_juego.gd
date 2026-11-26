@@ -1,5 +1,30 @@
 extends Control
 
+@export var mostrar_controles = true
+@export var margen_lado = 35.0
+@export var margen_inferior = 125.0
+@export var tam_letra_controles = 13
+@export var alto_linea = 17.0
+
+const CONTROLES_P1 = [
+	["MOVER", "W A S D"],
+	["GOLPEAR", "X"],
+	["BLOQUEAR", "C"],
+	["CORRER", "V"],
+	["INTERACTUAR", "E"],
+	["OBJETO 1", "R"],
+	["OBJETO 2", "T"],
+]
+
+const CONTROLES_P2 = [
+	["MOVER", "FLECHAS"],
+	["GOLPEAR", "K"],
+	["BLOQUEAR", ";"],
+	["CORRER", "L"],
+	["OBJETO 1", "O"],
+	["OBJETO 2", "P"],
+]
+
 # ================= COLORES =================
 const VERDE = Color("01fd99")
 const AMARILLO = Color("f9da17")
@@ -127,8 +152,10 @@ func _draw():
 	dibujar_lado(1)
 	dibujar_lado(2)
 	dibujar_reloj()
+	dibujar_controles()
 	dibujar_ranuras()
 	dibujar_resultado()
+	
 
 
 # ================= VIDA, ENERGÍA, NOMBRE Y RONDAS =================
@@ -371,3 +398,22 @@ func rombo(c, r, color):
 func texto(pos, t, tam, color, alin = HORIZONTAL_ALIGNMENT_LEFT, ancho_t = -1.0):
 	draw_string_outline(fuente, pos, t, alin, ancho_t, tam, 5, Color.BLACK)
 	draw_string(fuente, pos, t, alin, ancho_t, tam, color)
+	
+func dibujar_controles():
+	if not mostrar_controles:
+		return
+	var vista = get_viewport_rect().size
+	var base_y = vista.y - margen_inferior
+	lista_controles(CONTROLES_P1, Vector2(margen_lado, base_y), "JUGADOR 1")
+	lista_controles(CONTROLES_P2, Vector2(vista.x - margen_lado - 170.0, base_y), "JUGADOR 2")
+
+
+func lista_controles(lista, abajo_izq, titulo):
+	var n = lista.size()
+	var y = abajo_izq.y - n * alto_linea
+	texto(Vector2(abajo_izq.x, y - alto_linea), titulo, tam_letra_controles, AMARILLO)
+	for i in n:
+		var fila = lista[i]
+		var yy = y + i * alto_linea
+		texto(Vector2(abajo_izq.x, yy), fila[0], tam_letra_controles, Color(1, 1, 1, 0.6))
+		texto(Vector2(abajo_izq.x + 105.0, yy), fila[1], tam_letra_controles, Color(1, 1, 1, 0.95))

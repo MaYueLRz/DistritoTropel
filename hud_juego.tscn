@@ -1,10 +1,11 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3 uid="uid://dym3melwah4a0"]
 
-[ext_resource type="Script" path="res://hud_juego.gd" id="1_hudjg"]
+[ext_resource type="Script" uid="uid://uos5fll7aoe7" path="res://hud_juego.gd" id="1_hudjg"]
 
-[node name="HUDJuego" type="CanvasLayer"]
+[node name="HUDJuego" type="CanvasLayer" unique_id=2099685568]
 
-[node name="Lienzo" type="Control" parent="."]
+[node name="Lienzo" type="Control" parent="." unique_id=399462475]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
