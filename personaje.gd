@@ -22,7 +22,7 @@ var derribado = false
 var despegado = false
 var levantandose = false
 @export var radio_onda = 2.5
-@export var danio_onda = 15
+@export var danio_onda = 0
 @export var empuje_onda = 12.0
 var onda_usada = false
 
@@ -87,7 +87,8 @@ func _physics_process(delta):
 	
 
 
-	var giro_cam = camara.global_rotation.y if camara else 0.0
+	var cam_actual = get_viewport().get_camera_3d()
+	var giro_cam = cam_actual.global_rotation.y if cam_actual else 0.0
 	var direction = entrada.rotated(Vector3.UP, giro_cam).normalized()
 
 	var golpeando = $Golpe.esta_golpeando
@@ -287,7 +288,9 @@ func recibir_golpe(info):
 			anim.speed_scale = 1.0
 			anim.play(pista)
 			anim.seek(0.0, true)
-
+	var cam = get_viewport().get_camera_3d()
+	if cam and cam.has_method("impacto"):
+		cam.impacto(self, parado)
 	$Salud.recibir_golpe(danio)
 
 	var desde = info.get("desde", global_position)

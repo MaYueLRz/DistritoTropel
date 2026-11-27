@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://ci6yqha8bh2cx" path="res://muerte.gd" id="23_1u8w0"]
 [ext_resource type="Shader" uid="uid://b6cm5qm85u8sv" path="res://desenfoque.gdshader" id="23_d13ii"]
 [ext_resource type="Texture2D" uid="uid://deusyr0qb6mgk" path="res://Animaciones y Personajes/letrero.png" id="24_0odxb"]
+[ext_resource type="PackedScene" uid="uid://dwih1ykkb57aj" path="res://camara_combate.tscn" id="24_1u8w0"]
 [ext_resource type="Texture2D" uid="uid://bthwu4d4xt5eu" path="res://Animaciones y Personajes/logo.png" id="27_a6jrf"]
 [ext_resource type="FontFile" uid="uid://c0u24elkd4a8u" path="res://Anton-Regular.ttf" id="27_htxhm"]
 [ext_resource type="Texture2D" uid="uid://qi4vb7dr6qnj" path="res://Animaciones y Personajes/boton_rojo.png" id="27_seu75"]
@@ -216,6 +217,7 @@ sufijo = "_p2"
 rival = NodePath("../Personaje")
 
 [node name="CameraRig" type="Node3D" parent="." unique_id=1678426921 node_paths=PackedStringArray("objetivo", "rival")]
+visible = false
 script = ExtResource("1_lquwl")
 objetivo = NodePath("../Personaje")
 rival = NodePath("../Personaje2")
@@ -344,6 +346,9 @@ script = ExtResource("22_d13ii")
 
 [node name="Muerte" type="Node" parent="." unique_id=321148662]
 script = ExtResource("23_1u8w0")
+
+[node name="CamaraCombate" parent="." unique_id=1522905017 instance=ExtResource("24_1u8w0")]
+fov = 55.0
 
 [connection signal="pressed" from="MenuPausa/Fondo/Centro/Letrero/VBox/BotonReanudar" to="MenuPausa" method="_on_boton_reanudar_pressed"]
 [connection signal="pressed" from="MenuPausa/Fondo/Centro/Letrero/VBox/BotonReiniciar" to="MenuPausa" method="_on_boton_reiniciar_pressed"]

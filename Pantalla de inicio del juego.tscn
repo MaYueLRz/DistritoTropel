@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://v0im501xc7jh"]
+
+[node name="Control" type="Control" unique_id=287638297]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fondo" type="TextureRect" parent="." unique_id=569776416]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Logo" type="TextureRect" parent="." unique_id=1011880141]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Botones" type="VBoxContainer" parent="." unique_id=608500468]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dwih1ykkb57aj"]
+
+[ext_resource type="Script" uid="uid://ho0rxtofl26" path="res://camara_combate.gd" id="1_757o8"]
+
+[node name="CamaraCombate" type="Camera3D" unique_id=1522905017]
+script = ExtResource("1_757o8")
