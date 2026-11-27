@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b3sic2pom0ulg"
+path="res://.godot/imported/El Intocable.mp3-6252f992e5dc257e559b9b6432d554bc.mp3str"
+
+[deps]
+
+source_file="res://musica/El Intocable.mp3"
+dest_files=["res://.godot/imported/El Intocable.mp3-6252f992e5dc257e559b9b6432d554bc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

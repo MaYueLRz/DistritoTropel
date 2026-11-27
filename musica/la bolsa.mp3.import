@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmy5qxurp3avb"
+path="res://.godot/imported/la bolsa.mp3-9518c6ba5dbd20972c342cd55a68828a.mp3str"
+
+[deps]
+
+source_file="res://musica/la bolsa.mp3"
+dest_files=["res://.godot/imported/la bolsa.mp3-9518c6ba5dbd20972c342cd55a68828a.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

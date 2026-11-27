@@ -1,6 +1,6 @@
 extends Control
 const LUGARES ={
-	"Santa fe":[
+	"Santa Fe":[
 		["Torre Colpatria","res://TorreColpatria.tscn"],
 		["Las Cruces",""],
 		["La Media Torta",""],
@@ -13,7 +13,7 @@ const LUGARES ={
 		"Kennedy":[
 		["Banderas",""],
 		["Timiza",""],
-		["Alcalida",""],
+		["Patio Bonito",""],
 	],
 		"Bosa":[
 		["Plaza Fundacional",""],
@@ -21,7 +21,7 @@ const LUGARES ={
 		["Porvenir",""],
 	],
 		"Engativa":[
-		["Puente de Guada",""],
+		["Puente de Guadua",""],
 		["Ciudadela Colsubsidio",""],
 		["Titan Plaza",""],
 	],

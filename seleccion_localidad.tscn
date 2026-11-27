@@ -2,29 +2,52 @@
 
 [ext_resource type="Script" uid="uid://cpi3dtkn3so44" path="res://seleccion_localidad.gd" id="1_7ahnk"]
 [ext_resource type="Texture2D" uid="uid://c63t0op03636m" path="res://mapa/01_usaquen_normal.png" id="1_j5h8s"]
+[ext_resource type="AudioStream" uid="uid://r7alw5b8t5cq" path="res://musica/real.mp3" id="2_cbkrf"]
 [ext_resource type="Texture2D" uid="uid://bvxdq8ynuxtnj" path="res://Animaciones y Personajes/fondo_selector.png" id="2_ryku7"]
 [ext_resource type="Texture2D" uid="uid://cxv1bmrst1s2k" path="res://mapa/01_usaquen_sel.png" id="2_uc1n1"]
+[ext_resource type="AudioStream" uid="uid://6rfc7g7idxyi" path="res://musica/falsedades.mp3" id="3_dqqw8"]
 [ext_resource type="BitMap" uid="uid://31dyymibqkhs" path="res://mapa/01_usaquen_mascara.png" id="3_ywwll"]
+[ext_resource type="AudioStream" uid="uid://be76kxk5qvq6m" path="res://musica/nocturno.mp3" id="4_bnn4w"]
 [ext_resource type="Texture2D" uid="uid://dj8hhyfh0v5ep" path="res://mapa/02_chapinero_normal.png" id="4_hjcqy"]
 [ext_resource type="Texture2D" uid="uid://brwrvly5l1vup" path="res://mapa/02_chapinero_sel.png" id="5_nvhqj"]
+[ext_resource type="AudioStream" uid="uid://b2hd4qdxijoar" path="res://musica/de la cuna.mp3" id="5_t5rh8"]
 [ext_resource type="BitMap" uid="uid://c2hy60pa80xnr" path="res://mapa/02_chapinero_mascara.png" id="6_1cu5p"]
+[ext_resource type="AudioStream" uid="uid://cmy5qxurp3avb" path="res://musica/la bolsa.mp3" id="6_2ak6e"]
+[ext_resource type="AudioStream" uid="uid://b7d2acyhqj17h" path="res://musica/mas que real.mp3" id="7_den78"]
 [ext_resource type="Texture2D" uid="uid://knhwylijyikj" path="res://mapa/03_santa_fe_normal.png" id="7_q6vtk"]
 [ext_resource type="Texture2D" uid="uid://cuce8womolx2o" path="res://mapa/03_santa_fe_sel.png" id="8_e4imx"]
+[ext_resource type="AudioStream" uid="uid://bywkshb1auya3" path="res://musica/cuantodanpormi.mp3" id="8_ectrh"]
 [ext_resource type="BitMap" uid="uid://cc5j5a8pm3a4m" path="res://mapa/03_santa_fe_mascara.png" id="9_gxr0s"]
+[ext_resource type="AudioStream" uid="uid://bgwktyq3mgbhq" path="res://musica/kronicalles.mp3" id="9_i7f2q"]
 [ext_resource type="Texture2D" uid="uid://d35oqh2jdw25k" path="res://mapa/04_san_cristobal_normal.png" id="10_0enci"]
+[ext_resource type="AudioStream" uid="uid://6lgyartxfw1b" path="res://musica/malvado insinto.mp3" id="10_ahn2k"]
+[ext_resource type="AudioStream" uid="uid://cnoqq8hyae1pe" path="res://musica/consejos.mp3" id="11_den78"]
 [ext_resource type="Texture2D" uid="uid://8wkgu23buld4" path="res://mapa/04_san_cristobal_sel.png" id="11_rhmsi"]
 [ext_resource type="BitMap" uid="uid://1gyp3ry30ol7" path="res://mapa/04_san_cristobal_mascara.png" id="12_b8gca"]
+[ext_resource type="AudioStream" uid="uid://cs2gg5n00qs7k" path="res://musica/asesino.mp3" id="12_ectrh"]
 [ext_resource type="Texture2D" uid="uid://l21ir5i15sht" path="res://mapa/05_usme_normal.png" id="13_fw75n"]
+[ext_resource type="AudioStream" uid="uid://cxiusucrtogpt" path="res://musica/voxpopuli.mp3" id="13_i7f2q"]
 [ext_resource type="Texture2D" uid="uid://bxs03mqwra08e" path="res://mapa/05_usme_sel.png" id="14_3kypy"]
+[ext_resource type="AudioStream" uid="uid://bdgpe34p7qkwr" path="res://musica/noicanicula.mp3" id="14_ahn2k"]
+[ext_resource type="AudioStream" uid="uid://p5g1akaw7kt1" path="res://musica/cancion.mp3" id="15_ro884"]
 [ext_resource type="BitMap" uid="uid://b1458xwqs6off" path="res://mapa/05_usme_mascara.png" id="15_tid53"]
 [ext_resource type="Texture2D" uid="uid://dfp6hnpwi43j4" path="res://mapa/06_tunjuelito_normal.png" id="16_l6fom"]
+[ext_resource type="AudioStream" uid="uid://dekukh57dfegy" path="res://musica/manicomio.mp3" id="16_ro884"]
 [ext_resource type="Texture2D" uid="uid://dr41kcj6bspr" path="res://mapa/06_tunjuelito_sel.png" id="17_eacw8"]
+[ext_resource type="AudioStream" uid="uid://5o5hqbrwigif" path="res://musica/religion.mp3" id="17_xpw1a"]
+[ext_resource type="AudioStream" uid="uid://dvmqahtk3x1ig" path="res://musica/enserie.mp3" id="18_6iuwy"]
 [ext_resource type="BitMap" uid="uid://dt0ay0o5c3c8" path="res://mapa/06_tunjuelito_mascara.png" id="18_xkoef"]
+[ext_resource type="AudioStream" uid="uid://doci0q1a7xy8k" path="res://musica/monumental.mp3" id="19_mu5rm"]
 [ext_resource type="Texture2D" uid="uid://dj3t4km3fcxk2" path="res://mapa/07_bosa_normal.png" id="19_nh3m5"]
 [ext_resource type="Texture2D" uid="uid://c6a5hjs4q11wi" path="res://mapa/07_bosa_sel.png" id="20_7ahnk"]
+[ext_resource type="AudioStream" uid="uid://1bjmvi27hkd7" path="res://musica/suma.mp3" id="20_xpw1a"]
+[ext_resource type="AudioStream" uid="uid://l6fyybx84uoj" path="res://musica/castillos.mp3" id="21_6iuwy"]
 [ext_resource type="BitMap" uid="uid://c70f1fwfh7u2l" path="res://mapa/07_bosa_mascara.png" id="21_nifug"]
+[ext_resource type="AudioStream" uid="uid://b3sic2pom0ulg" path="res://musica/El Intocable.mp3" id="22_3h0xe"]
 [ext_resource type="Texture2D" uid="uid://cpqttya6570m6" path="res://mapa/08_kennedy_normal.png" id="22_ryku7"]
 [ext_resource type="Texture2D" uid="uid://b3gyple3wcipb" path="res://mapa/08_kennedy_sel.png" id="23_kdc1b"]
+[ext_resource type="AudioStream" uid="uid://lw1ss0jnxm8t" path="res://musica/La Etnnia.mp3" id="23_tn0aw"]
+[ext_resource type="AudioStream" uid="uid://bo1mibl683ib4" path="res://musica/grave.mp3" id="24_eb2g1"]
 [ext_resource type="BitMap" uid="uid://cbkx4xpef78qp" path="res://mapa/08_kennedy_mascara.png" id="24_tus65"]
 [ext_resource type="Texture2D" uid="uid://oy1ob0xgbjxb" path="res://mapa/09_fontibon_normal.png" id="25_grfn4"]
 [ext_resource type="Texture2D" uid="uid://ns4p0ey1rxv2" path="res://mapa/09_fontibon_sel.png" id="26_viphd"]
@@ -100,6 +123,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7ahnk")
+canciones = Dictionary[String, AudioStream]({
+"Antonio Nariño": ExtResource("15_ro884"),
+"Barrios Unidos": ExtResource("12_ectrh"),
+"Bosa": ExtResource("7_den78"),
+"Chapinero": ExtResource("3_dqqw8"),
+"Ciudad Bolivar": ExtResource("19_mu5rm"),
+"Engativa": ExtResource("10_ahn2k"),
+"Fontibon": ExtResource("9_i7f2q"),
+"Kennedy": ExtResource("8_ectrh"),
+"La Candelaria": ExtResource("17_xpw1a"),
+"Los Martires": ExtResource("14_ahn2k"),
+"Puente Aranda": ExtResource("16_ro884"),
+"Rafael Uribe Uribe": ExtResource("18_6iuwy"),
+"San Cristobal": ExtResource("5_t5rh8"),
+"Santa Fe": ExtResource("4_bnn4w"),
+"Suba": ExtResource("11_den78"),
+"Sumapaz": ExtResource("20_xpw1a"),
+"Teusaquillo": ExtResource("13_i7f2q"),
+"Tunjuelito": ExtResource("21_6iuwy"),
+"Usaquen": ExtResource("2_cbkrf"),
+"Usme": ExtResource("6_2ak6e")
+})
+canciones_fondo = Array[AudioStream]([ExtResource("22_3h0xe"), ExtResource("23_tn0aw"), ExtResource("24_eb2g1")])
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1417385494]
 layout_mode = 1
@@ -452,7 +498,7 @@ text = "PELEA"
 [connection signal="mouse_entered" from="Mapa/Usaquen" to="Mapa/Usaquen" method="grab_focus"]
 [connection signal="focus_entered" from="Mapa/Chapinero" to="." method="escoger" binds= ["Chapinero", 2]]
 [connection signal="mouse_entered" from="Mapa/Chapinero" to="Mapa/Chapinero" method="grab_focus"]
-[connection signal="focus_entered" from="Mapa/Santa-Fe" to="." method="escoger" binds= ["Santa fe", 3]]
+[connection signal="focus_entered" from="Mapa/Santa-Fe" to="." method="escoger" binds= ["Santa Fe", 3]]
 [connection signal="mouse_entered" from="Mapa/Santa-Fe" to="Mapa/Santa-Fe" method="grab_focus"]
 [connection signal="focus_entered" from="Mapa/San-Cristobal" to="." method="escoger" binds= ["San Cristobal", 4]]
 [connection signal="mouse_entered" from="Mapa/San-Cristobal" to="Mapa/San-Cristobal" method="grab_focus"]

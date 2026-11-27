@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://me6iv1h071sq"
+path="res://.godot/imported/Pasaporte Sello Morgue [IlzeJFftqoo].mp3-4761fb132946ebf93ad65f267b27158d.mp3str"
+
+[deps]
+
+source_file="res://musica/Pasaporte Sello Morgue [IlzeJFftqoo].mp3"
+dest_files=["res://.godot/imported/Pasaporte Sello Morgue [IlzeJFftqoo].mp3-4761fb132946ebf93ad65f267b27158d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
